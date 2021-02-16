@@ -1,0 +1,12 @@
+body {
+    background: #fffacd;  /* fallback for old browsers */
+}
+
+.title {
+    font-family: 'Oswald', sans-serif;
+}
+
+.done {
+    text-decoration: line-through;
+    color: darkred;
+}
