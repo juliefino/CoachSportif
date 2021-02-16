@@ -7,6 +7,10 @@ L’objectif à travers de ce projet est de réaliser un site web pour des fans 
 
 ## Description
 
-Ce projet vise à developper une page web accessible pour tout le monde. 
+Les utilisateurs pourront visiter le site en étant simple visiteur ou en étant membre du site.
+
+Les utilisateurs peuvent consulter le programme des différentes activités ainis que la possibilité de s'inscrire et d'évoluer en tant que membre du site.
+
+Un forum sera accessible pour les membres du site, ils pourront poser leurs questions aux autres utilisateurs et partager leurs performances.
 
 Pour plus d'information sur le projet, n'hésitez pas à consulter le wiki ;)
