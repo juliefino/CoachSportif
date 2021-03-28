@@ -1,6 +1,6 @@
 from app import *
 
-class User(db.Model):
+class Utilisateur(db.Model):
     #Tout les données qui ont un lien avec la tache en question
     __tablename__ = "utilisateurs"
     #necesita un id porque puede haber repeticion por nombre
