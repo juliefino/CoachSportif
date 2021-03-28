@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
-from models import *
+from model import *
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
@@ -13,7 +13,7 @@ def home():
 
 @app.route('/utilisateurs')
 def users():
-    users = User.query.all()
+    users = Utilisateur.query.all()
     result = {}
     for user in users:
         result[user.id] = {
@@ -28,7 +28,7 @@ def users():
 
 @app.route('/utilisateurs/<id>', methods=["GET"])
 def get_user(id):
-    user = User.query.get_or_404(id)
+    user = Utilisateur.query.get_or_404(id)
     reponse = {id : {
         "alias":user.alias,
         "email": user.email,
