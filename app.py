@@ -38,15 +38,7 @@ def get_user(id):
         "poids": user.poids
     }}
     return reponse
-@app.route("inscription", methods=["POST"])
-def login():
-    req = flask.request.get_json(force=True)
-    alias = req.get("alias", None)
-    email = req.get("email", None)
-    naissance = req.get("naissance", None)
-    taille = req.get("taille", None)
-    poids = req.get("poids", None)
-    password = req.get("password", None)
+
 # Run the example
 if __name__ == '__main__':
     app.run(debug=True)
