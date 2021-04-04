@@ -1,9 +1,9 @@
 from app import *
 
+
 class Utilisateur(db.Model):
-    #Tout les données qui ont un lien avec la tache en question
+    # Tout les données qui ont un lien avec la tache en question
     __tablename__ = "utilisateurs"
-    #necesita un id porque puede haber repeticion por nombre
     id = db.Column(db.Integer, primary_key=True)
     alias = db.Column(db.String(200))
     email = db.Column(db.String(200), unique=True)
