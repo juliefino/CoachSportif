@@ -2,7 +2,7 @@ from app import *
 
 
 class Utilisateur(db.Model):
-    # Tout les données qui ont un lien avec la tache en question
+    # Tout les données qui ont un lien avec l'utilisatuer
     __tablename__ = "utilisateurs"
     id = db.Column(db.Integer, primary_key=True)
     alias = db.Column(db.String(200))
