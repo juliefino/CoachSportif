@@ -4,7 +4,7 @@ from app import *
 class Utilisateur(db.Model):
     # Tout les données qui ont un lien avec l'utilisatuer
     __tablename__ = "utilisateurs"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     alias = db.Column(db.String(200))
     email = db.Column(db.String(200), unique=True)
     naissance = db.Column(db.DATE)
@@ -20,3 +20,5 @@ class Utilisateur(db.Model):
         self.taille = taille
         self.poids = poids
         self.password = password
+
+db.create_all()
