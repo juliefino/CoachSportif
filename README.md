@@ -1,4 +1,4 @@
-# CoachSportif
+# Projet Coach Sportif
 
 > Implémentation du projet COACH SPORTIF dans le cadre du cours de Développement informatique III.
 ## Objectif
