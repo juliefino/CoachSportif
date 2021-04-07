@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Partage from './components/pages/Services';
 import Activites from './components/pages/Activites';
 import SignUp from './components/pages/SignUp';
+import Nutrition from "./components/pages/nutrition";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={SignUp} />
+          <Route path='/experts/nutrition' component={Nutrition} />
         </Switch>
       </Router>
     </>
