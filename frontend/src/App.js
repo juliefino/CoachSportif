@@ -7,6 +7,7 @@ import Partage from './components/pages/Services';
 import Activites from './components/pages/Activites';
 import FormSignup from './components/FormSignUp';
 import Nutrition from "./components/pages/nutrition";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={FormSignup} />
           <Route path='/experts/nutrition' component={Nutrition} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </>
