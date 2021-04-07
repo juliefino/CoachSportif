@@ -1,8 +1,8 @@
 from app import *
-
+from werkzeug.security import generate_password_hash
 
 class Utilisateur(db.Model):
-    # Tout les données qui ont un lien avec l'utilisatuer
+    # Toutes les données qui ont un lien avec l'utilisateur
     __tablename__ = "utilisateurs"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     alias = db.Column(db.String(200))
@@ -18,6 +18,6 @@ class Utilisateur(db.Model):
         self.naissance = naissance
         self.taille = taille
         self.poids = poids
-        self.password = password
+        self.password = generate_password_hash(password) #faut pas laisser en 'claire' les password dans la DB !
 
 db.create_all()
