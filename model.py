@@ -12,8 +12,7 @@ class Utilisateur(db.Model):
     poids = db.Column(db.Integer)
     password = db.Column(db.String(200))
 
-    def __init__(self, id, alias, email, naissance, taille, poids, password):
-        self.id = id
+    def __init__(self, alias, email, naissance, taille, poids, password):
         self.alias = alias
         self.email = email
         self.naissance = naissance

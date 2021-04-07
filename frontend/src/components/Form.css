@@ -67,6 +67,11 @@
   height: 40px;
   width: 100%;
   border: none;
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
 }
 
 .form-input::placeholder {

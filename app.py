@@ -39,24 +39,20 @@ def get_utilisateur(id):
     }}
     return reponse
 
-@app.route('/ajout_utilisateur', methods=['POST', 'GET'])
+
+@app.route('/ajout_utilisateur', methods=['POST'])
 def post_utilisateur():
-    alias = request.json['alias']
-    email = request.json['email']
-    naissance = request.json['naissance']
-    taille = request.json['taille']
-    poids = request.json['poids']
-    password = request.json['password']
+    if request.method == 'POST':
+        info = request.get_json(force=True)
+        print(info)
 
-    user = Utilisateur( 5, alias, email, naissance, taille, poids, password)
-    db.session.add(user)
-    db.session.commit()
+        user= Utilisateur( info["alias"], info["email"],info["naissance"],info["taille"],info["poids"], info["password"])
+        db.session.add(user)
+        db.session.commit()
 
-    return redirect(url_for('utilisateurs'))
+        return redirect('http://localhost:5000/')
 
-@app.route('/admin')
-def success_login():
-    return "Login success!"
+
 # Run the example
 if __name__ == '__main__':
     app.run(debug=True)
