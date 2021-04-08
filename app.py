@@ -6,6 +6,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 from model import *
 from json import loads
 
@@ -13,6 +14,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
 
@@ -48,7 +50,7 @@ def get_utilisateur(id):
     return reponse
 
 
-@app.route("/token", methods=["POST"])
+@app.route("/api/token", methods=["POST"])
 def creation_token():
     if request.method == 'POST':
         """Sur postman, il faut d'abord écrire la méthode et intoduire les valeurs email et password"""
