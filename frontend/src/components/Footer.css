@@ -45,6 +45,7 @@
   border: 1px solid #fff;
 }
 
+
 .footer-links {
   width: 100%;
   max-width: 1000px;
@@ -73,7 +74,9 @@
 .footer-link-items > h2 {
   color: #fff;
 }
-
+.footer-subscription-heading {
+  color: #fff;
+}
 .footer-link-items a {
   color: #fff;
   text-decoration: none;

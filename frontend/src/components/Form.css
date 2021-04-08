@@ -16,6 +16,7 @@
 }
 
 
+
 .form {
   position: absolute;
   top: 50%;
@@ -43,6 +44,13 @@
 
 }
 
+#agree  {
+  padding: 8px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 .form-inputs p {
   font-size: 20px;
   margin-top: 0.5rem;
@@ -51,7 +59,20 @@
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
-
+b{
+    color: white;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+Link {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
 .form-label {
   display: inline-block;
   font-size: 20px;
