@@ -6,7 +6,7 @@ const FormSignin = () => {
     // Met le state des inputs
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const token = sessionStorage.getItem("token")
+    const token = sessionStorage.getItem("token") //localstorage
     console.log("Voila le token ", token)
         // envoi les données des inputs onSubmit
     const handleClick =  (e)=>{
@@ -17,19 +17,16 @@ const FormSignin = () => {
           'password': password
         }
         console.log(options)
-         fetch('http://127.0.0.1:5000/token', {
+         fetch('/api/token', {
           method: 'post',
-          mode:'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-        },
           body: JSON.stringify(options)
-        }).then(res => {
-            return res
+        }).then(resp => {
+            console.log(resp)
+            return resp.json();
          }).then(data => {
                 //console.log("Ça vient du backend", data)
                 //sessionStorage.setItem("token", data.access_token.access_tokent)
-                console.log(JSON.stringify(data.result), " hola")
+                console.log(data, " hola")
                 ;
           }).catch(error => {console.error("Il y a une erreur", error)})
   }
