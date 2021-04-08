@@ -7,33 +7,30 @@ const FormSignin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
         // envoi les données des inputs onSubmit
+    const handleClick =  () => {
 
-  const getUtilisateur = async (event) => {
-    event.preventDefault();
-    try{
-        let resultat =  await fetch('http://127.0.0.1:5000/connexion_utilisateur', {
-        method: 'GET',
-        mode:'no-cors',
-        headers: {
-            'Content-type': 'application/json',
-            'accept':'application/json'
-          },
-        body: JSON.stringify({email, password})
-      })
-        console.log("ok")
-        console.log(resultat)
+        fetch('http://127.0.0.1:5000/token', {
+            method: 'POST',
+            mode:'no-cors',
+            headers: {
+                'Content-type': 'application/json',
+                'accept':'application/json'
+              },
+            body: JSON.stringify({email, password})
+          }).then(resp => {
+              if(resp.status === 0) return resp.json();
+              else alert("erreur")
+        }
+            ).then().catch(error => {console.error("Il y a une erreur", error)}) //pour afficher le bon status, il faut retirer le mode no-cors
 
-    }
-    catch(e){
-        console.log(e);
-      }
+
   }
 
 
        return (
            <>
             <div className='form-content'>
-                <form className="form" onSubmit={(event) => {getUtilisateur(event)}}>
+                <form className="form">
 
                     <div className='form-inputs'>
                       <label className='form-label'>EMAIL</label>
@@ -59,7 +56,7 @@ const FormSignin = () => {
                         />
                     </div>
 
-                    <button type="submit" className='form-input-btn'>SE CONNECTER</button>
+                    <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
                 </form>
 
             </div>
