@@ -47,8 +47,7 @@ def get_utilisateur(id):
     }}
     return reponse
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
+
 @app.route("/token", methods=["POST"])
 def creation_token():
     if request.method == 'POST':
@@ -56,19 +55,20 @@ def creation_token():
         info = request.get_json(force=True)
         #print(info)
         email = info["email"]
-        #print(email)
-        password = info["password"]
+        print(email)
+        password = info['password']
+        print(password)
         if email != "test@test" or password != "test":
 
             return jsonify({"msg": "Bad username or password"}), 401
 
         #Si vrai, alors il cree un access token
-        access_token = create_access_token(identity=email)
+        token = create_access_token(identity=email)
 
         #La méthode me retourne mon TOKEN
-        print(access_token)
-        #return jsonify(access_token)
-        return {'access_token': access_token}
+        #print(access_token)
+        print(token)
+        return jsonify(result = {'access_token': token}), 200
 
 @app.route('/ajout_utilisateur', methods=['POST'])
 def post_utilisateur():
