@@ -42,6 +42,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='text'
+                        required
                         name='alias'
                         placeholder='Entrez votre alias'
                         value={alias}
@@ -54,6 +55,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='email'
+                        required
                         name='email'
                         placeholder='Entrez votre e-mail'
                         value={email}
@@ -66,6 +68,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='date'
+                        required
                         name='naissance'
                         value={naissance}
                         onChange={ (e) => setNaissance(e.target.value) }
@@ -76,6 +79,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='number'
+                        required
                         name='alias'
                         placeholder='Entrez votre taille'
                         value={taille}
@@ -87,6 +91,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='number'
+                        required
                         name='alias'
                         placeholder='Entrez votre poids'
                         value={poids}
@@ -98,6 +103,7 @@ const FormSignup = () => {
                       <input
                         className='form-input'
                         type='password'
+                        required
                         name='password'
                         placeholder='Entrez mot de passe'
                         value={password}
