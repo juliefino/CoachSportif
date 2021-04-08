@@ -1,0 +1,21 @@
+:root {
+  --primary: #fff;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.btn:hover {
+    transition: all 0.3s ease-out;
+    background: darkgoldenrod;
+    color: white;
+    transition: 250ms;
+}
