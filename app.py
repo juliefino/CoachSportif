@@ -67,7 +67,8 @@ def creation_token():
 
         #La méthode me retourne mon TOKEN
         print(access_token)
-        return jsonify(access_token=access_token)
+        #return jsonify(access_token)
+        return {'access_token': access_token}
 
 @app.route('/ajout_utilisateur', methods=['POST'])
 def post_utilisateur():
