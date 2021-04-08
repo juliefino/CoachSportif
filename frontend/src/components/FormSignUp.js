@@ -1,5 +1,6 @@
 import React, {  useState, useHistory } from 'react';
 import './Form.css';
+import {Link} from "react-router-dom";
 
 const FormSignup = () => {
 
@@ -122,9 +123,11 @@ const FormSignup = () => {
                         onChange={ (e) => setPassword(e.target.value) }
                         />
                     </div>
-                    <div>
-                        <input type="checkbox" id="agree" onChange={checkBox} required />
-                        <label htmlFor="agree"> J'ACCEPTE <b> LES CONDITIONS GÉNÉRALES ET LA POLITIQUE DE CONFIDENTIALITÉ </b></label>
+                    <div class="form-check form-switch">
+                        <input type="checkbox"  id="agree" onChange={checkBox} required />
+                        <label  htmlFor="agree">
+                            J'ACCEPTE <b><Link to='/conditions' style={{color: 'white'}} > LES CONDITIONS GÉNÉRALES ET LA POLITIQUE DE CONFIDENTIALITÉ </Link></b>
+                        </label>
                     </div>
 
                     <button type="submit" className='form-input-btn'>S'INSCRIRE</button>
