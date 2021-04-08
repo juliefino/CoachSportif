@@ -7,9 +7,7 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  //Va update le click du menu et on va mettre la valeur inverse
   const handleClick = () => setClick(!click);
-
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
@@ -80,9 +78,12 @@ function Navbar() {
                 S'INSCRIRE
               </Link>
             </li>
+
           </ul>
-          {button && <Button buttonStyle='btn--outline'>S'INSCRIRE</Button>}
+            {button && <Button buttonStyle='btn--outline'>S'INSCRIRE</Button>}
+
         </div>
+
       </nav>
     </>
   );
