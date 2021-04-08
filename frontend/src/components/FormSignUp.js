@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useState, useHistory } from 'react';
 import './Form.css';
 
 const FormSignup = () => {
@@ -10,6 +10,14 @@ const FormSignup = () => {
     const [taille, setTaille] = useState(160);
     const [poids, setPoids] = useState(40);
     const [password, setPassword] = useState('');
+    const [agree, setAgree] = useState(false)
+
+
+    const checkBox = () => {
+        // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+        setAgree(!agree);
+    }
         // envoi les données des inputs onSubmit
 
   const send = async (event) => {
@@ -26,6 +34,7 @@ const FormSignup = () => {
       })
         console.log("ok")
         console.log(resultat)
+        console.log(resultat.status) //pour afficher le bon status, il faut retirer le mode no-cors
 
     }
     catch(e){
@@ -82,6 +91,7 @@ const FormSignup = () => {
                         required
                         name='alias'
                         placeholder='Entrez votre taille'
+                        min = '100'
                         value={taille}
                         onChange={ (e) => setTaille(e.target.value) }
                       />
@@ -94,6 +104,7 @@ const FormSignup = () => {
                         required
                         name='alias'
                         placeholder='Entrez votre poids'
+                        min = '30'
                         value={poids}
                         onChange={ (e) => setPoids(e.target.value) }
                       />
@@ -105,10 +116,15 @@ const FormSignup = () => {
                         type='password'
                         required
                         name='password'
-                        placeholder='Entrez mot de passe'
+                        placeholder='Entrez mot de passe de plus de 6 caractères'
+                        pattern=".{6,}"
                         value={password}
                         onChange={ (e) => setPassword(e.target.value) }
                         />
+                    </div>
+                    <div>
+                        <input type="checkbox" id="agree" onChange={checkBox} required />
+                        <label htmlFor="agree"> J'ACCEPTE <b> LES CONDITIONS GÉNÉRALES ET LA POLITIQUE DE CONFIDENTIALITÉ </b></label>
                     </div>
 
                     <button type="submit" className='form-input-btn'>S'INSCRIRE</button>

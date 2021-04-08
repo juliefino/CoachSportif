@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 from model import *
-from json import dumps, loads
+from json import loads
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
 
