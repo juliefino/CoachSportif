@@ -6,27 +6,31 @@ const FormSignin = () => {
     // Met le state des inputs
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const token = sessionStorage.getItem("token")
+    const token = sessionStorage.getItem("token") //localstorage
     console.log("Voila le token ", token)
         // envoi les données des inputs onSubmit
-    const handleClick =  () => {
-
-        /*fetch('http://127.0.0.1:5000/token', {
-            method: 'POST',
-            mode:'no-cors',
-            headers: {
-                'Content-type': 'application/json',
-                'accept':'application/json'
-              },
-            body: JSON.stringify({email, password})
-          }).then(resp => {
-              if(resp.status === 0) return resp.json();
-              else alert("erreur")
-            }).then(data => {
-                sessionStorage.setItem("ça vient du backend token", data);}
-                ).catch(error => {console.error("Il y a une erreur", error)}) //pour afficher le bon status, il faut retirer le mode no-cors
-
-        */
+    const handleClick =  (e)=>{
+        e.preventDefault()
+        console.log("Se connecter")
+        let options = {
+          'email': email,
+          'password': password
+        }
+        console.log(options)
+         fetch('/api/login', {
+          method: 'post',
+          body: JSON.stringify(options)
+        }).then(resp => {
+            console.log(resp)
+            return resp.json();
+         }).then(data => {
+                console.log("Ça vient du backend ", data.result)
+                //sessionStorage.setItem("token", data.access_token.access_tokent)
+                //console.log(data.result.access_token, " hola")
+                ;
+          }).catch(error => {console.error("Il y a une erreur", error)})
+  }
+  /*
         fetch('http://127.0.0.1:5000/token', {
             method: 'POST',
             mode:'no-cors',
@@ -41,15 +45,15 @@ const FormSignin = () => {
                 console.log(data.access_token)
                 ;}
                 ).catch(error => {console.error("Il y a une erreur", error)})
-    }
+    }*/
 
 
 
        return (
             <div>
-               {token && token!= "" && token!= undefined ? ("T'es loggé " + token ) :(
+               {token && token!== "" && token !== undefined  && token !== null? ("T'es loggé " + token ) :(
                 <><div className='form-content'>
-                    <form className="form">
+                    <form className="form" action="#">
 
                         <div className='form-inputs'>
 

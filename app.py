@@ -6,6 +6,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 from model import *
 from json import loads
 
@@ -13,9 +14,11 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
 
+db.create_all()
 @app.route('/')
 def home():
     return "<h1>HOLA</h1>"
@@ -47,30 +50,28 @@ def get_utilisateur(id):
     }}
     return reponse
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
-@app.route("/token", methods=["POST"])
+
+@app.route("/api/login", methods=["POST"])
 def creation_token():
     if request.method == 'POST':
         """Sur postman, il faut d'abord écrire la méthode et intoduire les valeurs email et password"""
-        info = request.get_json(force=True)
-        #print(info)
-        email = info["email"]
-        #print(email)
-        password = info["password"]
-        if email != "test@test" or password != "test":
+        req = request.get_json(force=True)
+        email = req["email"]
+        password = hashlib.md5(req['password'].encode()).hexdigest()
 
-            return jsonify({"msg": "Bad username or password"}), 401
+        current_user = Utilisateur.query.filter(Utilisateur.email == req['email']).first()
 
-        #Si vrai, alors il cree un access token
-        access_token = create_access_token(identity=email)
+        if not current_user:
+            return {"error": "Utilisateur non dans la DB"}
 
-        #La méthode me retourne mon TOKEN
-        print(access_token)
-        #return jsonify(access_token)
-        return {'access_token': access_token}
+        if current_user.password == password:
+            token = create_access_token(identity=email)
 
-@app.route('/ajout_utilisateur', methods=['POST'])
+            return jsonify(result = {'access_token': token}), 200
+        else:
+            return {'error': "Mot de passe ou email n'est pas correct"}
+
+@app.route('/api/inscription', methods=['POST'])
 def post_utilisateur():
     if request.method == 'POST':
         info = request.get_json(force=True)
