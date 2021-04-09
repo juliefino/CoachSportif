@@ -12,6 +12,7 @@
     "react-icons": "^4.2.0",
     "react-native": "^0.64.0",
     "react-scripts": "4.0.3",
+    "react-token-auth": "^1.1.8",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -38,7 +39,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-
   },
   "devDependencies": {
     "react-router-dom": "^5.2.0"

@@ -17,16 +17,16 @@ const FormSignin = () => {
           'password': password
         }
         console.log(options)
-         fetch('/api/token', {
+         fetch('/api/login', {
           method: 'post',
           body: JSON.stringify(options)
         }).then(resp => {
             console.log(resp)
             return resp.json();
          }).then(data => {
-                //console.log("Ça vient du backend", data)
+                console.log("Ça vient du backend ", data.result)
                 //sessionStorage.setItem("token", data.access_token.access_tokent)
-                console.log(data, " hola")
+                //console.log(data.result.access_token, " hola")
                 ;
           }).catch(error => {console.error("Il y a une erreur", error)})
   }

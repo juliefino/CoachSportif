@@ -1,5 +1,6 @@
 from app import *
 from werkzeug.security import generate_password_hash
+import hashlib
 
 class Utilisateur(db.Model):
     # Toutes les données qui ont un lien avec l'utilisateur
@@ -18,6 +19,6 @@ class Utilisateur(db.Model):
         self.naissance = naissance
         self.taille = taille
         self.poids = poids
-        self.password = generate_password_hash(password) #faut pas laisser en 'claire' les password dans la DB !
+        self.password = hashlib.md5(password.encode()).hexdigest() #faut pas laisser en 'claire' les password dans la DB !
 
 db.create_all()
