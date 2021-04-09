@@ -2,7 +2,7 @@ import flask
 from flask import Flask, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
-from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
 from flask_cors import CORS
 from model import *
 from json import loads
@@ -64,9 +64,18 @@ def creation_token():
         if current_user.password == password:
             token = create_access_token(identity=email)
 
-            return jsonify(result = {'access_token': token}), 200
+            return jsonify({'access_token': token}), 200
         else:
             return {'error': "Mot de passe ou email n'est pas correct"}
+
+@app.route('/api/refresh', methods=['POST'])
+def refresh():
+
+    print("refresh request")
+    old_token = request.get_data()
+    new_token = create_refresh_token(old_token)
+    ret = {'access_token': new_token}
+    return ret, 200
 
 @app.route('/api/inscription', methods=['POST'])
 def post_utilisateur():
