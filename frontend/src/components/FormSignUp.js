@@ -24,9 +24,8 @@ const FormSignup = () => {
   const send = async (event) => {
     event.preventDefault();
     try{
-        let resultat =  await fetch('http://127.0.0.1:5000/ajout_utilisateur', {
+        let resultat =  await fetch('/api/inscription', {
         method: 'POST',
-        mode:'no-cors',
         headers: {
             'Content-type': 'application/json',
             'accept':'application/json'
