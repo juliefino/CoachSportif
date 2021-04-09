@@ -27,6 +27,13 @@ h2 {
     color: rosybrown ;
   font-size: 30px;
 }
+h3 {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    color: brown ;
+  font-size: 20px;
+}
 p {
     font-size: 15px;
   margin-top: 0.5rem;
@@ -41,4 +48,14 @@ a {
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
     color: darkred;;
+}
+
+li {
+     font-size: 15px;
+  margin-top: 0.5rem;
+    padding-left: 30px;
+  color: darkgoldenrod;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
 }
