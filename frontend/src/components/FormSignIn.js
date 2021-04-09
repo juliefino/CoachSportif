@@ -1,13 +1,15 @@
 import React, {  useState } from 'react';
 import './Form.css';
+import {login, useAuth, logout} from "./auth.js"
 
 const FormSignin = () => {
 
     // Met le state des inputs
+    const [logged] = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const token = sessionStorage.getItem("token") //localstorage
-    console.log("Voila le token ", token)
+    const token = localStorage.getItem("token") //localstorage
+
         // envoi les données des inputs onSubmit
     const handleClick =  (e)=>{
         e.preventDefault()
@@ -17,7 +19,20 @@ const FormSignin = () => {
           'password': password
         }
         console.log(options)
-         fetch('/api/login', {
+        fetch('/api/login', {
+            method: 'post',
+            body: JSON.stringify(options)
+            }).then(r => r.json())
+                .then(token => {
+                    if (token.access_token){
+                        login(token)
+                        console.log(token)
+                    }
+                    else {
+                    console.log("Please type in correct username/password")
+                     }
+                })
+         /*fetch('/api/login', {
           method: 'post',
           body: JSON.stringify(options)
         }).then(resp => {
@@ -25,35 +40,19 @@ const FormSignin = () => {
             return resp.json();
          }).then(data => {
                 console.log("Ça vient du backend ", data.result)
-                //sessionStorage.setItem("token", data.access_token.access_tokent)
+                localStorage.setItem("token", data.result.access_token)
                 //console.log(data.result.access_token, " hola")
                 ;
-          }).catch(error => {console.error("Il y a une erreur", error)})
+          }).catch(error => {console.error("Il y a une erreur", error)})*/
   }
-  /*
-        fetch('http://127.0.0.1:5000/token', {
-            method: 'POST',
-            mode:'no-cors',
-            headers: {
-                'Content-type': 'application/json',
-                'accept':'application/json'
-              },
-            body: JSON.stringify({email, password})
-          }).then(data => {
-                //console.log("Ça vient du backend", data)
-                //sessionStorage.setItem("token", data)
-                console.log(data.access_token)
-                ;}
-                ).catch(error => {console.error("Il y a une erreur", error)})
-    }*/
 
 
 
        return (
             <div>
-               {token && token!== "" && token !== undefined  && token !== null? ("T'es loggé " + token ) :(
-                <><div className='form-content'>
-                    <form className="form" action="#">
+               {!logged?
+                <div className='form-content'>
+                    <form className="form">
 
                         <div className='form-inputs'>
 
@@ -84,11 +83,9 @@ const FormSignin = () => {
 
                         <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
                     </form>
-
-                </div>
-               </>
-               )}
-           </div>
+                     </div>
+                   :  <h1>BIENVENU</h1>}
+            </div>
    );
 
 }
