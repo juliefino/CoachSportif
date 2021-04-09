@@ -18,6 +18,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
 
+db.create_all()
 @app.route('/')
 def home():
     return "<h1>HOLA</h1>"
@@ -50,29 +51,27 @@ def get_utilisateur(id):
     return reponse
 
 
-@app.route("/api/token", methods=["POST"])
+@app.route("/api/login", methods=["POST"])
 def creation_token():
     if request.method == 'POST':
         """Sur postman, il faut d'abord écrire la méthode et intoduire les valeurs email et password"""
-        info = request.get_json(force=True)
-        #print(info)
-        email = info["email"]
-        print(email)
-        password = info['password']
-        print(password)
-        if email != "test@test" or password != "test":
+        req = request.get_json(force=True)
+        email = req["email"]
+        password = hashlib.md5(req['password'].encode()).hexdigest()
 
-            return jsonify({"msg": "Bad username or password"}), 401
+        current_user = Utilisateur.query.filter(Utilisateur.email == req['email']).first()
 
-        #Si vrai, alors il cree un access token
-        token = create_access_token(identity=email)
+        if not current_user:
+            return {"error": "Utilisateur non dans la DB"}
 
-        #La méthode me retourne mon TOKEN
-        #print(access_token)
-        print(token)
-        return jsonify(result = {'access_token': token}), 200
+        if current_user.password == password:
+            token = create_access_token(identity=email)
 
-@app.route('/ajout_utilisateur', methods=['POST'])
+            return jsonify(result = {'access_token': token}), 200
+        else:
+            return {'error': "Mot de passe ou email n'est pas correct"}
+
+@app.route('/api/inscription', methods=['POST'])
 def post_utilisateur():
     if request.method == 'POST':
         info = request.get_json(force=True)
