@@ -6,91 +6,207 @@ export default function Nutrition() {
     <div>
       <h1 className='conditions' >CONDITIONS GÉNÉRALES ET POLITIQUE DE CONFIDENTIALITÉ </h1>
 
-    <h1 className="term">Terms and Conditions</h1>
-    <p>Last updated: April 08, 2021</p>
-    <p>Please read these terms and conditions carefully before using Our Service.</p>
+       <h2>Définitions</h2>
+                <p><b>Client :</b> tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.
+                <b>Prestations et Services :</b> <a href="http://coachsportif.be">http://coachsportif.be</a> met à disposition des Clients :</p>
 
-    <h2>Interpretation</h2>
-    <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
-    <h2>Definitions</h2>
-    <p>For the purposes of these Terms and Conditions:</p>
-    <ul>
-    <li>
-    <p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
-    </li>
-    <li>
-    <p><strong>Country</strong> refers to:  Belgium</p>
-    </li>
-    <li>
-    <p><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Coach Sportif.</p>
-    </li>
-    <li>
-    <p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
-    </li>
-    <li>
-    <p><strong>Service</strong> refers to the Website.</p>
-    </li>
-    <li>
-    <p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the <a href="https://www.termsfeed.com/terms-conditions-generator/" target="_blank">Terms and Conditions Generator</a>.</p>
-    </li>
-    <li>
-    <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
-    </li>
-    <li>
-    <p><strong>Website</strong> refers to Coach Sportif, accessible from <a href="coachsportif.com" rel="external nofollow noopener" target="_blank">coachsportif.com</a></p>
-    </li>
-    <li>
-    <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
-    </li>
-    </ul>
-    <h2>Acknowledgment</h2>
-    <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
-    <p>Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</p>
-    <p>By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</p>
-    <p>You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
-    <p>Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
-    <h2>Links to Other Websites</h2>
-    <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
-    <p>The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
-    <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
-    <h2>Termination</h2>
-    <p>We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
-    <p>Upon termination, Your right to use the Service will cease immediately.</p>
-    <h2>Limitation of Liability</h2>
-    <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
-    <p>To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
-    <p>Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
-    <h2>&quot;AS IS&quot; and &quot;AS AVAILABLE&quot; Disclaimer</h2>
-    <p>The Service is provided to You &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p>
-    <p>Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</p>
-    <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
-    <h2>Governing Law</h2>
-    <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.</p>
-    <h2>Disputes Resolution</h2>
-    <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
-    <h2>For European Union (EU) Users</h2>
-    <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.</p>
-    <h2>United States Legal Compliance</h2>
-    <p>You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a &quot;terrorist supporting&quot; country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
-    <h2>Severability</h2>
-    <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
-    <h2>Waiver</h2>
-    <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.</p>
-    <h2>Translation Interpretation</h2>
-    <p>These Terms and Conditions may have been translated if We have made them available to You on our Service.
-    You agree that the original English text shall prevail in the case of a dispute.</p>
-    <h2>Changes to These Terms and Conditions</h2>
-    <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
-    <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
-    <h2>Contact Us</h2>
-    <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
-    <ul>
+                <p><b>Contenu :</b> Ensemble des éléments constituants l’information présente sur le Site, notamment textes – images – vidéos.</p>
 
-    </ul>
+                <p><b>Informations clients :</b> Ci après dénommé « Information (s) » qui correspondent à l’ensemble des données personnelles susceptibles d’être détenues par <a href="http://coachsportif.be">http://coachsportif.be</a> pour la gestion de votre compte, de la gestion de la relation client et à des fins d’analyses et de statistiques.</p>
+
+                <p><b>Utilisateur :</b> Internaute se connectant, utilisant le site susnommé.</p>
+                <p><b>Informations personnelles :</b> « Les informations qui permettent, sous quelque forme que ce soit, directement ou non, l'identification des personnes physiques auxquelles elles s'appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978).</p>
+                <p>Les termes « données à caractère personnel », « personne concernée », « sous traitant » et « données sensibles » ont le sens défini par le Règlement Général sur la Protection des Données (RGPD : n° 2016-679)</p>
+
+                 <h2>1. Présentation du site internet.</h2>
+                <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet <a href="http://coachsportif.be">http://coachsportif.be</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi:
+                </p><p><strong>Propriétaire</strong> :   COACH SPORTIF   – EPHEC 1400 Louvain-La-neuve </p>
+
+      <p>
+                <strong>Responsable publication</strong> : COACH SPORTIF – ikramhamdi.hamdi3@gmail.com
+                Le responsable publication est une personne physique ou une personne morale.
+                <strong>Webmaster</strong> : COACH SPORTIF
+                <strong>Hébergeur</strong> : ovh – 2 rue Kellermann 59100 Roubaix 1007
+                <strong>Délégué à la protection des données</strong> : COACH SPORTIF – coachsporti@students.ephec.be
+
+      </p>
+       <div for="linkHTML"><p>Ces mentions légales RGPD sont issues du <a href="https://fr.orson.io/1371/generateur-mentions-legales" title="générateur gratuit de mentions légales pour un site internet">générateur gratuit de mentions légales pour un site internet</a></p></div>
+
+        <h2>2. Conditions générales d’utilisation du site et des services proposés.</h2>
+
+                <p>Le Site constitue une œuvre de l’esprit protégée par les dispositions du Code de la Propriété Intellectuelle et des Réglementations Internationales applicables.
+                Le Client ne peut en aucune manière réutiliser, céder ou exploiter pour son propre compte tout ou partie des éléments ou travaux du Site.</p>
+
+                <p>L’utilisation du site <a href="http://coachsportif.be">http://coachsportif.be</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site <a href="http://coachsportif.be">http://coachsportif.be</a> sont donc invités à les consulter de manière régulière.</p>
+
+      <p>Ce site internet est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par <a href="http://coachsportif.be">http://coachsportif.be</a>, qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention.
+                Le site web <a href="http://coachsportif.be">http://coachsportif.be</a> est mis à jour régulièrement par <a href="http://coachsportif.be">http://coachsportif.be</a> responsable. De la même façon, les mentions légales peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur qui est invité à s’y référer le plus souvent possible afin d’en prendre connaissance.</p>
+
+        <h2>3. Description des services fournis.</h2>
+
+                <p>Le site internet <a href="http://coachsportif.be">http://coachsportif.be</a> a pour objet de fournir une information concernant l’ensemble des activités de la société.
+                <a href="http://coachsportif.be">http://coachsportif.be</a> s’efforce de fournir sur le site <a href="http://coachsportif.be">http://coachsportif.be</a> des informations aussi précises que possible. Toutefois, il ne pourra être tenu responsable des oublis, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+
+                <p>Toutes les informations indiquées sur le site <a href="http://coachsportif.be">http://coachsportif.be</a> sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site <a href="http://coachsportif.be">http://coachsportif.be</a> ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
+
+                <p>Le site utilise la technologie REACT.Le site Internet ne pourra être tenu responsable de dommages matériels liés à l’utilisation du site. De plus, l’utilisateur du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération mis-à-jour
+                Le site <a href="http://coachsportif.be">http://coachsportif.be</a> est hébergé chez un prestataire sur le territoire de l’Union Européenne conformément aux dispositions du Règlement Général sur la Protection des Données (RGPD : n° 2016-679)
+                </p>
+       <p>L’objectif est d’apporter une prestation qui assure le meilleur taux d’accessibilité. L’hébergeur assure la continuité de son service 24 Heures sur 24, tous les jours de l’année. Il se réserve néanmoins la possibilité d’interrompre le service d’hébergement pour les durées les plus courtes possibles notamment à des fins de maintenance, d’amélioration de ses infrastructures, de défaillance de ses infrastructures ou si les Prestations et Services génèrent un trafic réputé anormal.</p>
+
+ <p><a href="http://coachsportif.be">http://coachsportif.be</a> et l’hébergeur ne pourront être tenus responsables en cas de dysfonctionnement du réseau Internet, des lignes téléphoniques ou du matériel informatique et de téléphonie lié notamment à l’encombrement du réseau empêchant l’accès au serveur.</p>
+
+                <h2>5. Propriété intellectuelle et contrefaçons.</h2>
+       <p><a href="http://coachsportif.be">http://coachsportif.be</a> est propriétaire des droits de propriété intellectuelle et détient les droits d’usage sur tous les éléments accessibles sur le site internet, notamment les textes, images, graphismes, logos, vidéos, icônes et sons.
+                Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de : <a href="http://coachsportif.be">http://coachsportif.be</a>.</p>
+
+                <p>Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
+
+            <h2>6. Limitations de responsabilité.</h2>
+
+                <p><a href="http://coachsportif.be">http://coachsportif.be</a> agit en tant qu’éditeur du site. <a href="http://coachsportif.be">http://coachsportif.be</a>  est responsable de la qualité et de la véracité du Contenu qu’il publie. </p>
+
+                <p><a href="http://coachsportif.be">http://coachsportif.be</a> ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site internet <a href="http://coachsportif.be">http://coachsportif.be</a>, et résultant soit de l’utilisation d’un matériel ne répondant pas aux spécifications indiquées au point 4, soit de l’apparition d’un bug ou d’une incompatibilité.</p>
+            <p><a href="http://coachsportif.be">http://coachsportif.be</a> ne pourra également être tenu responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site <a href="http://coachsportif.be">http://coachsportif.be</a>.
+                Des espaces interactifs (possibilité de poser des questions dans l’espace contact) sont à la disposition des utilisateurs. <a href="http://coachsportif.be">http://coachsportif.be</a> se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France, en particulier aux dispositions relatives à la protection des données. Le cas échéant, <a href="http://coachsportif.be">http://coachsportif.be</a> se réserve également la possibilité de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé (texte, photographie …).</p>
+
+      <h2>7. Gestion des données personnelles.</h2>
+
+                <p>Le Client est informé des réglementations concernant la communication marketing, la loi du 21 Juin 2014 pour la confiance dans l’Economie Numérique, la Loi Informatique et Liberté du 06 Août 2004 ainsi que du Règlement Général sur la Protection des Données (RGPD : n° 2016-679). </p>
+
+                <h3>7.1 Responsables de la collecte des données personnelles</h3>
+
+                <p>Pour les Données Personnelles collectées dans le cadre de la création du compte personnel de l’Utilisateur et de sa navigation sur le Site, le responsable du traitement des Données Personnelles est : COACH SPORTIF. <a href="http://coachsportif.be">http://coachsportif.be</a>est représenté par 0, son représentant légal</p>
+
+      <p>En tant que responsable du traitement des données qu’il collecte, <a href="http://coachsportif.be">http://coachsportif.be</a> s’engage à respecter le cadre des dispositions légales en vigueur. Il lui appartient notamment au Client d’établir les finalités de ses traitements de données, de fournir à ses prospects et clients, à partir de la collecte de leurs consentements, une information complète sur le traitement de leurs données personnelles et de maintenir un registre des traitements conforme à la réalité.
+                Chaque fois que <a href="http://coachsportif.be">http://coachsportif.be</a> traite des Données Personnelles, <a href="http://coachsportif.be">http://coachsportif.be</a> prend toutes les mesures raisonnables pour s’assurer de l’exactitude et de la pertinence des Données Personnelles au regard des finalités pour lesquelles <a href="http://coachsportif.be">http://coachsportif.be</a> les traite.</p>
+
+                <h3>7.2 Finalité des données collectées</h3>
+                 <p><a href="http://coachsportif.be">http://coachsportif.be</a> est susceptible de traiter tout ou partie des données : </p>
+
+                <ul>
+
+                <li>1) pour permettre la navigation sur le Site et la gestion et la traçabilité des prestations et services commandés par l’utilisateur : données de connexion et d’utilisation du Site, facturation, historique des commandes, etc. </li>
+
+                <li>2) pour prévenir et lutter contre la fraude informatique (spamming, hacking…) : matériel informatique utilisé pour la navigation, l’adresse IP, le mot de passe (hashé) </li>
+
+                <li>3) pour améliorer la navigation sur le Site : données de connexion et d’utilisation </li>
+
+                <li>4) pour mener des enquêtes de satisfaction facultatives sur <a href="http://coachsportif.be">http://coachsportif.be</a> : adresse email </li>
+                <li>5) pour mener des campagnes de communication (sms, mail) : numéro de téléphone, adresse email</li>
+
+
+                </ul>
+       <p><a href="http://coachsportif.be">http://coachsportif.be</a> ne commercialise pas vos données personnelles qui sont donc uniquement utilisées par nécessité ou à des fins statistiques et d’analyses.</p>
+
+                <h3>7.3 Droit d’accès, de rectification et d’opposition</h3>
+                  <p>
+                Conformément à la réglementation européenne en vigueur, les Utilisateurs de coachsportif.be disposent des droits suivants : </p>
+                 <ul>
+
+                <li> 1) droit d'accès (article 15 RGPD) et de rectification (article 16 RGPD), de mise à jour, de complétude des données des Utilisateurs droit de verrouillage ou d’effacement des données des Utilisateurs à caractère personnel (article 17 du RGPD), lorsqu’elles sont inexactes, incomplètes, équivoques, périmées, ou dont la collecte, l'utilisation, la communication ou la conservation est interdite </li>
+
+                <li> 2) droit de retirer à tout moment un consentement (article 13-2c RGPD) </li>
+
+                <li>3) droit à la limitation du traitement des données des Utilisateurs (article 18 RGPD) </li>
+
+                <li>4) droit d’opposition au traitement des données des Utilisateurs (article 21 RGPD) </li>
+
+                <li>5) droit à la portabilité des données que les Utilisateurs auront fournies, lorsque ces données font l’objet de traitements automatisés fondés sur leur consentement ou sur un contrat (article 20 RGPD) </li>
+
+                <li>6) droit de définir le sort des données des Utilisateurs après leur mort et de choisir à qui <a href="http://coachsportif.be">http://coachsportif.be</a> devra communiquer (ou non) ses données à un tiers qu’ils aura préalablement désigné</li>
+                 </ul>
+
+                <p>Dès que <a href="http://coachsportif.be">http://coachsportif.be</a> a connaissance du décès d’un Utilisateur et à défaut d’instructions de sa part, <a href="http://coachsportif.be">http://coachsportif.be</a> s’engage à détruire ses données, sauf si leur conservation s’avère nécessaire à des fins probatoires ou pour répondre à une obligation légale.</p>
+
+                <p>Si l’Utilisateur souhaite savoir comment <a href="http://coachsportif.be">http://coachsportif.be</a> utilise ses Données Personnelles, demander à les rectifier ou s’oppose à leur traitement, l’Utilisateur peut contacter <a href="http://coachsportif.be">http://coachsportif.be</a> par écrit à l’adresse suivante : </p>
+
+                <p>COACH SPORTIF – DPO, COACH SPORTIF
+                  EPHEC 1400 Louvain-La-neuve.</p>
+      <p>Dans ce cas, l’Utilisateur doit indiquer les Données Personnelles qu’il souhaiterait que <a href="http://coachsportif.be">http://coachsportif.be</a> corrige, mette à jour ou supprime, en s’identifiant précisément avec une copie d’une pièce d’identité (carte d’identité ou passeport). </p>
+
+                <p>
+                Les demandes de suppression de Données Personnelles seront soumises aux obligations qui sont imposées à <a href="http://coachsportif.be">http://coachsportif.be</a> par la loi, notamment en matière de conservation ou d’archivage des documents. Enfin, les Utilisateurs de <a href="http://coachsportif.be">http://coachsportif.be</a> peuvent déposer une réclamation auprès des autorités de contrôle, et notamment de la CNIL (https://www.cnil.fr/fr/plaintes).</p>
+
+       <h3>7.4 Non-communication des données personnelles</h3>
+
+                <p>
+                <a href="http://coachsportif.be">http://coachsportif.be</a> s’interdit de traiter, héberger ou transférer les Informations collectées sur ses Clients vers un pays situé en dehors de l’Union européenne ou reconnu comme « non adéquat » par la Commission européenne sans en informer préalablement le client. Pour autant, <a href="http://coachsportif.be">http://coachsportif.be</a> reste libre du choix de ses sous-traitants techniques et commerciaux à la condition qu’il présentent les garanties suffisantes au regard des exigences du Règlement Général sur la Protection des Données (RGPD : n° 2016-679).</p>
+
+                <p>
+                <a href="http://coachsportif.be">http://coachsportif.be</a> s’engage à prendre toutes les précautions nécessaires afin de préserver la sécurité des Informations et notamment qu’elles ne soient pas communiquées à des personnes non autorisées. Cependant, si un incident impactant l’intégrité ou la confidentialité des Informations du Client est portée à la connaissance de <a href="http://coachsportif.be">http://coachsportif.be</a>, celle-ci devra dans les meilleurs délais informer le Client et lui communiquer les mesures de corrections prises. Par ailleurs <a href="http://coachsportif.be">http://coachsportif.be</a> ne collecte aucune « données sensibles ».</p>
+
+ <p>
+                Les Données Personnelles de l’Utilisateur peuvent être traitées par des filiales de <a href="http://coachsportif.be">http://coachsportif.be</a> et des sous-traitants (prestataires de services), exclusivement afin de réaliser les finalités de la présente politique.</p>
+                <p>
+                Dans la limite de leurs attributions respectives et pour les finalités rappelées ci-dessus, les principales personnes susceptibles d’avoir accès aux données des Utilisateurs de <a href="http://coachsportif.be">http://coachsportif.be</a> sont principalement les agents de notre service client.</p>
+
+                <div ng-bind-html="rgpdHTML"></div>
+
+
+                <h2>8. Notification d’incident</h2>
+       <p>
+                Quels que soient les efforts fournis, aucune méthode de transmission sur Internet et aucune méthode de stockage électronique n'est complètement sûre. Nous ne pouvons en conséquence pas garantir une sécurité absolue.
+                Si nous prenions connaissance d'une brèche de la sécurité, nous avertirions les utilisateurs concernés afin qu'ils puissent prendre les mesures appropriées. Nos procédures de notification d’incident tiennent compte de nos obligations légales, qu'elles se situent au niveau national ou européen. Nous nous engageons à informer pleinement nos clients de toutes les questions relevant de la sécurité de leur compte et à leur fournir toutes les informations nécessaires pour les aider à respecter leurs propres obligations réglementaires en matière de reporting.</p>
+                <p>
+                Aucune information personnelle de l'utilisateur du site <a href="http://coachsportif.be">http://coachsportif.be</a> n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du rachat de <a href="http://coachsportif.be">http://coachsportif.be</a> et de ses droits permettrait la transmission des dites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site <a href="http://coachsportif.be">http://coachsportif.be</a>.</p>
+
+      <h3>Sécurité</h3>
+
+                <p>
+                Pour assurer la sécurité et la confidentialité des Données Personnelles et des Données Personnelles de Santé, <a href="http://coachsportif.be">http://coachsportif.be</a> utilise des réseaux protégés par des dispositifs standards tels que par pare-feu, la pseudonymisation, l’encryption et mot de passe. </p>
+
+                <p>
+                Lors du traitement des Données Personnelles, <a href="http://coachsportif.be">http://coachsportif.be</a>prend toutes les mesures raisonnables visant à les protéger contre toute perte, utilisation détournée, accès non autorisé, divulgation, altération ou destruction.</p>
+
+                <h2>9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
+               <p>
+                Le site <a href="http://coachsportif.be">http://coachsportif.be</a> contient un certain nombre de liens hypertextes vers d’autres sites, mis en place avec l’autorisation de <a href="http://coachsportif.be">http://coachsportif.be</a>. Cependant, <a href="http://coachsportif.be">http://coachsportif.be</a> n’a pas la possibilité de vérifier le contenu des sites ainsi visités, et n’assumera en conséquence aucune responsabilité de ce fait.</p>
+                Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.
+                <p></p>
+
+                <h3>9.1. « COOKIES »</h3>
+                 <p>
+                Un « cookie » est un petit fichier d’information envoyé sur le navigateur de l’Utilisateur et enregistré au sein du terminal de l’Utilisateur (ex : ordinateur, smartphone), (ci-après « Cookies »). Ce fichier comprend des informations telles que le nom de domaine de l’Utilisateur, le fournisseur d’accès Internet de l’Utilisateur, le système d’exploitation de l’Utilisateur, ainsi que la date et l’heure d’accès. Les Cookies ne risquent en aucun cas d’endommager le terminal de l’Utilisateur.</p>
+                 <p>
+                <a href="http://coachsportif.be">http://coachsportif.be</a> est susceptible de traiter les informations de l’Utilisateur concernant sa visite du Site, telles que les pages consultées, les recherches effectuées. Ces informations permettent à <a href="http://coachsportif.be">http://coachsportif.be</a> d’améliorer le contenu du Site, de la navigation de l’Utilisateur.</p>
+                 <p>
+                Les Cookies facilitant la navigation et/ou la fourniture des services proposés par le Site, l’Utilisateur peut configurer son navigateur pour qu’il lui permette de décider s’il souhaite ou non les accepter de manière à ce que des Cookies soient enregistrés dans le terminal ou, au contraire, qu’ils soient rejetés, soit systématiquement, soit selon leur émetteur. L’Utilisateur peut également configurer son logiciel de navigation de manière à ce que l’acceptation ou le refus des Cookies lui soient proposés ponctuellement, avant qu’un Cookie soit susceptible d’être enregistré dans son terminal. <a href="http://coachsportif.be">http://coachsportif.be</a> informe l’Utilisateur que, dans ce cas, il se peut que les fonctionnalités de son logiciel de navigation ne soient pas toutes disponibles.</p>
+                 <p>
+                Si l’Utilisateur refuse l’enregistrement de Cookies dans son terminal ou son navigateur, ou si l’Utilisateur supprime ceux qui y sont enregistrés, l’Utilisateur est informé que sa navigation et son expérience sur le Site peuvent être limitées. Cela pourrait également être le cas lorsque <a href="http://coachsportif.be">http://coachsportif.be</a> ou l’un de ses prestataires ne peut pas reconnaître, à des fins de compatibilité technique, le type de navigateur utilisé par le terminal, les paramètres de langue et d’affichage ou le pays depuis lequel le terminal semble connecté à Internet.</p>
+                 <p>
+                Le cas échéant, <a href="http://coachsportif.be">http://coachsportif.be</a> décline toute responsabilité pour les conséquences liées au fonctionnement dégradé du Site et des services éventuellement proposés par <a href="http://coachsportif.be">http://coachsportif.be</a>, résultant (i) du refus de Cookies par l’Utilisateur (ii) de l’impossibilité pour <a href="http://coachsportif.be">http://coachsportif.be</a> d’enregistrer ou de consulter les Cookies nécessaires à leur fonctionnement du fait du choix de l’Utilisateur. Pour la gestion des Cookies et des choix de l’Utilisateur, la configuration de chaque navigateur est différente. Elle est décrite dans le menu d’aide du navigateur, qui permettra de savoir de quelle manière l’Utilisateur peut modifier ses souhaits en matière de Cookies.</p>
+
+ <p>
+                À tout moment, l’Utilisateur peut faire le choix d’exprimer et de modifier ses souhaits en matière de Cookies. <a href="http://coachsportif.be">http://coachsportif.be</a> pourra en outre faire appel aux services de prestataires externes pour l’aider à recueillir et traiter les informations décrites dans cette section.</p>
+                 <p>
+                Enfin, en cliquant sur les icônes dédiées aux réseaux sociaux Twitter, Facebook, Linkedin et Google Plus figurant sur le Site de <a href="http://coachsportif.be">http://coachsportif.be</a> ou dans son application mobile et si l’Utilisateur a accepté le dépôt de cookies en poursuivant sa navigation sur le Site Internet ou l’application mobile de <a href="http://coachsportif.be">http://coachsportif.be</a>, Twitter, Facebook, Linkedin et Google Plus peuvent également déposer des cookies sur vos terminaux (ordinateur, tablette, téléphone portable).</p>
+                 <p>
+                Ces types de cookies ne sont déposés sur vos terminaux qu’à condition que vous y consentiez, en continuant votre navigation sur le Site Internet ou l’application mobile de <a href="http://coachsportif.be">http://coachsportif.be</a>. À tout moment, l’Utilisateur peut néanmoins revenir sur son consentement à ce que <a href="http://coachsportif.be">http://coachsportif.be</a> dépose ce type de cookies.</p>
+
+                <h3>Article 9.2. BALISES (“TAGS”) INTERNET</h3>
+                  <p>
+
+                <a href="http://coachsportif.be">http://coachsportif.be</a> peut employer occasionnellement des balises Internet (également appelées « tags », ou balises d’action, GIF à un pixel, GIF transparents, GIF invisibles et GIF un à un) et les déployer par l’intermédiaire d’un partenaire spécialiste d’analyses Web susceptible de se trouver (et donc de stocker les informations correspondantes, y compris l’adresse IP de l’Utilisateur) dans un pays étranger.</p>
+
+                <p>
+                Ces balises sont placées à la fois dans les publicités en ligne permettant aux internautes d’accéder au Site, et sur les différentes pages de celui-ci.
+                 </p>
+                <p>
+                Cette technologie permet à <a href="http://coachsportif.be">http://coachsportif.be</a> d’évaluer les réponses des visiteurs face au Site et l’efficacité de ses actions (par exemple, le nombre de fois où une page est ouverte et les informations consultées), ainsi que l’utilisation de ce Site par l’Utilisateur. </p>
+                 <p>
+                Le prestataire externe pourra éventuellement recueillir des informations sur les visiteurs du Site et d’autres sites Internet grâce à ces balises, constituer des rapports sur l’activité du Site à l’attention de <a href="http://coachsportif.be">http://coachsportif.be</a>, et fournir d’autres services relatifs à l’utilisation de celui-ci et d’Internet.</p>
+                 <p>
+                </p><h2>10. Droit applicable et attribution de juridiction.</h2>
+                 <p>
+                Tout litige en relation avec l’utilisation du site <a href="http://coachsportif.be">http://coachsportif.be</a> est soumis au droit français.
+                En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Louvain-La-neuve</p>
 
 
 
 
-      </div>
-  );
+
+
+    </div>
+      );
 }
