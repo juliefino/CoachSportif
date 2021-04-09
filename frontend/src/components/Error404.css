@@ -5,6 +5,10 @@ img {
   position: fixed;
   z-index: -1;
 }
+.ici {
+  text-decoration: none;
+  color: white;
+}
 
 .error-container {
   /*background: url('/images/img-home.jpg') center center/cover no-repeat;*/
