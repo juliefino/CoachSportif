@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../App.css';
-import Cards from "../Cards";
 import Footer from "../Footer";
+import ButtonSort from "../ButtonSort";
 
 export default function Activites() {
   return (<>
-      <Cards />
+      <ButtonSort />
       <Footer />
     </>)
 }
