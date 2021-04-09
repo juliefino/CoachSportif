@@ -76,6 +76,10 @@
 .menu-icon {
   display: none;
 }
+.login{
+  color: #fff;
+  text-decoration: none;
+}
 
 @media screen and (max-width: 960px) {
   .NavbarItems {
