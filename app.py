@@ -90,6 +90,11 @@ def post_utilisateur():
         return redirect('http://localhost:5000/')
 
 
+@app.route('/api/activites', methods=["GET"])
+def objectifs():
+
+    return 'hola'
+
 # Run the example
 if __name__ == '__main__':
     app.run(debug=True)
