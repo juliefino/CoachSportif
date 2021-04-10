@@ -10,6 +10,7 @@ import Nutrition from "./components/pages/nutrition";
 import NotFound from "./components/pages/NotFound";
 import FormSignin from './components/FormSignIn';
 import Conditions from './components/pages/Conditions'
+import Objectifs from './components/pages/Objectifs'
 function App() {
   return (
     <>
@@ -19,11 +20,13 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
+          <Route path='/objectifs' component={Objectifs} />
           <Route path='/sign-up' component={FormSignup} />
           <Route path='/login' component={FormSignin} />
           <Route path='/conditions' component={Conditions} />
           <Route path='/experts/nutrition' component={Nutrition} />
           <Route component={NotFound} />
+
         </Switch>
       </Router>
     </>
