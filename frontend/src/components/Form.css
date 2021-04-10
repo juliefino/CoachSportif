@@ -137,3 +137,21 @@ Link {
   color: #27cdff;
   font-weight: 600;
 }
+@media screen and (max-width: 960px) {
+
+.form-content{
+  margin: 100px auto;
+  width: 100%;
+  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: sandybrown;
+  position: relative;
+  border-radius: 0 10px 10px 0;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+
+}
+}
