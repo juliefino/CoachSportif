@@ -1,14 +1,15 @@
 import React, {  useState } from 'react';
 import './Form.css';
-import {login, useAuth, logout} from "./auth.js"
+
+import { Redirect } from 'react-router-dom';
 
 const FormSignin = () => {
 
     // Met le state des inputs
-    const [logged] = useAuth();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const token = localStorage.getItem("token") //localstorage
+
 
         // envoi les données des inputs onSubmit
     const handleClick =  (e)=>{
@@ -25,8 +26,18 @@ const FormSignin = () => {
             }).then(r => r.json())
                 .then(token => {
                     if (token.access_token){
-                        login(token)
+                        //login(token)
+                        //localStorage.setItem('token',token.access_token)
                         console.log(token)
+                        localStorage.setItem('access_token', token.access_token);
+
+                        localStorage.setItem('username', token.username);
+
+                        if (localStorage.getItem("access_token") !== null && localStorage.getItem("access_token")!=="undefined") {
+                            window.location.replace("/")}
+                        else{
+                            alert("erreur")
+                            }
                     }
                     else {
                     console.log("Please type in correct username/password")
@@ -50,7 +61,6 @@ const FormSignin = () => {
 
        return (
             <div>
-               {!logged?
                 <div className='form-content'>
                     <form className="form">
 
@@ -84,7 +94,6 @@ const FormSignin = () => {
                         <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
                     </form>
                      </div>
-                   :  <h1>BIENVENU</h1>}
             </div>
    );
 

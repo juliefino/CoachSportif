@@ -5,95 +5,32 @@ import psycopg2
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
 from flask_cors import CORS
 from model import *
-from json import loads
-
+from utilisateurs import utilisateurs
+from login import login
+from inscription import inscription
 app = Flask(__name__)
+
+
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
-
+app.register_blueprint(utilisateurs, url_prefix='/api/utilisateurs')
+app.register_blueprint(login, url_prefix='/api/login')
+app.register_blueprint(inscription, url_prefix='/api/inscription')
 db.create_all()
+
 @app.route('/')
 def home():
     return "<h1>HOLA</h1>"
 
-@app.route('/utilisateurs')
-def utilisateurs():
-    users = Utilisateur.query.all()
-    result = {}
-    for user in users:
-        result[user.id] = {
-            'alias': user.alias,
-            'email': user.email,
-            "naissance": str(user.naissance),
-            "taille": user.taille,
-            "poids": user.poids
-        }
-
-    return result
-
-@app.route('/utilisateurs/<id>', methods=["GET"])
-def get_utilisateur(id):
-    user = Utilisateur.query.get_or_404(id)
-    reponse = {id : {
-        "alias":user.alias,
-        "email": user.email,
-        "naissance": str(user.naissance),
-        "taille": user.taille,
-        "poids": user.poids
-    }}
-    return reponse
 
 
-@app.route("/api/login", methods=["POST"])
-def creation_token():
-    if request.method == 'POST':
-        """Sur postman, il faut d'abord écrire la méthode et intoduire les valeurs email et password"""
-        req = request.get_json(force=True)
-        email = req["email"]
-        password = hashlib.md5(req['password'].encode()).hexdigest()
-
-        current_user = Utilisateur.query.filter(Utilisateur.email == req['email']).first()
-
-        if not current_user:
-            return {"error": "Utilisateur non dans la DB"}
-
-        if current_user.password == password:
-            token = create_access_token(identity=email)
-
-            return jsonify({'access_token': token}), 200
-        else:
-            return {'error': "Mot de passe ou email n'est pas correct"}
-
-@app.route('/api/refresh', methods=['POST'])
-def refresh():
-
-    print("refresh request")
-    old_token = request.get_data()
-    new_token = create_refresh_token(old_token)
-    ret = {'access_token': new_token}
-    return ret, 200
-
-@app.route('/api/inscription', methods=['POST'])
-def post_utilisateur():
-    if request.method == 'POST':
-        info = request.get_json(force=True)
-        print(info)
-
-        user= Utilisateur( info["alias"], info["email"],info["naissance"],info["taille"],info["poids"], info["password"])
-        db.session.add(user)
-        db.session.commit()
-
-        return redirect('http://localhost:5000/')
 
 
-@app.route('/api/activites', methods=["GET"])
-def objectifs():
-
-    return 'hola'
 
 # Run the example
 if __name__ == '__main__':
