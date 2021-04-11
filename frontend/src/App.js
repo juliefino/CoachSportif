@@ -11,6 +11,10 @@ import NotFound from "./components/pages/NotFound";
 import FormSignin from './components/FormSignIn';
 import Conditions from './components/pages/Conditions'
 import Objectifs from './components/pages/Objectifs'
+import {isLoggedIn} from './components/auth.js';
+import { PrivateRoute } from "./components/PrivateRoute.js";
+
+
 function App() {
   return (
     <>
@@ -18,13 +22,12 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
-          <Route path='/objectifs' component={Objectifs} />
           <Route path='/sign-up' component={FormSignup} />
           <Route path='/login' component={FormSignin} />
           <Route path='/conditions' component={Conditions} />
-          <Route path='/experts/nutrition' component={Nutrition} />
           <Route component={NotFound} />
 
         </Switch>
