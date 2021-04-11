@@ -8,11 +8,12 @@ from model import *
 from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
+from activites import activites
 app = Flask(__name__)
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:v3rtix3@localhost/WEB'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -21,6 +22,7 @@ db = SQLAlchemy(app)
 app.register_blueprint(utilisateurs, url_prefix='/api/utilisateurs')
 app.register_blueprint(login, url_prefix='/api/login')
 app.register_blueprint(inscription, url_prefix='/api/inscription')
+app.register_blueprint(activites, url_prefix='/api/activites')
 db.create_all()
 
 @app.route('/')

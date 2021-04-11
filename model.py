@@ -24,10 +24,9 @@ class Utilisateur(db.Model):
 
 class Activites(db.Model):
     __tablename__ = "activites"
-
-
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nom_activite = db.Column(db.String(200))
+
 
 
 
