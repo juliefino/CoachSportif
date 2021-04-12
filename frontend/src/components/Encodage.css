@@ -1,0 +1,15 @@
+.class_label {
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+}
+
+.class_inputs {
+    display : flex;
+    flex-direction : row;
+}
+
+.main_inputs {
+    display : flex;
+    justify-content : space-around;
+}

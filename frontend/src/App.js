@@ -11,6 +11,7 @@ import NotFound from "./components/pages/NotFound";
 import FormSignin from './components/FormSignIn';
 import Conditions from './components/pages/Conditions'
 import Objectifs from './components/pages/Objectifs'
+import Encodage from './components/pages/Encodage'
 import {isLoggedIn} from './components/auth.js';
 import { PrivateRoute } from "./components/PrivateRoute.js";
 
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
+          <Route path='/encodage' component={Encodage} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={FormSignup} />

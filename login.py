@@ -4,6 +4,8 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 import hashlib
 
 login = Blueprint('login', __name__)
+
+
 @login.route("", methods=["POST"])
 def creation_token():
     if request.method == 'POST':

@@ -9,13 +9,15 @@ from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
 from activites import activites
+
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mf3d56ze45@localhost/WEB'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:v3rtix3@localhost/WEB'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
+
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
@@ -25,13 +27,10 @@ app.register_blueprint(inscription, url_prefix='/api/inscription')
 app.register_blueprint(activites, url_prefix='/api/activites')
 db.create_all()
 
+
 @app.route('/')
 def home():
     return "<h1>HOLA</h1>"
-
-
-
-
 
 
 # Run the example
