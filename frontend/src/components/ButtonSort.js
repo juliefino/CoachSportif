@@ -2,118 +2,121 @@ import React, {useEffect, useState} from 'react';
 import './Cards.css';
 import './ButtonSort.css';
 import CardItem from "./CardItem";
+import axios from 'axios';
 
 const Ascending = () => {
-    const [data, setData] = useState([]);
-    const getData = () => {
-         fetch('/api/activites'
-            , {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(myJson);
-                setData(myJson);
-                data.push(myJson);
-                console.log(data[0]['1'].label);
-            });
-    }
+    const url = "/api/activites";
+    const [items, SetItems] = useState(null);
+    let content = null;
     useEffect(() => {
-        getData()
-    }, [])
-    return <div className='cards'>
-        <h1>ACTIVITÉS</h1>
-
-        <div className='cards__container'>
+            axios.get(url)
+                .then(response => {
+                    SetItems(response.data)
+                })
+        }, [url]
+    )
+    if (items){
+        content =  <div className='cards__container'>
             <div className='cards__wrapper'>
                 <ul className='cards__items'>
                     <CardItem
-                        src='images/atletismo.jpg'
+                        src= {items['1'].img}
                         text='Inscrivez-vous à cette activité'
-                        label= ''
+                        label={items['1'].label}
                         path='/activites'
                     />
                     <CardItem
-                        src='images/basketball.jpg'
+                        src={items['2'].img}
                         text='Inscrivez-vous à cette activité'
-                        label=''
+                        label={items['2'].label}
                         path='/activites'
                     />
                 </ul>
                 <ul className='cards__items'>
                     <CardItem
-                        src='images/futbol.jpg'
-                        label=''
+                        src={items['3'].img}
+                        label={items['3'].label}
                         text='Inscrivez-vous à cette activité'
                         path='/activites'
                     />
                     <CardItem
-                        src='images/natacion.jpg'
+                        src={items['4'].img}
                         text='Inscrivez-vous à cette activité'
-                        label=''
+                        label={items['4'].label}
                         path='/activites'
                     />
                     <CardItem
-                        src='images/tenis.png'
+                        src={items['5'].img}
                         text='Inscrivez-vous à cette activité'
-                        label=''
+                        label={items['5'].label}
                         path='/activites'
                     />
                 </ul>
             </div>
         </div>
+    }
+    return <div className='cards'>
+        <h1>ACTIVITÉS</h1>
+        {content}
+
     </div>;
 }
 
 const Descending = () => {
-    return <div className='cards'>
-        <h1>ACTIVITÉS</h1>
-
-        <div className='cards__container'>
+     const url = "/api/activites";
+    const [items, SetItems] = useState(null);
+    let content = null;
+    useEffect(() => {
+            axios.get(url)
+                .then(response => {
+                    SetItems(response.data)
+                })
+        }, [url]
+    )
+    if (items){
+        content =  <div className='cards__container'>
             <div className='cards__wrapper'>
                 <ul className='cards__items'>
                     <CardItem
-                        src='images/tenis.png'
+                        src= {items['5'].img}
                         text='Inscrivez-vous à cette activité'
-                        label='Tennis'
+                        label={items['5'].label}
                         path='/activites'
                     />
                     <CardItem
-                        src='images/natacion.jpg'
+                        src={items['4'].img}
                         text='Inscrivez-vous à cette activité'
-                        label='Natation'
+                        label={items['4'].label}
                         path='/activites'
                     />
                 </ul>
                 <ul className='cards__items'>
                     <CardItem
-                        src='images/futbol.jpg'
-                        label='Football'
+                        src={items['3'].img}
+                        label={items['3'].label}
                         text='Inscrivez-vous à cette activité'
                         path='/activites'
                     />
                     <CardItem
-                        src='images/basketball.jpg'
+                        src={items['2'].img}
                         text='Inscrivez-vous à cette activité'
-                        label='Basketball'
+                        label={items['2'].label}
                         path='/activites'
                     />
                     <CardItem
-                        src='images/atletismo.jpg'
+                        src={items['1'].img}
                         text='Inscrivez-vous à cette activité'
-                        label='Athletisme'
+                        label={items['1'].label}
                         path='/activites'
                     />
                 </ul>
             </div>
         </div>
+    }
+    return <div className='cards'>
+        <h1>ACTIVITÉS</h1>
+        {content}
+
     </div>;
 }
 

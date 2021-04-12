@@ -13,7 +13,8 @@ def getActivites():
     for activity in activites:
         result[activity.id] = {
             'id': activity.id,
-            'label': activity.nom_activite
+            'label': activity.nom_activite,
+            'img': activity.path_image
         }
 
     return result
