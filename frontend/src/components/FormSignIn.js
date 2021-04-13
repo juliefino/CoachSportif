@@ -30,7 +30,7 @@ const FormSignin = () => {
                         //localStorage.setItem('token',token.access_token)
                         console.log(token)
                         localStorage.setItem('access_token', token.access_token);
-
+                        localStorage.setItem('id', token.id)
                         localStorage.setItem('username', token.username);
 
                         if (localStorage.getItem("access_token") !== null && localStorage.getItem("access_token")!=="undefined") {
