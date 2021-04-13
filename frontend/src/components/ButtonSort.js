@@ -24,12 +24,14 @@ const Ascending = () => {
                         text='Inscrivez-vous à cette activité'
                         label={items['1'].label}
                         path='/activites'
+                        id = {items['1'].id}
                     />
                     <CardItem
                         src={items['2'].img}
                         text='Inscrivez-vous à cette activité'
                         label={items['2'].label}
                         path='/activites'
+                        id = {items['2'].id}
                     />
                 </ul>
                 <ul className='cards__items'>
@@ -38,18 +40,21 @@ const Ascending = () => {
                         label={items['3'].label}
                         text='Inscrivez-vous à cette activité'
                         path='/activites'
+                        id = {items['3'].id}
                     />
                     <CardItem
                         src={items['4'].img}
                         text='Inscrivez-vous à cette activité'
                         label={items['4'].label}
                         path='/activites'
+                        id = {items['4'].id}
                     />
                     <CardItem
                         src={items['5'].img}
                         text='Inscrivez-vous à cette activité'
                         label={items['5'].label}
                         path='/activites'
+                        id = {items['5'].id}
                     />
                 </ul>
             </div>

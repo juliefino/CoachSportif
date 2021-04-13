@@ -28,14 +28,15 @@ class Activites(db.Model):
     nom_activite = db.Column(db.String(200))
     path_image = db.Column(db.String(200))
 
-
-
-
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
 
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_activite = db.Column(db.Integer, db.ForeignKey("activites.id"), primary_key=True)
+
+    def __init__(self, user_id, card_id):
+        self.id_user = user_id
+        self.id_activite = card_id
 
 
 
