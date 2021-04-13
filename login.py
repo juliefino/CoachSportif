@@ -23,6 +23,7 @@ def creation_token():
             token = create_access_token(identity=email)
 
             return jsonify({'username': current_user.alias,
+                            'id': current_user.id,
                             'access_token': token}), 200
         else:
             return {'error': "Mot de passe ou email n'est pas correct"}
