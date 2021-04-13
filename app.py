@@ -21,6 +21,8 @@ app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
+
+#Changements
 app.register_blueprint(utilisateurs, url_prefix='/api/utilisateurs')
 app.register_blueprint(login, url_prefix='/api/login')
 app.register_blueprint(inscription, url_prefix='/api/inscription')
