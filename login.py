@@ -1,3 +1,4 @@
+import datetime
 from flask import Flask, request, jsonify, redirect, url_for, Blueprint
 import model as models
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
@@ -20,7 +21,7 @@ def creation_token():
             return {"error": "Utilisateur non dans la DB"}
 
         if current_user.password == password:
-            token = create_access_token(identity=email)
+            token = create_access_token(identity=email, expires_delta=datetime.timedelta(hours=72))
 
             return jsonify({'username': current_user.alias,
                             'id': current_user.id,

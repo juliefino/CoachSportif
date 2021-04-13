@@ -39,7 +39,7 @@ def switchFavorite():
 
         id_activity = models.Activites_Likees(user_id, card_id)
 
-        #GET to see if exist
+        # GET to see if exist
         favorite_of_user = models.Activites_Likees.query.all()
         data_exist = False
         for user in favorite_of_user:
@@ -75,7 +75,7 @@ def switchFavorite():
 
         id_activity = models.Activites_Likees(user_id, card_id)
 
-        #GET to see if exist
+        # GET to see if exist
         favorite_of_user = models.Activites_Likees.query.all()
         data_exist = False
         for user in favorite_of_user:
@@ -93,4 +93,3 @@ def switchFavorite():
             result = "Added!"
 
         return result
-

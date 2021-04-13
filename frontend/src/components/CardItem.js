@@ -4,10 +4,23 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import './CardItem.css';
 import {isLoggedIn} from './auth.js';
+import axios from "axios";
 
 function CardItem(props) {
     const [favorite, setFavorite] = useState(false);
     const toggleLike = () => {
+        axios.post('/api/activiteFavorite', {
+            card_id: props.id
+        }, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
         setFavorite(!favorite);
     }
     const changeColor = favorite ? "red" : "grey";
@@ -33,9 +46,8 @@ function CardItem(props) {
                 </li>
             </>
         );
-    }
-    else {
-         return (
+    } else {
+        return (
             <>
                 <li className='cards__item'>
                     <Link className='cards__item__link' to={props.path}>
