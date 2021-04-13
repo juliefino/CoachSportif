@@ -93,3 +93,6 @@ def switchFavorite():
             result = "Added!"
 
         return result
+
+
+@activites.route('', methods=['GET'])
