@@ -8,13 +8,14 @@ from model import *
 from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
-from activites import activites
+
 from encodage import encodage
+from activites import activites, activiteFavorite
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mf3d56ze45@localhost/WEB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:v3rtix3@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Setup the Flask-JWT-Extended extension
@@ -28,6 +29,8 @@ app.register_blueprint(login, url_prefix='/api/login')
 app.register_blueprint(inscription, url_prefix='/api/inscription')
 app.register_blueprint(activites, url_prefix='/api/activites')
 app.register_blueprint(encodage, url_prefix='/api/encodage')
+app.register_blueprint(activiteFavorite, url_prefix='/api/activiteFavorite')
+
 
 db.create_all()
 
