@@ -18,6 +18,3 @@ def getActivites():
         }
 
     return result
-
-
-@activites.route('', methods=['GET'])

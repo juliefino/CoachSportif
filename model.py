@@ -34,8 +34,13 @@ class Activites(db.Model):
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
 
-    id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
-    id_activite = db.Column(db.Integer, db.ForeignKey("activites.id"), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
+    id_activite = db.Column(db.Integer, db.ForeignKey("activites.id"))
+
+    def __init__(self, user_id, card_id):
+        self.id_user = user_id
+        self.id_activite = card_id
 
 
 class Objectifs(db.Model):
@@ -50,6 +55,29 @@ class Objectifs_Utilisateurs(db.Model):
 
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_objectif = db.Column(db.Integer, db.ForeignKey("objectifs.id"), primary_key=True)
+
+
+class Encodage(db.Model):
+    __tablename__ = "encodage"
+
+    id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
+    id_activite = db.Column(db.Integer, db.ForeignKey("activites_likees.id"))
+    id_encodage = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime)
+    heure = db.Column(db.TIME)
+    distance = db.Column(db.Integer)
+    duree = db.Column(db.TIME)
+    vitesse_moyenne = db.Column(db.TIME)
+
+    def __init__(self, id_user, id_activite, id_encodage, date, heure, distance, duree, vitesse_moyenne):
+        self.id_user = id_user
+        self.id_activite = id_activite
+        self.id_encodage = id_encodage
+        self.date = date
+        self.heure = heure
+        self.distance = distance
+        self.duree = duree
+        self.vitesse_moyenne = vitesse_moyenne
 
 
 db.create_all()

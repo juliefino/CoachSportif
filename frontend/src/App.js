@@ -24,7 +24,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
-          <Route path='/encodage' component={Encodage} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage" component={Encodage} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={FormSignup} />

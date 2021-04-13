@@ -6,7 +6,6 @@ import '../../App.css'
 const FormEncodage = () => {
 
 // Met le state des inputs
-// Commentaire
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
   const [distance, setDistance] = useState(5)
