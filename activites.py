@@ -94,5 +94,3 @@ def switchFavorite():
 
         return result
 
-
-@activites.route('', methods=['GET'])
