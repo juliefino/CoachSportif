@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Conditions.css';
 
-export default function Nutrition() {
+export default function Conditions() {
   return (
     <div>
       <h1 className='conditions' >CONDITIONS GÉNÉRALES ET POLITIQUE DE CONFIDENTIALITÉ </h1>
