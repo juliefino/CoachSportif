@@ -12,7 +12,7 @@ def post_encodage():
         info = request.get_json(force=True)
         print(info)
 
-        user_encodage = models.Encodage(info["id_user"], info["id_activite"], info["id_encodage"], info["date"], info["heure"],
+        user_encodage = models.Encodage(info["id_user"], info["id_activite"], info["date"], info["heure"],
                                         info["distance"], info["duree"], info["vitesse_moyenne"])
         app.db.session.add(user_encodage)
         app.db.session.commit()
