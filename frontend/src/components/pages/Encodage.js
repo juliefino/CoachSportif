@@ -6,6 +6,9 @@ import '../../App.css'
 const FormEncodage = () => {
 
 // Met le state des inputs
+  const [id_user, setUser] = localStorage.getItem("id")
+  const [id_activite] = useState(4)
+  const [id_encodage] = useState(3)
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
   const [distance, setDistance] = useState(5)
@@ -15,13 +18,14 @@ const FormEncodage = () => {
 const send = async (event) => {
     event.preventDefault();
 try{
+    console.log("Enter fetch !")
     let result =  await fetch('/api/encodage', {
     method: 'POST',
     headers: {
         'Content-type': 'application/json',
         'accept':'application/json'
       },
-    body: JSON.stringify({date, heure, distance, duree, vitesse_moyenne})
+    body: JSON.stringify({id_user, id_activite, id_encodage, date, heure, distance, duree, vitesse_moyenne})
   })
     console.log("Done")
     console.log(result)
