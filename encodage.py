@@ -3,7 +3,7 @@ import model as models
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
 import app as app
 
-encodage = Blueprint('encodage', __name__)
+encodage = Blueprint('encodage-distance', __name__)
 
 
 @encodage.route('', methods=['POST'])
