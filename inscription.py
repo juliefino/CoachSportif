@@ -14,4 +14,4 @@ def post_utilisateur():
         app.db.session.add(user)
         app.db.session.commit()
 
-        return redirect('http://localhost:5000/')
+        return "Vous êtes inscrit", 200

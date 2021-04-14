@@ -41,9 +41,7 @@ class Activites_Likees(db.Model):
         self.id_user = user_id
         self.id_activite = card_id
 
-    def __init__(self, user_id, card_id):
-        self.id_user = user_id
-        self.id_activite = card_id
+
 
 
 class Objectifs(db.Model):
