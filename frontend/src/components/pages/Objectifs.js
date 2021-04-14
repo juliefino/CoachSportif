@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../Selection.css';
+
 import '../Objectifs.css'
 import Select from 'react-select';
 import { Box } from "@chakra-ui/react"
