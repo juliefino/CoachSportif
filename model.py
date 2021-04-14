@@ -30,11 +30,6 @@ class Activites(db.Model):
     nom_activite = db.Column(db.String(200))
     path_image = db.Column(db.String(200))
 
-    def __init__(self, id, nom_activite, path_image):
-        self.id = id
-        self.nom_activite = nom_activite
-        self.path_image = path_image
-
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
 
@@ -46,6 +41,9 @@ class Activites_Likees(db.Model):
         self.id_user = user_id
         self.id_activite = card_id
 
+    def __init__(self, user_id, card_id):
+        self.id_user = user_id
+        self.id_activite = card_id
 
 
 class Objectifs(db.Model):

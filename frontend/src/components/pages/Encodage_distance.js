@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import '../../App.css'
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-const FormEncodage = () => {
+export default function Distance() {
 
 // Met le state des inputs
+  const [id_user, setUser] = localStorage.getItem("id")
+  const [id_activite] = useState(2)
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
   const [distance, setDistance] = useState(5)
@@ -15,13 +18,14 @@ const FormEncodage = () => {
 const send = async (event) => {
     event.preventDefault();
 try{
-    let result =  await fetch('/api/encodage', {
+    console.log("Enter fetch !")
+    let result =  await fetch('/api/encodage-distance', {
     method: 'POST',
     headers: {
         'Content-type': 'application/json',
         'accept':'application/json'
       },
-    body: JSON.stringify({date, heure, distance, duree, vitesse_moyenne})
+    body: JSON.stringify({id_user, id_activite, date, heure, distance, duree, vitesse_moyenne})
   })
     console.log("Done")
     console.log(result)
@@ -53,13 +57,13 @@ catch(e){
 
                     <div className="form-inputs">
                       <label className='form-label'>Distance parcourue ( km ) </label>
-                        <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0" value={distance} name="distance"
+                        <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0.01" required value={distance} name="distance"
                             onChange={ (e) => setDistance(e.target.value) }/>
                     </div>
 
                     <div className='form-inputs'>
                        <label className='form-label'>Durée totale de l'activité (" HH : MM : SS ")</label>
-                         <input className='form-input' type="time" step="1" placeholder="HH:MM:SS" value={duree} name="duree"
+                         <input className='form-input' type="time" step="2" required value={duree} name="duree"
                             onChange={ (e) => setDuree(e.target.value) }/>
                     </div>
 
@@ -75,4 +79,3 @@ catch(e){
        </>
    );
 }
-export default FormEncodage;

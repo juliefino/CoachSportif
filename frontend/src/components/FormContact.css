@@ -1,0 +1,24 @@
+.title {
+  position: static;
+  left: -100px;
+  top: 25px;
+  bottom: 25px;
+}
+
+.form {
+    box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    background-color: sandybrown;
+    border-radius: 0 10px 10px 0;
+    top: 230px;
+    color: white;
+    width: 500px;
+    margin-right: auto;
+    height: 400px;
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+
