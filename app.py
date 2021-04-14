@@ -15,6 +15,7 @@ from activites import activites, activiteFavorite
 
 app = Flask(__name__)
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mf3d56ze45@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
