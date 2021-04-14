@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import '../../App.css'
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-const FormEncodage = () => {
+export default function Distance() {
 
 // Met le state des inputs
   const [id_user, setUser] = localStorage.getItem("id")
@@ -18,7 +19,7 @@ const send = async (event) => {
     event.preventDefault();
 try{
     console.log("Enter fetch !")
-    let result =  await fetch('/api/encodage', {
+    let result =  await fetch('/api/encodage-distance', {
     method: 'POST',
     headers: {
         'Content-type': 'application/json',
@@ -68,7 +69,7 @@ catch(e){
 
                     <div className='form-inputs'>
                        <label className='form-label'>Vitesse moyenne (minutes / km) </label>
-                         <input className='form-input' type="time" value={vitesse_moyenne} required name="vitesse_moyenne"
+                         <input className='form-input' type="time" value={vitesse_moyenne} name="vitesse_moyenne"
                             onChange={ (e) => setVitesse_moyenne(e.target.value) }/>
                     </div>
 
@@ -78,4 +79,3 @@ catch(e){
        </>
    );
 }
-export default FormEncodage;
