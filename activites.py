@@ -22,7 +22,9 @@ def getActivites():
 
     return result
 
+
 activiteFavorite = Blueprint('activiteFavorite', __name__)
+
 
 @activiteFavorite.route('', methods=['POST'])
 @jwt_required()
@@ -55,3 +57,20 @@ def switchFavorite():
             result = "Added!"
 
         return result
+
+
+activitiesLiked = Blueprint('activitiesLiked', __name__)
+
+
+@activitiesLiked.route('', methods=['GET'])
+def getActivitesLiked():
+    liked_activities = models.Activites_Likees.query.all()
+    result = {}
+    for like in liked_activities:
+        result[like.id] = {
+            'id': like.id,
+            'id_user': like.id_user,
+            'id_activity': like.id_activite
+        }
+
+    return result

@@ -7,7 +7,20 @@ import {isLoggedIn} from './auth.js';
 import axios from "axios";
 
 function CardItem(props) {
-    const [favorite, setFavorite] = useState(false);
+
+    useEffect(() => {
+            axios.get('/api/activitesLikees')
+                .then(response => {
+                    for (let i in response.data) {
+                        if (response.data[i].id_user === +localStorage.getItem('id')) {
+                            document.getElementById(response.data[i].id_activity).childNodes[0].style.color = "red";
+                        }
+                    }
+                })
+        }, ['/api/activitesLikees']
+    )
+
+
     const toggleLike = () => {
         axios.post('/api/activiteFavorite', {
             card_id: props.id
@@ -17,15 +30,16 @@ function CardItem(props) {
             }
         })
             .then((response) => {
-                console.log(response);
+                alert("Modification enregistrée !")
             }, (error) => {
                 console.log(error);
             });
-        setFavorite(!favorite);
+        window.location.reload(false);
+
     }
-    const changeColor = favorite ? "red" : "grey";
     if (isLoggedIn()) {
         return (
+
             <>
                 <li className='cards__item'>
                     <Link className='cards__item__link' to={props.path}>
@@ -36,7 +50,7 @@ function CardItem(props) {
                                 src={props.src}
                             />
                             <button className='likeBtn' onClick={toggleLike} id={props.id}>
-                                <FontAwesomeIcon icon={faHeart} style={{color: changeColor}}/>
+                                <FontAwesomeIcon icon={faHeart} style={{color: "grey"}}/>
                             </button>
                         </figure>
                         <div className='cards__item__info'>
@@ -46,6 +60,8 @@ function CardItem(props) {
                 </li>
             </>
         );
+
+
     } else {
         return (
             <>

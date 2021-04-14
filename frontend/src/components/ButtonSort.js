@@ -11,7 +11,8 @@ const Ascending = () => {
     useEffect(() => {
             axios.get(url)
                 .then(response => {
-                    SetItems(response.data)
+                    SetItems(response.data);
+                    console.log(items);
                 })
         }, [url]
     )

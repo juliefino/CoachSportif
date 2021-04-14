@@ -10,8 +10,7 @@ from login import login
 from inscription import inscription
 
 from encodage import encodage
-from activites import activites, activiteFavorite
-
+from activites import activites, activiteFavorite, activitiesLiked
 
 app = Flask(__name__)
 
@@ -30,7 +29,7 @@ app.register_blueprint(inscription, url_prefix='/api/inscription')
 app.register_blueprint(activites, url_prefix='/api/activites')
 app.register_blueprint(encodage, url_prefix='/api/encodage')
 app.register_blueprint(activiteFavorite, url_prefix='/api/activiteFavorite')
-
+app.register_blueprint(activitiesLiked, url_prefix='/api/activitesLikees')
 
 db.create_all()
 
