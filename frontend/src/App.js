@@ -18,6 +18,7 @@ import {isLoggedIn} from './components/auth.js';
 import Profile from "./components/pages/Profile";
 
 import { PrivateRoute } from "./components/PrivateRoute.js";
+import Contact from "./components/pages/Contact";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path='/login' component={FormSignin} />
           <Route path='/conditions' component={Conditions} />
           <Route path='/success' component={Success} />
+          <Route path='/contact' component={Contact} />
 
           <Route component={NotFound} />
 
