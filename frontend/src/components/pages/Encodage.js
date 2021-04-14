@@ -7,8 +7,7 @@ const FormEncodage = () => {
 
 // Met le state des inputs
   const [id_user, setUser] = localStorage.getItem("id")
-  const [id_activite] = useState(4)
-  const [id_encodage] = useState(3)
+  const [id_activite] = useState(2)
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
   const [distance, setDistance] = useState(5)
@@ -25,7 +24,7 @@ try{
         'Content-type': 'application/json',
         'accept':'application/json'
       },
-    body: JSON.stringify({id_user, id_activite, id_encodage, date, heure, distance, duree, vitesse_moyenne})
+    body: JSON.stringify({id_user, id_activite, date, heure, distance, duree, vitesse_moyenne})
   })
     console.log("Done")
     console.log(result)
@@ -57,19 +56,19 @@ catch(e){
 
                     <div className="form-inputs">
                       <label className='form-label'>Distance parcourue ( km ) </label>
-                        <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0" value={distance} name="distance"
+                        <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0.01" required value={distance} name="distance"
                             onChange={ (e) => setDistance(e.target.value) }/>
                     </div>
 
                     <div className='form-inputs'>
                        <label className='form-label'>Durée totale de l'activité (" HH : MM : SS ")</label>
-                         <input className='form-input' type="time" step="1" placeholder="HH:MM:SS" value={duree} name="duree"
+                         <input className='form-input' type="time" step="2" required value={duree} name="duree"
                             onChange={ (e) => setDuree(e.target.value) }/>
                     </div>
 
                     <div className='form-inputs'>
                        <label className='form-label'>Vitesse moyenne (minutes / km) </label>
-                         <input className='form-input' type="time" value={vitesse_moyenne} name="vitesse_moyenne"
+                         <input className='form-input' type="time" value={vitesse_moyenne} required name="vitesse_moyenne"
                             onChange={ (e) => setVitesse_moyenne(e.target.value) }/>
                     </div>
 
