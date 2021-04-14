@@ -30,16 +30,13 @@ class Activites(db.Model):
     nom_activite = db.Column(db.String(200))
     path_image = db.Column(db.String(200))
 
+
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
     id_activite = db.Column(db.Integer, db.ForeignKey("activites.id"))
-
-    def __init__(self, user_id, card_id):
-        self.id_user = user_id
-        self.id_activite = card_id
 
     def __init__(self, user_id, card_id):
         self.id_user = user_id
@@ -63,19 +60,18 @@ class Objectifs_Utilisateurs(db.Model):
 class Encodage(db.Model):
     __tablename__ = "encodage"
 
+    id_encodage = db.Column(db.Integer, primary_key=True, autoincrement=True)
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
     id_activite = db.Column(db.Integer, db.ForeignKey("activites_likees.id"))
-    id_encodage = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime)
+    date = db.Column(db.Date())
     heure = db.Column(db.TIME)
-    distance = db.Column(db.Integer)
+    distance = db.Column(db.DECIMAL(5, 2))
     duree = db.Column(db.TIME)
     vitesse_moyenne = db.Column(db.TIME)
 
-    def __init__(self, id_user, id_activite, id_encodage, date, heure, distance, duree, vitesse_moyenne):
+    def __init__(self, id_user, id_activite, date, heure, distance, duree, vitesse_moyenne):
         self.id_user = id_user
         self.id_activite = id_activite
-        self.id_encodage = id_encodage
         self.date = date
         self.heure = heure
         self.distance = distance
