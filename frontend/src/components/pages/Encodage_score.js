@@ -5,9 +5,5 @@ import '../../App.css'
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 export default function Score() {
-   return (
-       <>
-
-       </>
-   )
+      return <h1 className='services'>ENCODAGE SCORE</h1>;
 }
