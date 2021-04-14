@@ -29,7 +29,9 @@ app.register_blueprint(utilisateurs, url_prefix='/api/utilisateurs')
 app.register_blueprint(login, url_prefix='/api/login')
 app.register_blueprint(inscription, url_prefix='/api/inscription')
 app.register_blueprint(activites, url_prefix='/api/activites')
-app.register_blueprint(encodage, url_prefix='/api/encodage')
+app.register_blueprint(encodage, url_prefix='/api/encodage-distance')
+app.register_blueprint(encodage, url_prefix='/api/encodage-aquatique')
+app.register_blueprint(encodage, url_prefix='/api/encodage-score')
 app.register_blueprint(activiteFavorite, url_prefix='/api/activiteFavorite')
 
 
