@@ -31,15 +31,15 @@ const FormulaireVitesse =() =>{
 
 
     return(
-    <div className='form-content'>
+    <div className='form-content-ob'>
           <form className="formulaire">
-              <div className='form-inputs'>
+              <div className='form-inputs-ob'>
                   <h3>{message}</h3>
 
-              <label className='form-label'>Vitesse exprimée en km/h</label>
+              <label className='form-label-ob'>Vitesse exprimée en km/h</label>
               <input
                 required
-                className='form-input'
+                className='form-input-ob'
                 type='number'
                 min="2"
                 step="0.01"
@@ -52,7 +52,7 @@ const FormulaireVitesse =() =>{
               </div>
 
 
-              <button onClick={handleClick} className='btn-objectif'>SAUVEGARDER OBJECTIF</button>
+              <button onClick={handleClick} className='form-input-btn-ob'>SAUVEGARDER OBJECTIF</button>
                     </form>
                      </div>
     );

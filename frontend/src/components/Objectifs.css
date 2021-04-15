@@ -10,7 +10,22 @@
   align-items: center;
 }
 
-.form-content{
+.form-inputs-ob {
+  margin-bottom: 10px;
+  width: 80%;
+  margin-left: 50px;
+
+}
+.form-label-ob {
+  display: inline-block;
+  font-size: 20px;
+    margin-top: 30px;
+  margin-bottom: 6px;
+    margin-left: 50px;
+  color: white;
+}
+
+.form-content-ob{
   margin: 50px auto;
   width: 400px;
   box-shadow: 0 0px 0px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -24,9 +39,10 @@
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
-.btn-objectif{
+.form-input-btn-ob{
   padding: 8px 20px;
   border-radius: 2px;
+  margin-right: 45%;
   outline: none;
   border: none;
   cursor: pointer;
@@ -36,7 +52,32 @@
   font-weight: bold;
 }
 
-.btn-objectif:hover {
+.form-input-ob {
+   display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 40%;
+  border: none;
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+.form-input-ob::placeholder {
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+.form-input-btn-ob:hover {
   transition: all 0.3s ease-out;
   background-color: brown ;
   color: white;

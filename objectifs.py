@@ -18,6 +18,18 @@ def getObjectifs():
 
     return result
 
+@objectifs.route('<id>', methods=['GET'])
+def get_objectifs_utilisateurs(id):
+    objectifs = models.Objectifs.query.get_or_404(id)
+    result = {}
+    for objet in objectifs:
+        result[objet.id] = {
+            'id': objet.id,
+            'label': objet.nom_objectif
+        }
+
+    return result
+
 objectifs_user = Blueprint('objectifs_user', __name__)
 
 
