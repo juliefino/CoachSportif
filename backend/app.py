@@ -8,7 +8,7 @@ from model import *
 from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
-from objectifs import objectifs, objectifs_user
+from objectifs import objectifs, objectifs_user, obtenir_objectif
 from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
 
@@ -35,6 +35,7 @@ app.register_blueprint(activiteFavorite, url_prefix='/api/activiteFavorite')
 app.register_blueprint(activitiesLiked, url_prefix='/api/activitesLikees')
 app.register_blueprint(objectifs, url_prefix="/api/objectifs")
 app.register_blueprint(objectifs_user, url_prefix="/api/objectifs_user")
+app.register_blueprint(obtenir_objectif, url_prefix="/api/obtenir_objectif")
 db.create_all()
 
 
