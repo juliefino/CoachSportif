@@ -13,15 +13,11 @@
 .form-inputs-ob {
   margin-bottom: 10px;
   width: 80%;
-  margin-left: 50px;
-
 }
 .form-label-ob {
-  display: inline-block;
+   display: inline-block;
   font-size: 20px;
-    margin-top: 30px;
   margin-bottom: 6px;
-    margin-left: 50px;
   color: white;
 }
 
@@ -31,7 +27,7 @@
   box-shadow: 0 0px 0px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: peru;
   border-radius: 25px;
-  position: center;
+  position: relative;
   height: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -42,7 +38,6 @@
 .form-input-btn-ob{
   padding: 8px 20px;
   border-radius: 2px;
-  margin-right: 45%;
   outline: none;
   border: none;
   cursor: pointer;
@@ -58,7 +53,7 @@
   outline: none;
   border-radius: 2px;
   height: 40px;
-  width: 40%;
+  width: 100%;
   border: none;
   color: #595959;
   font-size: 17px;
@@ -131,4 +126,87 @@
 @keyframes r {
   from { transform: rotate(0deg); }
   from { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 960px) {
+ .formulaire {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inputs-ob {
+  margin-bottom: 10px;
+  width: 80%;
+}
+.form-label-ob {
+   display: inline-block;
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.form-content-ob{
+  margin: 50px auto;
+  width: 400px;
+  box-shadow: 0 0px 0px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: peru;
+  border-radius: 25px;
+  position: relative;
+  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+.form-input-btn-ob{
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.form-input-ob {
+   display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+  border: none;
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+.form-input-ob::placeholder {
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+.form-input-btn-ob:hover {
+  transition: all 0.3s ease-out;
+  background-color: brown ;
+  color: white;
+  transition: 250ms;
+}
 }
