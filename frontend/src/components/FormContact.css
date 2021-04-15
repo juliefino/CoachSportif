@@ -5,32 +5,93 @@
   bottom: 25px;
 }
 
-.form {
+.box {
     position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    margin-top: 270px;
+    margin-bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    background-color: sandybrown;
+    border-radius:  10px 10px 10px 10px;
+    width: 500px;
+    height: 525px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    padding-top: 35px;
+
 }
-.form-content{
-  margin: 100px auto;
-  width: 1000px;
-  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: sandybrown;
-  position: relative;
-  border-radius: 0 10px 10px 0;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
+.subtitles{
+
+    font-size: 20px;
+    top: 30px;
+    bottom: 20px;
+    color: white;
+}
+
+.entry{
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 350px;
+    border: none;
+    color: #595959;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.textbox{
+    display: block;
+    padding: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 135px;
+    width: 350px;
+    border: none;
+    color: #595959;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    resize : none;
+    text-align: justify-all;
+}
+
+.pack{
+  padding-left: 16%;
+}
+
+.form-input-btn-contact{
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 10%;
+  border-radius: 2px;
+  background-color: #663300;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
 
+.form-input-btn-contact:hover{
+  cursor: pointer;
+  background-color: #242222;
+  transition: all 0.4s ease-out;
+}
 
 
