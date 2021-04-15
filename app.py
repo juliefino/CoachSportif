@@ -8,14 +8,14 @@ from model import *
 from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
-
+from objectifs import objectifs, objectifs_user
 from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
 
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mf3d56ze45@localhost/WEB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:19992003i@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Setup the Flask-JWT-Extended extension
@@ -33,7 +33,8 @@ app.register_blueprint(encodage, url_prefix='/api/encodage-aquatique')
 app.register_blueprint(encodage, url_prefix='/api/encodage-score')
 app.register_blueprint(activiteFavorite, url_prefix='/api/activiteFavorite')
 app.register_blueprint(activitiesLiked, url_prefix='/api/activitesLikees')
-
+app.register_blueprint(objectifs, url_prefix="/api/objectifs")
+app.register_blueprint(objectifs_user, url_prefix="/api/objectifs_user")
 db.create_all()
 
 
