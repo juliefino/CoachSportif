@@ -84,15 +84,15 @@ const FormulaireTemps =() =>{
           })
     }
     return(
-    <div className='form-content'>
-        <h3>{message}</h3>
+    <div className='form-content-ob'>
           <form className="formulaire">
-              <div className='form-inputs'>
+              <div className='form-inputs-ob'>
+                  <h3>{message}</h3>
 
-              <label className='form-label'>Temps exprimé en minutes </label>
+              <label className='form-label-ob'>Temps exprimé en minutes </label>
               <input
                 required
-                className='form-input'
+                className='form-input-ob'
                 type='number'
                 min="1"
                 step="1"
@@ -105,8 +105,7 @@ const FormulaireTemps =() =>{
               />
               </div>
 
-
-             <button onClick={handleClick} className='btn-objectif'>SAUVEGARDER OBJECTIF</button>
+                <button onClick={handleClick} className='form-input-btn-ob'>SAUVEGARDER OBJECTIF</button>
                     </form>
                      </div>
     );
@@ -140,16 +139,15 @@ const FormulaireDistance =() =>{
 
     return(
 
-    <div className='form-content'>
-
+    <div className='form-content-ob'>
           <form className="formulaire">
-              <div className='form-inputs'>
-                  <p>{message}</p>
+              <div className='form-inputs-ob'>
+                  <h3>{message}</h3>
 
-              <label className='form-label'>Distance exprimée en mètres</label>
+              <label className='form-label-ob'>Distance exprimée en mètres</label>
               <input
                 required
-                className='form-input'
+                className='form-input-ob'
                 type='number'
                 min="50"
                 step="1"
@@ -163,7 +161,7 @@ const FormulaireDistance =() =>{
               </div>
 
 
-              <button onClick={handleClick} className='btn-objectif'>SAUVEGARDER OBJECTIF</button>
+               <button onClick={handleClick} className='form-input-btn-ob'>SAUVEGARDER OBJECTIF</button>
                     </form>
                      </div>
     );
