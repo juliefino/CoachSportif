@@ -61,7 +61,7 @@ const FormSignin = () => {
 
        return (
             <div>
-                <div className='form-content'>
+                <div className='form-content-in'>
                     <form className="form">
 
                         <div className='form-inputs'>
