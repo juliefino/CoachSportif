@@ -15,7 +15,7 @@ from activites import activites, activiteFavorite, activitiesLiked
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:mf3d56ze45@localhost/WEB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:v3rtix3@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Setup the Flask-JWT-Extended extension
