@@ -36,7 +36,7 @@ const FormulaireVitesse =() =>{
               <div className='form-inputs-ob'>
                   <h3>{message}</h3>
 
-              <label className='form-label-ob'>Vitesse exprimée en km/h</label>
+              <label className='form-label-ob'>Vitesse exprimée en min/km</label>
               <input
                 required
                 className='form-input-ob'
