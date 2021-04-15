@@ -5,14 +5,27 @@
   background-color: sandybrown;
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 650px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
-
+.form-content-in{
+  margin: 100px auto;
+  width: 500px;
+  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: sandybrown;
+  position: relative;
+  border-radius: 10px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
 .form {
   position: absolute;
   top: 50%;
@@ -128,6 +141,7 @@ Link {
 .form-input-btn:hover {
   cursor: pointer;
   background-color: #8A6735;
+  color: #242424;
   transition: all 0.4s ease-out;
 }
 
