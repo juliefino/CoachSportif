@@ -38,9 +38,8 @@ catch(e){
 }
 
    return (
-       <>
+       <>   <h1 className='objectifs'>PERFORMANCE</h1>
             <div className='form-content'>
-              <h1 className='objectifs'>PERFORMANCE</h1>
                 <form className="form" onSubmit={(event) => {send(event)}}>
 
                     <div className="form-inputs">
@@ -50,25 +49,25 @@ catch(e){
                     </div>
 
                     <div className="form-inputs">
-                      <label className='form-label'>Heure </label>
+                      <label className='form-label'>Heure <bdi> heure : minutes </bdi></label>
                         <input className='form-input' type='time' required value={heure} name="heure"
                           onChange={ (e) => setHeure(e.target.value) }/>
                     </div>
 
                     <div className="form-inputs">
-                      <label className='form-label'>Distance parcourue ( km ) </label>
+                      <label className='form-label'>Distance parcourue<bdi> km </bdi> </label>
                         <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0.01" required value={distance} name="distance"
                             onChange={ (e) => setDistance(e.target.value) }/>
                     </div>
 
                     <div className='form-inputs'>
-                       <label className='form-label'>Durée totale de l'activité (" HH : MM : SS ")</label>
+                       <label className='form-label'>Durée totale de l'activité<bdi> heure : minutes : secondes </bdi></label>
                          <input className='form-input' type="time" step="2" required value={duree} name="duree"
                             onChange={ (e) => setDuree(e.target.value) }/>
                     </div>
 
                     <div className='form-inputs'>
-                       <label className='form-label'>Vitesse moyenne (minutes / km) </label>
+                       <label className='form-label'>Vitesse moyenne <bdi> minutes / km </bdi></label>
                          <input className='form-input' type="time" value={vitesse_moyenne} name="vitesse_moyenne"
                             onChange={ (e) => setVitesse_moyenne(e.target.value) }/>
                     </div>

@@ -1,12 +1,10 @@
-
-
 .form-content{
   margin: 100px auto;
   width: 1000px;
   box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: sandybrown;
   position: relative;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   height: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,7 +37,6 @@
 .form-inputs {
   margin-bottom: 10PX;
   width: 80%;
-
 }
 
 #agree  {
@@ -49,6 +46,7 @@
   border: none;
   cursor: pointer;
 }
+
 .form-inputs p {
   font-size: 20px;
   margin-top: 0.5rem;
@@ -57,8 +55,9 @@
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
+
 b{
-    color: white;
+  color: white;
   font-size: 17px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
@@ -75,7 +74,9 @@ Link {
   display: inline-block;
   font-size: 20px;
   margin-bottom: 6px;
-  color: white;
+  color: #575757;
+  width: 100%;
+  padding: 0px 15px 0px 8px;
 }
 
 .form-input {
@@ -85,13 +86,17 @@ Link {
   border-radius: 2px;
   height: 40px;
   width: 100%;
-  border: none;
   color: #595959;
   font-size: 17px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
-}
+  border-radius: 8px;
+  padding: 1px;
+  margin: 1px 0px 10px 0px;
+  text-indent: 5px;
+  border : solid #663300 1px
+  }
 
 .form-input::placeholder {
   color: #595959;
@@ -114,11 +119,15 @@ Link {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
+  border-radius: 25px;
+  borderWidth: 1;
+  border-color : #663300;
+  width : 200px
 }
 
 .form-input-btn:hover {
   cursor: pointer;
-  background-color: #242222;
+  background-color: #8A6735;
   transition: all 0.4s ease-out;
 }
 
@@ -135,21 +144,14 @@ Link {
   color: #27cdff;
   font-weight: 600;
 }
+
 @media screen and (max-width: 960px) {
 
-.form-content{
-  margin: 100px auto;
-  width: 100%;
-  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: sandybrown;
-  position: relative;
-  border-radius: 0 10px 10px 0;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-
 }
+
+bdi {
+    color: #575757;
+    float: right;
+    display: block;
+    font-size: 0.95rem
 }
