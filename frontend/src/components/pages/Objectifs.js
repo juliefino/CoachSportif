@@ -221,7 +221,7 @@ export default function Objectifs() {
                             }</div>}
                   </Box>
                 <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
-                        <h3 style={{textAlign:"center"}}>Voilà votre barre de progression</h3>
+                        <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
                         <div className="progressbar-container">
                           <div className="progressbar-complete" style={{width: `25%`}}>
                             <div className="progressbar-liquid"></div>
