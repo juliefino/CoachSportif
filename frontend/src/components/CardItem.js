@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
@@ -7,19 +7,6 @@ import {isLoggedIn} from './auth.js';
 import axios from "axios";
 
 function CardItem(props) {
-
-    useEffect(() => {
-            axios.get('/api/activitesLikees')
-                .then(response => {
-                    for (let i in response.data) {
-                        if (response.data[i].id_user === +localStorage.getItem('id')) {
-                            document.getElementById(response.data[i].id_activity).childNodes[0].style.color = "red";
-                        }
-                    }
-                })
-        }, ['/api/activitesLikees']
-    )
-
 
     const toggleLike = () => {
         axios.post('/api/activiteFavorite', {
@@ -30,11 +17,16 @@ function CardItem(props) {
             }
         })
             .then((response) => {
-                alert("Modification enregistrée !")
+                if (response.data === "Added!") {
+                    let actualCard = document.getElementById(props.id).childNodes[0];
+                    actualCard.style.color = "red";
+                } else if (response.data === "Deleted!") {
+                    let actualCard = document.getElementById(props.id).childNodes[0];
+                    actualCard.style.color = "grey";
+                }
             }, (error) => {
                 console.log(error);
             });
-        window.location.reload(false);
 
     }
     if (isLoggedIn()) {
