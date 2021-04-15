@@ -54,6 +54,12 @@ class Objectifs_Utilisateurs(db.Model):
 
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_objectif = db.Column(db.Integer, db.ForeignKey("objectifs.id"), primary_key=True)
+    objectif = db.Column(db.Integer)
+
+    def __init__(self, id_user, id_objectif, objectif):
+        self.id_user = id_user
+        self.id_objectif = id_objectif
+        self.objectif = objectif
 
 
 class Encodage(db.Model):
