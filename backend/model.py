@@ -54,7 +54,7 @@ class Objectifs_Utilisateurs(db.Model):
 
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_objectif = db.Column(db.Integer, db.ForeignKey("objectifs.id"), primary_key=True)
-    objectif = db.Column(db.Integer)
+    objectif = db.Column(db.Numeric(5,2))
 
     def __init__(self, id_user, id_objectif, objectif):
         self.id_user = id_user
@@ -70,14 +70,13 @@ class Encodage(db.Model):
     id_encodage = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime)
     heure = db.Column(db.TIME)
-    distance = db.Column(db.Integer)
+    distance = db.Column(db.Numeric(5,2))
     duree = db.Column(db.TIME)
-    vitesse_moyenne = db.Column(db.TIME)
+    vitesse_moyenne = db.Column(db.Numeric(4,2))
 
-    def __init__(self, id_user, id_activite, id_encodage, date, heure, distance, duree, vitesse_moyenne):
+    def __init__(self, id_user, id_activite,  date, heure, distance, duree, vitesse_moyenne):
         self.id_user = id_user
         self.id_activite = id_activite
-        self.id_encodage = id_encodage
         self.date = date
         self.heure = heure
         self.distance = distance

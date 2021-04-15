@@ -11,7 +11,7 @@ export default function Distance() {
   const [id_activite] = useState(2)
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
-  const [distance, setDistance] = useState(5)
+  const [distance, setDistance] = useState('')
   const [duree, setDuree] = useState('')
   const [vitesse_moyenne, setVitesse_moyenne] = useState('')
 
@@ -50,7 +50,7 @@ catch(e){
 
                     <div className="form-inputs">
                       <label className='form-label'>Heure <bdi> heure : minutes </bdi></label>
-                        <input className='form-input' type='time' required value={heure} name="heure"
+                        <input className='form-input' type='time'  required value={heure} name="heure"
                           onChange={ (e) => setHeure(e.target.value) }/>
                     </div>
 
@@ -68,7 +68,7 @@ catch(e){
 
                     <div className='form-inputs'>
                        <label className='form-label'>Vitesse moyenne <bdi> minutes / km </bdi></label>
-                         <input className='form-input' type="time" value={vitesse_moyenne} name="vitesse_moyenne"
+                         <input required className='form-input' type="number" placeholder="1.0" step="0.01" min="0.01" value={vitesse_moyenne} name="vitesse_moyenne"
                             onChange={ (e) => setVitesse_moyenne(e.target.value) }/>
                     </div>
 
