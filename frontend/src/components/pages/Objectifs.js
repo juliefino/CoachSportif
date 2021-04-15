@@ -169,6 +169,8 @@ const FormulaireDistance =() =>{
 
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
+    const [valeurs, setValeurs] = useState(null)
+    const [objectif, setObjectif] = useState('')
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
         fetch(apiUrl, {
@@ -183,12 +185,31 @@ export default function Objectifs() {
                     setDonnees(response)
           });
   }, [setDonnees]);
-    const don = [];
+    const donnee = [];
     for (let i in donnees) {
-        don.push(donnees[i])
+        donnee.push(donnees[i])
 
     };
-    console.log(don)
+    console.log(donnee)
+
+    useEffect( () => {
+        const apiUrl = `/api/obtenir_objectif/`;
+        fetch(apiUrl + localStorage.getItem("id"), {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        })
+          .then((res) => res.json())
+          .then((response) => {
+                    setValeurs(response)
+              console.log(response)
+
+          });
+  }, [setValeurs]);
+
+
 
   // set value for default selection
   const [selectedValue, setSelectedValue] = useState(3);
@@ -197,7 +218,8 @@ export default function Objectifs() {
   const handleChange = e => {
     setSelectedValue(e.value);
   }
-   return (
+   if(valeurs == null){
+       return (
        <>
         <h1 className='objectifs'>OBJECTIFS</h1>
            <div className='App'>
@@ -210,8 +232,8 @@ export default function Objectifs() {
                         placeholder="Select Option"
                         className="selection"
                         style={{display: 'block'}}
-                        value={don.find(obj => obj.value === selectedValue)}
-                        options={don}
+                        value={donnee.find(obj => obj.value === selectedValue)}
+                        options={donnee}
                         onChange={handleChange}
                         />
                         {selectedValue && <div>
@@ -231,13 +253,31 @@ export default function Objectifs() {
 
                   </Box>
 
-
-
-
                 </Box>
 
             </div>
        </>
-   );
+   );}else{
+       const id = localStorage.getItem('id')
+
+       const apiUrl = `/api/objectifs/`;
+        fetch(apiUrl + valeurs[id].id_objectif, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        })
+          .then((res) => res.json())
+          .then((response) => {
+             setObjectif(response.nom_objectif)
+          });
+
+       //console.log(valeurs[id].id_objectif)
+
+       return(
+           <h2>Votre objectif est le suivant {objectif} </h2>
+       )
+   }
 
 }
