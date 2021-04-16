@@ -124,6 +124,8 @@ export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
     const [objectif, setObjectif] = useState('')
+    const [valeur, setValeur] = useState(null)
+    const [resultat, setResultat] =  useState(null)
     const pourcentage = 0
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
@@ -144,7 +146,7 @@ export default function Objectifs() {
         donnee.push(donnees[i])
 
     };
-    console.log(donnee)
+
 
     useEffect( () => {
         const apiUrl = `/api/obtenir_objectif/`;
@@ -158,7 +160,7 @@ export default function Objectifs() {
           .then((res) => res.json())
           .then((response) => {
                     setValeurs(response)
-              console.log(response)
+
 
           });
   }, [setValeurs]);
@@ -226,7 +228,26 @@ export default function Objectifs() {
              setObjectif(response.nom_objectif)
           });
 
-       //console.log(valeurs[id].id_objectif)
+        const apiEncodagesObjectifs = `/api/obtenir_encodage_utilisateur/`;
+        fetch(apiEncodagesObjectifs + id, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        })
+          .then((res) => res.json())
+          .then((response) => {
+             setValeur(response)
+              //console.log(response[id])
+              //console.log(valeur[id].distance)
+          });
+        if(valeurs[id].id_objectif === 1){
+            console.log(valeur[id].vitesse_moyenne)
+        }else{
+            console.log(valeur[id].distance)
+        }
+
 
        return(
             <div>
