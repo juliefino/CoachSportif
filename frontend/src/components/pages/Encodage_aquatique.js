@@ -8,4 +8,5 @@ import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootst
 export default function Aquatique() {
 
    return <h1 className='services'>ENCODAGE AQUATIQUE</h1>;
+
 }
