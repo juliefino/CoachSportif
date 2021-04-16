@@ -70,7 +70,7 @@ class Encodage(db.Model):
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
     id_activite = db.Column(db.Integer, db.ForeignKey("activites_likees.id"))
     id_encodage = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime)
+    date = db.Column(db.DATE)
     heure = db.Column(db.TIME)
     distance = db.Column(db.Numeric(5, 2))
     duree = db.Column(db.TIME)
