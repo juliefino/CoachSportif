@@ -30,6 +30,7 @@ class Activites(db.Model):
     nom_activite = db.Column(db.String(200))
     path_image = db.Column(db.String(200))
 
+
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
 
@@ -54,7 +55,7 @@ class Objectifs_Utilisateurs(db.Model):
 
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_objectif = db.Column(db.Integer, db.ForeignKey("objectifs.id"), primary_key=True)
-    objectif = db.Column(db.Numeric(5,2))
+    objectif = db.Column(db.Numeric(5, 2))
 
     def __init__(self, id_user, id_objectif, objectif):
         self.id_user = id_user
@@ -65,23 +66,36 @@ class Objectifs_Utilisateurs(db.Model):
 class Encodage(db.Model):
     __tablename__ = "encodage"
 
+    # Data distance
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
     id_activite = db.Column(db.Integer, db.ForeignKey("activites_likees.id"))
     id_encodage = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime)
     heure = db.Column(db.TIME)
-    distance = db.Column(db.Numeric(5,2))
+    distance = db.Column(db.Numeric(5, 2))
     duree = db.Column(db.TIME)
-    vitesse_moyenne = db.Column(db.Numeric(4,2))
+    vitesse_moyenne = db.Column(db.Float)
 
-    def __init__(self, id_user, id_activite,  date, heure, distance, duree, vitesse_moyenne):
+    # Data score
+    nom_team_1 = db.Column(db.String(100))
+    score_team_1 = db.Column(db.Integer)
+    nom_team_2 = db.Column(db.String(100))
+    score_team_2 = db.Column(db.Integer)
+
+    def __init__(self, id_user, id_activite, date, heure, distance, duree, vitesse_moyenne, nom_team_1,
+                 score_team_1, nom_team_2, score_team_2):
+
         self.id_user = id_user
         self.id_activite = id_activite
         self.date = date
         self.heure = heure
         self.distance = distance
         self.duree = duree
-        self.vitesse_moyenne = vitesse_moyenne
+        self.vitesse_moyenne = float(vitesse_moyenne[:2] + "." + vitesse_moyenne[3:])
+        self.nom_team_1 = nom_team_1
+        self.score_team_1 = score_team_1
+        self.nom_team_2 = nom_team_2
+        self.score_team_2 = score_team_2
 
 
 db.create_all()
