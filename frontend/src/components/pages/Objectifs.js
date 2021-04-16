@@ -242,11 +242,7 @@ export default function Objectifs() {
               //console.log(response[id])
               //console.log(valeur[id].distance)
           });
-        if(valeurs[id].id_objectif === 1){
-            console.log(valeur[id].vitesse_moyenne)
-        }else{
-            console.log(valeur[id].distance)
-        }
+
 
 
        return(
