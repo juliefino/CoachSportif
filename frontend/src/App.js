@@ -12,11 +12,9 @@ import FormSignin from './components/FormSignIn';
 import Conditions from './components/pages/Conditions';
 import Objectifs from './components/pages/Objectifs';
 import Distance from './components/pages/Encodage_distance';
-import Aquatique from './components/pages/Encodage_aquatique';
 import Score from './components/pages/Encodage_score';
 import {isLoggedIn} from './components/auth.js';
 import Profile from "./components/pages/Profile";
-
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import Contact from "./components/pages/Contact";
 
@@ -29,9 +27,8 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
-          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage-distance" component={Distance} />
-          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage-aquatique" component={Aquatique} />
-          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage-score" component={Score} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_distance" component={Distance} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_score" component={Score} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path='/profile' component={Profile} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
