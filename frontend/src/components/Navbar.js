@@ -3,7 +3,7 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import {deleteTokens, isLoggedIn} from "./auth.js"
-import {faHome, faBars, faDumbbell} from "@fortawesome/free-solid-svg-icons";
+import {faHome, faBars, faDumbbell, faUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
@@ -84,7 +84,7 @@ function Navbar() {
                         className='nav-links'
                         onClick={closeMobileMenu}
                     >
-                      <FontAwesomeIcon icon={faHome} style={{color: "white"}}/></Link>
+                      <FontAwesomeIcon icon={faUser} style={{color: "white"}}/></Link>
                   </li>
 
 

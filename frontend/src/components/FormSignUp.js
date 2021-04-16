@@ -35,7 +35,7 @@ const FormSignup = () => {
         console.log("ok")
         console.log(resultat)
         console.log(resultat.status) //pour afficher le bon status, il faut retirer le mode no-cors
-        window.location.replace("/success")
+        window.location.replace("/login")
     }
     catch(e){
         console.log(e);
