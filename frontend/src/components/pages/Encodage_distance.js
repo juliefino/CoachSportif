@@ -15,7 +15,10 @@ export default function Distance() {
   const [distance, setDistance] = useState('')
   const [duree, setDuree] = useState('')
   const [vitesse_moyenne, setVitesse_moyenne] = useState('')
-  const nothing = null
+  const nom_team_1 = null
+    const score_team_1 = null
+    const nom_team_2 = null
+    const score_team_2 = null
 
 
 const send = async (event) => {
@@ -29,7 +32,7 @@ try{
         'accept':'application/json'
       },
     body: JSON.stringify({id_user, id_activite, date, heure, distance, duree, vitesse_moyenne,
-        nothing, nothing, nothing, nothing})
+        nom_team_1, score_team_1, nom_team_2, score_team_2})
   })
     console.log("Done")
     console.log(result.status) //pour afficher le bon status, il faut retirer le mode no-cors
