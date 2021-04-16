@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import '../Objectifs.css'
 import Select from 'react-select';
 import { Box } from "@chakra-ui/react"
+import { Center, Square, Circle } from "@chakra-ui/react"
 
 const FormulaireVitesse =() =>{
    const [vitesse, setVitesse] = useState(2)
@@ -21,12 +22,17 @@ const FormulaireVitesse =() =>{
             },
             body: JSON.stringify({id_user, id_objectif, objectif})
         })
-          .then((res) => res.json())
+          .then((res) => {
+              res.json()
+
+          })
           .then(texte => {
               texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
               setMessage(texte)
               console.log("ok")
+
           })
+        window.location.replace("/objectifs")
     }
 
 
@@ -57,59 +63,6 @@ const FormulaireVitesse =() =>{
                      </div>
     );
 }
-const FormulaireTemps =() =>{
-
-    const [temps, setTemps] = useState(1)
-    const [message, setMessage] = useState("")
-    const handleClick = (e) => {
-        e.preventDefault()
-        const apiUrl = `/api/objectifs_user`;
-        const id_user = localStorage.getItem("id");
-        const id_objectif = 2
-        const objectif = temps
-        fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                 'Accept': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
-            },
-            body: JSON.stringify({id_user, id_objectif, objectif})
-        })
-          .then((res) => res.json())
-          .then(texte => {
-              texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
-              setMessage(texte)
-              console.log("ok")
-          })
-    }
-    return(
-    <div className='form-content-ob'>
-          <form className="formulaire">
-              <div className='form-inputs-ob'>
-                  <h3>{message}</h3>
-
-              <label className='form-label-ob'>Temps exprimé en minutes </label>
-              <input
-                required
-                className='form-input-ob'
-                type='number'
-                min="1"
-                step="1"
-                max="720"
-                name='number'
-                placeholder='Entrez votre distance souhaité'
-                value={temps}
-                  onChange={(e) => setTemps(e.target.value) }
-
-              />
-              </div>
-
-                <button onClick={handleClick} className='form-input-btn-ob'>SAUVEGARDER OBJECTIF</button>
-                    </form>
-                     </div>
-    );
-}
 const FormulaireDistance =() =>{
 
     const [distance, setDistance] = useState(50)
@@ -133,7 +86,7 @@ const FormulaireDistance =() =>{
           .then(texte => {
               texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
               setMessage(texte)
-              console.log("ok")
+              window.location.replace("/objectifs")
           })
     }
 
@@ -171,6 +124,7 @@ export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
     const [objectif, setObjectif] = useState('')
+    const pourcentage = 0
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
         fetch(apiUrl, {
@@ -212,7 +166,7 @@ export default function Objectifs() {
 
 
   // set value for default selection
-  const [selectedValue, setSelectedValue] = useState(3);
+  const [selectedValue, setSelectedValue] = useState(1);
 
   // handle onChange event of the dropdown
   const handleChange = e => {
@@ -238,14 +192,13 @@ export default function Objectifs() {
                         />
                         {selectedValue && <div>
                             {selectedValue === 1 ? <FormulaireVitesse/>
-                                : selectedValue === 2 ? <FormulaireTemps/>
                                 : <FormulaireDistance/>
                             }</div>}
                   </Box>
                 <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
                         <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
                         <div className="progressbar-container">
-                          <div className="progressbar-complete" style={{width: `25%`}}>
+                          <div className="progressbar-complete" style={{width: `65%`}}>
                             <div className="progressbar-liquid"></div>
                           </div>
                           <span className="progress">25%</span>
@@ -276,7 +229,21 @@ export default function Objectifs() {
        //console.log(valeurs[id].id_objectif)
 
        return(
-           <h2>Votre objectif est le suivant {objectif} </h2>
+            <div>
+                <h1>Votre objectif est  {objectif} </h1>
+                <Center>
+                <Box  w="55%"  p={150}  alignItems="center" border="500px" >
+                        <h3 style={{textAlign:"center"}}>Voilà votre barre de navigation</h3>
+                        <div className="progressbar-container">
+                          <div className="progressbar-complete" style={{width: `${pourcentage}%`}}>
+                            <div className="progressbar-liquid"></div>
+                          </div>
+                          <span className="progress">{pourcentage}%</span>
+                        </div>
+
+                </Box></Center>
+            </div>
+
        )
    }
 
