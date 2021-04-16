@@ -61,5 +61,18 @@ def objectif_par_user(id_user):
 
     return result
 
+obtenir_encodage_utilisateur= Blueprint('obtenir_encodage_utilisateur', __name__)
+
+@obtenir_encodage_utilisateur.route('<id_user>', methods=['GET'])
+def get_encodage_utilisateur(id_user):
+    encodages = models.Encodage.query.filter_by(id_user=id_user).first()
+    result = {encodages.id_user :{
+            'id_activite': encodages.id_activite,
+            'id_encodage': encodages.id_encodage,
+            'distance': "{:.2f}".format(float(encodages.distance)),
+            'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
+        }}
+
+    return result
 
 
