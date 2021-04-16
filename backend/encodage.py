@@ -19,3 +19,4 @@ def post_encodage():
         app.db.session.commit()
 
         return redirect('http://localhost:5000/')
+
