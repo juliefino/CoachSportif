@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CoachSportif.iml" filepath="$PROJECT_DIR$/.idea/CoachSportif.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../test-projet-coach/.idea/test-projet-coach.iml" filepath="$PROJECT_DIR$/../test-projet-coach/.idea/test-projet-coach.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../test-projet-coach-master/.idea/test-projet-coach-master.iml" filepath="$PROJECT_DIR$/../test-projet-coach-master/.idea/test-projet-coach-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Web Dev.iml" filepath="$PROJECT_DIR$/.idea/Web Dev.iml" />
     </modules>
   </component>
 </project>
