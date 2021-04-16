@@ -3,10 +3,10 @@ import model as models
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
 import app as app
 
-encodage_distance = Blueprint('encodage_distance', __name__)
+encodage = Blueprint('encodage', __name__)
 
 
-@encodage_distance.route('', methods=['POST'])
+@encodage.route('', methods=['POST'])
 def post_encodage():
     if request.method == 'POST':
         info = request.get_json(force=True)
