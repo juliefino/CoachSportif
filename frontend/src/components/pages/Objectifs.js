@@ -120,13 +120,65 @@ const FormulaireDistance =() =>{
     );
 }
 
+function Objectifs_Utilisateur() {
+    const [valeurs, setValeurs] = useState({})
+    const id = localStorage.getItem('id')
+    useEffect( () => {
+        const apiUrl = `/api/obtenir_objectif_encodage_utilisateur/`;
+        fetch(apiUrl + localStorage.getItem("id"), {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+        })
+          .then((res) => res.json())
+          .then((response) => {
+              setValeurs(response[id])
+              console.log("je suis ici")
+
+
+          });
+    }, [setValeurs]);
+
+
+
+
+
+
+
+
+
+
+
+    return(
+
+        <div>
+            <h1>Votre objectif est {valeurs.nom_objectif} </h1>
+
+                <Center>
+                <Box  w="55%"  p={150}  alignItems="center" border="500px" >
+                        <h3 style={{textAlign:"center"}}>Voilà votre barre de navigation</h3>
+                        <div className="progressbar-container">
+                          <div className="progressbar-complete" style={{width: `25%`}}>
+                            <div className="progressbar-liquid"></div>
+                          </div>
+                          <span className="progress">25%</span>
+                        </div>
+
+                </Box></Center>
+        </div>
+
+     )
+
+}
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
     const [objectif, setObjectif] = useState('')
-    const [valeur, setValeur] = useState(null)
-    const [resultat, setResultat] =  useState(null)
     const pourcentage = 0
+    const [resultat, setResultat] =  useState(null)
+
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
         fetch(apiUrl, {
@@ -149,7 +201,7 @@ export default function Objectifs() {
 
 
     useEffect( () => {
-        const apiUrl = `/api/obtenir_objectif/`;
+        const apiUrl = `/api/obtenir_objectif_encodage_utilisateur/`;
         fetch(apiUrl + localStorage.getItem("id"), {
             headers: {
                 'Accept': 'application/json',
@@ -213,53 +265,18 @@ export default function Objectifs() {
             </div>
        </>
    );}else{
-       const id = localStorage.getItem('id')
 
-       const apiUrl = `/api/objectifs/`;
-        fetch(apiUrl + valeurs[id].id_objectif, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
-            }
-        })
-          .then((res) => res.json())
-          .then((response) => {
-             setObjectif(response.nom_objectif)
-          });
-
-        const apiEncodagesObjectifs = `/api/obtenir_encodage_utilisateur/`;
-        fetch(apiEncodagesObjectifs + id, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
-            }
-        })
-          .then((res) => res.json())
-          .then((response) => {
-             setValeur(response)
-              //console.log(response[id])
-              //console.log(valeur[id].distance)
-          });
 
 
 
        return(
             <div>
-                <h1>Votre objectif est  {objectif} </h1>
-                <Center>
-                <Box  w="55%"  p={150}  alignItems="center" border="500px" >
-                        <h3 style={{textAlign:"center"}}>Voilà votre barre de navigation</h3>
-                        <div className="progressbar-container">
-                          <div className="progressbar-complete" style={{width: `${pourcentage}%`}}>
-                            <div className="progressbar-liquid"></div>
-                          </div>
-                          <span className="progress">{pourcentage}%</span>
-                        </div>
 
-                </Box></Center>
-            </div>
+                 <Objectifs_Utilisateur/>
+
+
+         </div>
+
 
        )
    }
