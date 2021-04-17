@@ -47,26 +47,20 @@ def objectif_favorit():
         return "Vous avec un objectif", 200
 
 
-obtenir_objectif = Blueprint('obtenir_objectif', __name__)
+obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_utilisateur', __name__)
 
-@obtenir_objectif.route('<id_user>', methods=['GET'])
-def objectif_par_user(id_user):
+@obtenir_objectif_encodage_utilisateur.route('<id_user>', methods=['GET'])
+def objectif_encodage_par_user(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
+    encodages = models.Encodage.query.filter_by(id_user=id_user).first()
     mon_objectif = float(objectif.objectif)
+    print(objectif.id_objectif)
+    nom_objectif = models.Objectifs.query.filter_by(id=objectif.id_objectif).first()
 
     result = {objectif.id_user:{
             'id_objectif': objectif.id_objectif,
-            'objectif': "{:.2f}".format(mon_objectif)
-        }}
-
-    return result
-
-obtenir_encodage_utilisateur= Blueprint('obtenir_encodage_utilisateur', __name__)
-
-@obtenir_encodage_utilisateur.route('<id_user>', methods=['GET'])
-def get_encodage_utilisateur(id_user):
-    encodages = models.Encodage.query.filter_by(id_user=id_user).first()
-    result = {encodages.id_user :{
+            'objectif': "{:.2f}".format(mon_objectif),
+            'nom_objectif' : nom_objectif.nom_objectif,
             'id_activite': encodages.id_activite,
             'id_encodage': encodages.id_encodage,
             'distance': "{:.2f}".format(float(encodages.distance)),
@@ -74,5 +68,6 @@ def get_encodage_utilisateur(id_user):
         }}
 
     return result
+
 
 
