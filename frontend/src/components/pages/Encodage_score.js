@@ -15,11 +15,13 @@ export default function Score() {
   const [score_team_1, setScore_1] = useState('')
   const [nom_team_2, setTeam_2] = useState('')
   const [score_team_2, setScore_2] = useState('')
-  const nothing = null
+  const heure = null
+  const distance = null
+  const vitesse_moyenne = null
 
 const send = async (event_score) => {
     event_score.preventDefault();
-try{
+try {
     console.log("Enter fetch !")
     let result =  await fetch('/api/encodage', {
     method: 'POST',
@@ -27,7 +29,7 @@ try{
         'Content-type': 'application/json',
         'accept':'application/json'
       },
-    body: JSON.stringify({id_user, id_activite, date, nothing, nothing, duree, nothing, nom_team_1,
+    body: JSON.stringify({id_user, id_activite, date, heure, distance, duree, vitesse_moyenne, nom_team_1,
             score_team_1, nom_team_2, score_team_2})
   })
     console.log("Done")
