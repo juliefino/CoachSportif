@@ -92,6 +92,32 @@
    overflow: hidden;
    background-color: lemonchiffon;
  }
+ .form-input-btn-reinitialiser {
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background-color: #663300;
+  outline: none;
+  border: none;
+  margin-left: 20px;
+  color: #fff;
+  font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 25px;
+  borderWidth: 1;
+  border-color : #663300;
+  width : 150px
+}
+
+.form-input-btn-reinitialiser:hover {
+  cursor: pointer;
+  background-color: #8A6735;
+  color: #242424;
+  transition: all 0.4s ease-out;
+}
 .progressbar-complete {
       position: absolute;
       left: 0;
@@ -112,6 +138,7 @@
         background-color: brown;
         border-radius: 40%;
       }
+
 
 .progress {
       z-index: 2;
@@ -210,4 +237,53 @@
   color: white;
   transition: 250ms;
 }
+.progressbar-container{
+    position: relative;
+    width: 100px;
+    height: 40px;
+
+
+
 }
+Center {
+    height: 100px;
+}
+.progressbar-complete {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      height: 100%;
+      background-color: #5225bd;
+      border-radius: 10px;
+      animation: g 2500ms infinite ease-in-out;
+      z-index: 2;}
+.progressbar-liquid {
+        z-index: 1;
+        width: 70px;
+        height: 100px;
+        animation: g 2500ms infinite ease-in-out, r 3000ms infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+        position: absolute;
+        right: -5px;
+        top: -10px;
+        background-color: brown;
+        border-radius: 40%;
+      }
+
+
+.progress {
+      z-index: 2;
+    }
+
+
+@keyframes g {
+  0% { background-color: rosybrown; }
+  50% { background-color: salmon; }
+  100% { background-color: sandybrown; }
+}
+
+@keyframes r {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+}
+
