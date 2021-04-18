@@ -122,8 +122,9 @@ const FormulaireDistance =() =>{
 
 function Objectifs_Utilisateur() {
     const [valeurs, setValeurs] = useState({})
-    const id = localStorage.getItem('id')
+
     useEffect( () => {
+        const id = localStorage.getItem('id')
         const apiUrl = `/api/obtenir_objectif_encodage_utilisateur/`;
         fetch(apiUrl + localStorage.getItem("id"), {
             headers: {
@@ -139,45 +140,82 @@ function Objectifs_Utilisateur() {
 
 
           });
-    }, [setValeurs]);
+    }, []);
+    const handleClickPerformance = () => {
 
+        window.location.replace('/encodage_distance')
+    }
+    const handleClickReinitialiser = (e) => {
+        e.preventDefault()
+        console.log("Se connecter")
 
+        fetch('/api/effacer_objectif_utilisateur/' + localStorage.getItem("id"), {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+            }
+            }).then(() => {
+                window.location.replace("/objectifs")
+        }).catch(() => {console.log("erreur")})
+    }
 
-
-
-
-
-
-
-
+    const pourcentageVitesse = valeurs.vitesse_moyenne * 100 / valeurs.objectif
+    const pourcentageDistance = valeurs.distance * 100 / valeurs.objectif
 
     return(
 
         <div>
-            <h1>Votre objectif est {valeurs.nom_objectif} </h1>
+            <h1>Votre objectif est {valeurs.nom_objectif}  </h1>
 
-                <Center>
+            {valeurs.nom_objectif === 'Vitesse' ?
+
+                <Center h="300px" >
                 <Box  w="55%"  p={150}  alignItems="center" border="500px" >
-                        <h3 style={{textAlign:"center"}}>Voilà votre barre de navigation</h3>
+                        <h3 style={{textAlign:"center"}}>Votre barre de progression</h3>
                         <div className="progressbar-container">
-                          <div className="progressbar-complete" style={{width: `25%`}}>
+                          <div className="progressbar-complete" style={{width: `${pourcentageVitesse}%`}}>
                             <div className="progressbar-liquid"></div>
                           </div>
-                          <span className="progress">25%</span>
+                            {pourcentageVitesse >= 100 ?
+                                 <span className="progress">Vous avez atteint votre objectif </span> :
+                                 <span className="progress">{pourcentageVitesse}%</span>
+                            }
+
                         </div>
 
                 </Box></Center>
+
+            :  <Center>
+                <Box  w="55%"  p={150}  alignItems="center" border="500px" >
+                        <h3 style={{textAlign:"center"}}>Votre barre de progression </h3>
+                        <div className="progressbar-container">
+                          <div className="progressbar-complete" style={{width: `${pourcentageDistance}%`}}>
+                            <div className="progressbar-liquid"></div>
+                          </div>
+                            {pourcentageDistance >= 100 ?
+                                 <span className="progress">Vous avez atteint votre objectif </span> :
+                                 <span className="progress">{pourcentageDistance}%</span>
+                            }
+
+                        </div>
+
+                </Box></Center> }
+            <Center>
+                <button onClick={handleClickReinitialiser} className='form-input-btn-reinitialiser'>EFFACER OBJECTIF</button>
+                <button onClick={handleClickPerformance} className='form-input-btn-reinitialiser'>AJOUT PERFORMANCE</button></Center>
         </div>
+
 
      )
 
 }
+
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
-    const [objectif, setObjectif] = useState('')
-    const pourcentage = 0
-    const [resultat, setResultat] =  useState(null)
+
 
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
@@ -211,7 +249,7 @@ export default function Objectifs() {
         })
           .then((res) => res.json())
           .then((response) => {
-                    setValeurs(response)
+                    setValeurs('ok')
 
 
           });
@@ -255,7 +293,7 @@ export default function Objectifs() {
                           <div className="progressbar-complete" style={{width: `65%`}}>
                             <div className="progressbar-liquid"></div>
                           </div>
-                          <span className="progress">25%</span>
+                          <span className="progress">65%</span>
                         </div>
 
                   </Box>
@@ -271,9 +309,7 @@ export default function Objectifs() {
 
        return(
             <div>
-
-                 <Objectifs_Utilisateur/>
-
+                <Objectifs_Utilisateur/>
 
          </div>
 
