@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask import Flask, request
 from flask_jwt_extended import get_jwt_identity, jwt_required
+from sqlalchemy.sql import func
 import json
 import model as models
 import app as app
@@ -54,7 +55,7 @@ def objectif_encodage_par_user(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
     encodages = models.Encodage.query.filter_by(id_user=id_user).first()
     mon_objectif = float(objectif.objectif)
-    print(objectif.id_objectif)
+
     nom_objectif = models.Objectifs.query.filter_by(id=objectif.id_objectif).first()
 
     result = {objectif.id_user:{
@@ -66,8 +67,32 @@ def objectif_encodage_par_user(id_user):
             'distance': "{:.2f}".format(float(encodages.distance)),
             'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
         }}
+    print(result)
 
     return result
+
+encodage_par_user = Blueprint('encodage_par_user', __name__)
+@encodage_par_user.route('<id_user>', methods=['GET'])
+def user_encode(id_user):
+    encodages = models.Encodage.query.filter_by(id_user=id_user).all()
+
+    #result = {id_user: {
+     #   'distance': "{:.2f}".format(float(encodages.distance)),
+    #    'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
+    #}}
+    #print(result)
+    print(encodages)
+    return "hola"
+
+
+effacer_objectif_utilisateur = Blueprint('effacer_objectif_utilisateur', __name__)
+
+@effacer_objectif_utilisateur.route('<id_user>', methods=['DELETE'])
+def effacement_utilisateur_objectif(id_user):
+    objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
+    app.db.session.delete(objectif)
+    app.db.session.commit()
+    return 'SUCCESS'
 
 
 
