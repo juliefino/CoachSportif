@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
-import '../../App.css'
+import '../Encodage_aquatique.css'
 
 
 export default function Aquatique() {
@@ -41,24 +41,24 @@ export default function Aquatique() {
     }
     return (
         <> <h1>PERFORMANCE AQUATIQUE</h1>
-        <div className='form-content'>
-            <form className="form" onSubmit={(event) => {send(event)}}>
-            <p className="introduction"> Veuillez introduire les différentes données correspondant à l'activité que vous avez réalisée dans les champs proposés</p>
-                <div className="form-inputs">
-                <label className='form-label'>Date </label>
-                  <input className='form-input' type='date' required value={date} name="date"
+        <div className='form-content-enco-aq'>
+            <form className="form-enco-aq" onSubmit={(event) => {send(event)}}>
+            <p className="introduction-aq"> Veuillez introduire les différentes données correspondant à l'activité que vous avez réalisée dans les champs proposés</p>
+                <div className="form-inputs-enco-aq">
+                <label className='form-label-enco-aq'>Date </label>
+                  <input className='form-input-enco-aq' type='date' required value={date} name="date"
                     onChange={ (e) => setDate(e.target.value) } />
                 </div>
 
-                <div className="form-inputs">
-                      <label className='form-label'>Distance parcourue<bdi> km </bdi> </label>
-                        <input className='form-input' type="number" placeholder="1.0" step="0.01" min="0.01" required value={distance} name="distance"
+                <div className="form-inputs-enco-aq">
+                      <label className='form-label-enco-aq'>Distance parcourue<bdi> km </bdi> </label>
+                        <input className='form-input-enco-aq' type="number" placeholder="1.0" step="0.01" min="0.01" required value={distance} name="distance"
                             onChange={ (e) => setDistance(e.target.value) }/>
                 </div>
 
-                <div className='form-inputs'>
-                       <label className='form-label'>Durée totale de l'activité<bdi> heure : minutes : secondes </bdi></label>
-                         <input className='form-input' type="time" step="2" required value={duree} name="duree"
+                <div className='form-inputs-enco-aq'>
+                       <label className='form-label-enco-aq'>Durée totale de l'activité<bdi> heure : minutes : secondes </bdi></label>
+                         <input className='form-input-enco-aq' type="time" step="2" required value={duree} name="duree"
                             onChange={ (e) => setDuree(e.target.value) }/>
                 </div>
                 <button type="submit" className='form-input-btn'>VALIDER</button>
