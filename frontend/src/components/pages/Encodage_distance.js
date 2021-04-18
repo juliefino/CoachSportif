@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import '../../App.css'
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { Col, Row, Form } from "react-bootstrap";
 
 export default function Distance() {
 
