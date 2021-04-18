@@ -16,10 +16,9 @@ export default function Distance() {
   const [duree, setDuree] = useState('')
   const [vitesse_moyenne, setVitesse_moyenne] = useState('')
   const nom_team_1 = null
-    const score_team_1 = null
-    const nom_team_2 = null
-    const score_team_2 = null
-
+  const score_team_1 = null
+  const nom_team_2 = null
+  const score_team_2 = null
 
 const send = async (event) => {
     event.preventDefault();
