@@ -77,9 +77,9 @@ class Encodage(db.Model):
     vitesse_moyenne = db.Column(db.Float)
 
     # Data score
-    nom_team_1 = db.Column(db.String(100))
+    nom_team_1 = db.Column(db.String(200))
     score_team_1 = db.Column(db.Integer)
-    nom_team_2 = db.Column(db.String(100))
+    nom_team_2 = db.Column(db.String(200))
     score_team_2 = db.Column(db.Integer)
 
     def __init__(self, id_user, id_activite, date, heure, distance, duree, vitesse_moyenne, nom_team_1,
@@ -91,7 +91,10 @@ class Encodage(db.Model):
         self.heure = heure
         self.distance = distance
         self.duree = duree
-        self.vitesse_moyenne = float(vitesse_moyenne[:2] + "." + vitesse_moyenne[3:])
+        if vitesse_moyenne is not None:
+            self.vitesse_moyenne = float(vitesse_moyenne[:2] + "." + vitesse_moyenne[3:])
+        else:
+            self.vitesse_moyenne = vitesse_moyenne
         self.nom_team_1 = nom_team_1
         self.score_team_1 = score_team_1
         self.nom_team_2 = nom_team_2
