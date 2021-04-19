@@ -102,35 +102,6 @@ def objectif_encodage_par_user(id_user):
         app.db.session.commit()
         return {'message' : "pas d'objectif"}, 404
 
-encodage_par_user = Blueprint('encodage_par_user', __name__)
-@encodage_par_user.route('<id_user>', methods=['GET'])
-
-def user_encode(id_user):
-    encodages = models.Encodage.query.filter_by(id_user=id_user).all()
-    objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).all()
-
-    distance = 0
-    vitesse = 0
-    dateObjectif = 0
-    for date in objectif:
-        dateObjectif = date.date
-
-    for encodage in encodages:
-        if encodage.date > dateObjectif:
-            distance += encodage.distance
-            vitesse += encodage.vitesse_moyenne
-        else:
-            distance += 0
-            vitesse += 0
-
-    print(distance)
-    print(dateObjectif)
-    print(vitesse)
-
-
-
-    app.db.session.commit()
-    return "hola"
 
 
 effacer_objectif_utilisateur = Blueprint('effacer_objectif_utilisateur', __name__)
