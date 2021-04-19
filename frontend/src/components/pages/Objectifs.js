@@ -22,17 +22,11 @@ const FormulaireVitesse =() =>{
             },
             body: JSON.stringify({id_user, id_objectif, objectif})
         })
-          .then((res) => {
-              res.json()
-
+          .then((res) => res.json())
+          .then(data => {
+              window.location.replace("/objectifs")
           })
-          .then(texte => {
-              texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
-              setMessage(texte)
-              console.log("ok")
 
-          })
-        window.location.replace("/objectifs")
     }
 
 
@@ -136,7 +130,6 @@ function Objectifs_Utilisateur() {
           .then((res) => res.json())
           .then((response) => {
               setValeurs(response[id])
-              console.log("je suis ici")
 
 
           });
@@ -215,6 +208,8 @@ function Objectifs_Utilisateur() {
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
+    const [hasPurpose,setHasPurpose ] = useState(null)
+
 
 
     useEffect(() => {
@@ -226,9 +221,12 @@ export default function Objectifs() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         })
-          .then((res) => res.json())
+          .then((res) => {console.log(res);
+
+          return res.json()})
           .then((response) => {
                     setDonnees(response)
+                    getObjectif()
           });
   }, [setDonnees]);
     const donnee = [];
@@ -238,7 +236,7 @@ export default function Objectifs() {
     };
 
 
-    useEffect( () => {
+    const getObjectif = () => {
         const apiUrl = `/api/obtenir_objectif_encodage_utilisateur/`;
         fetch(apiUrl + localStorage.getItem("id"), {
             headers: {
@@ -247,13 +245,24 @@ export default function Objectifs() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         })
-          .then((res) => res.json())
+          .then((res) => {
+              console.log(res.status)
+              if(res.status === 404){
+                  setHasPurpose(false)
+
+                  Promise.reject("")
+              }else{
+                  setHasPurpose(true)
+                  return res.json()
+              }
+           })
           .then((response) => {
-                    setValeurs('ok')
+              console.log(response)
 
 
-          });
-  }, [setValeurs]);
+
+          }).catch(error => console.log(error));
+  };
 
 
 
@@ -264,57 +273,67 @@ export default function Objectifs() {
   const handleChange = e => {
     setSelectedValue(e.value);
   }
-   if(valeurs == null){
-       return (
-       <>
-        <h1 className='objectifs'>OBJECTIFS</h1>
-           <div className='App'>
+    switch (hasPurpose) {
+        case null:
+            return(
+                <h1>PISTACHE</h1>
+            )
+            break;
+        case true:
 
-            <Box maxW="960px" mx="auto" borderWidth="1px" display="flex"  overflow="hidden"  borderColor="gray" >
+            return(
+                <div>
+                    <Objectifs_Utilisateur/>
+                 </div>
+            )
+            break;
+        case false:
 
-                    <Box  w="50%" p={6} l='left' alignItems="center" border="50px" borderColor="gray">
-                        <h3 style={{textAlign:"center"}}>Definissez un objectif à atteindre</h3>
-                        <Select
-                        placeholder="Select Option"
-                        className="selection"
-                        style={{display: 'block'}}
-                        value={donnee.find(obj => obj.value === selectedValue)}
-                        options={donnee}
-                        onChange={handleChange}
-                        />
-                        {selectedValue && <div>
-                            {selectedValue === 1 ? <FormulaireVitesse/>
-                                : <FormulaireDistance/>
-                            }</div>}
-                  </Box>
-                <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
-                        <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
-                        <div className="progressbar-container">
-                          <div className="progressbar-complete" style={{width: `65%`}}>
-                            <div className="progressbar-liquid"></div>
-                          </div>
-                          <span className="progress">65%</span>
-                        </div>
+            return (
+               <>
+                <h1 className='objectifs'>OBJECTIFS</h1>
+                   <div className='App'>
 
-                  </Box>
+                    <Box maxW="960px" mx="auto" borderWidth="1px" display="flex"  overflow="hidden"  borderColor="gray" >
 
-                </Box>
+                            <Box  w="50%" p={6} l='left' alignItems="center" border="50px" borderColor="gray">
+                                <h3 style={{textAlign:"center"}}>Definissez un objectif à atteindre</h3>
+                                <Select
+                                placeholder="Select Option"
+                                className="selection"
+                                style={{display: 'block'}}
+                                value={donnee.find(obj => obj.value === selectedValue)}
+                                options={donnee}
+                                onChange={handleChange}
+                                />
+                                {selectedValue && <div>
+                                    {selectedValue === 1 ? <FormulaireVitesse/>
+                                        : <FormulaireDistance/>
+                                    }</div>}
+                          </Box>
+                        <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
+                                <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
+                                <div className="progressbar-container">
+                                  <div className="progressbar-complete" style={{width: `65%`}}>
+                                    <div className="progressbar-liquid"></div>
+                                  </div>
+                                  <span className="progress">65%</span>
+                                </div>
 
-            </div>
-       </>
-   );}else{
+                          </Box>
+
+                        </Box>
+
+                    </div>
+               </>
+            )
+            break;
+
+        default:
+            break;
+
+    }
 
 
-
-
-       return(
-            <div>
-                <Objectifs_Utilisateur/>
-
-         </div>
-
-
-       )
-   }
 
 }

@@ -1,5 +1,6 @@
 from flask import Blueprint
 import model as models
+import app as app
 
 utilisateurs = Blueprint('utilisateurs', __name__)
 
@@ -16,6 +17,7 @@ def get_utilisateurs():
             "taille": user.taille,
             "poids": user.poids
         }
+    app.db.session.commit()
 
     return result
 
@@ -30,4 +32,5 @@ def get_utilisateur(id):
         "taille": user.taille,
         "poids": user.poids
     }}
+    app.db.session.commit()
     return reponse
