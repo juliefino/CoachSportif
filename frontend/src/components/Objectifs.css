@@ -245,6 +245,10 @@
 
 
 }
+.spinner-border{
+    width: 50px;
+    height: 40px;
+}
 Center {
     height: 100px;
 }
