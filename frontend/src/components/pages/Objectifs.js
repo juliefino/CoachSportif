@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import '../Objectifs.css'
 import Select from 'react-select';
-import { Box } from "@chakra-ui/react"
+import { Box, Spinner} from "@chakra-ui/react"
 import { Center, Square, Circle } from "@chakra-ui/react"
+
+
 
 const FormulaireVitesse =() =>{
    const [vitesse, setVitesse] = useState(2)
@@ -76,10 +78,8 @@ const FormulaireDistance =() =>{
             },
             body: JSON.stringify({id_user, id_objectif, objectif})
         })
-          .then((res) => res.json())
-          .then(texte => {
-              texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
-              setMessage(texte)
+        .then((res) => res.json())
+          .then(data => {
               window.location.replace("/objectifs")
           })
     }
@@ -161,13 +161,14 @@ function Objectifs_Utilisateur() {
 
         <div>
             <h1>Votre objectif est {valeurs.nom_objectif}  </h1>
-
+            <p>Votre objectif a demarré le {valeurs.date}</p>
             {valeurs.nom_objectif === 'Vitesse' ?
 
                 <Center h="300px" >
                 <Box  w="55%"  p={150}  alignItems="center" border="500px" >
                         <h3 style={{textAlign:"center"}}>Votre barre de progression</h3>
                         <div className="progressbar-container">
+
                           <div className="progressbar-complete" style={{width: `${pourcentageVitesse}%`}}>
                             <div className="progressbar-liquid"></div>
                           </div>
@@ -205,12 +206,11 @@ function Objectifs_Utilisateur() {
 
 }
 
+
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
     const [hasPurpose,setHasPurpose ] = useState(null)
-
-
 
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
@@ -276,7 +276,13 @@ export default function Objectifs() {
     switch (hasPurpose) {
         case null:
             return(
-                <h1>PISTACHE</h1>
+                <div>
+                    <div className="spinner-border" role="status">
+
+                    </div>
+
+
+                </div>
             )
             break;
         case true:
