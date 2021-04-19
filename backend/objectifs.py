@@ -17,7 +17,7 @@ def getObjectifs():
             'value': objet.id,
             'label': objet.nom_objectif
         }
-
+    app.db.session.commit()
     return result
 
 
@@ -28,7 +28,7 @@ def get_objectifs_utilisateurs(id):
     result = {
         'nom_objectif': objectifs.nom_objectif
     }
-
+    app.db.session.commit()
     return result
 
 objectifs_user = Blueprint('objectifs_user', __name__)
@@ -45,7 +45,7 @@ def objectif_favorit():
         app.db.session.add(objectif)
         app.db.session.commit()
 
-        return "Vous avec un objectif", 200
+        return {'id': objectif.id}, 200
 
 
 obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_utilisateur', __name__)
@@ -54,34 +54,41 @@ obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_uti
 def objectif_encodage_par_user(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
     encodages = models.Encodage.query.filter_by(id_user=id_user).first()
-    mon_objectif = float(objectif.objectif)
+    if objectif is not None:
 
-    nom_objectif = models.Objectifs.query.filter_by(id=objectif.id_objectif).first()
+        mon_objectif = float(objectif.objectif)
 
-    result = {objectif.id_user:{
-            'id_objectif': objectif.id_objectif,
-            'objectif': "{:.2f}".format(mon_objectif),
-            'nom_objectif' : nom_objectif.nom_objectif,
-            'id_activite': encodages.id_activite,
-            'id_encodage': encodages.id_encodage,
-            'distance': "{:.2f}".format(float(encodages.distance)),
-            'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
-        }}
-    print(result)
+        nom_objectif = models.Objectifs.query.filter_by(id=objectif.id_objectif).first()
 
-    return result
+        result = {objectif.id_user:{
+                'id_objectif': objectif.id_objectif,
+                'objectif': "{:.2f}".format(mon_objectif),
+                'nom_objectif' : nom_objectif.nom_objectif,
+                'id_activite': encodages.id_activite,
+                'id_encodage': encodages.id_encodage,
+                'distance': "{:.2f}".format(float(encodages.distance)),
+                'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
+            }}
+        print(result)
+        app.db.session.commit()
+
+        return result
+    else :
+        app.db.session.commit()
+        return {'message' : "pas d'objectif"}, 404
 
 encodage_par_user = Blueprint('encodage_par_user', __name__)
 @encodage_par_user.route('<id_user>', methods=['GET'])
 def user_encode(id_user):
     encodages = models.Encodage.query.filter_by(id_user=id_user).all()
 
-    #result = {id_user: {
-     #   'distance': "{:.2f}".format(float(encodages.distance)),
-    #    'vitesse_moyenne': "{:.2f}".format(float(encodages.vitesse_moyenne))
-    #}}
-    #print(result)
-    print(encodages)
+    distance = 0
+    for encodage in encodages:
+        print(encodage.distance)
+        distance += encodage.distance
+    #print(encodages)
+    print(distance)
+    app.db.session.commit()
     return "hola"
 
 
