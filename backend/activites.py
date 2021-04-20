@@ -19,6 +19,7 @@ def getActivites():
             'label': activity.nom_activite,
             'img': activity.path_image
         }
+    app.db.session.commit()
 
     return result
 

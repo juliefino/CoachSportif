@@ -53,14 +53,17 @@ class Objectifs(db.Model):
 class Objectifs_Utilisateurs(db.Model):
     __tablename__ = "objectifs_utilisateurs"
 
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"), primary_key=True)
     id_objectif = db.Column(db.Integer, db.ForeignKey("objectifs.id"), primary_key=True)
     objectif = db.Column(db.Numeric(5, 2))
+    date = db.Column(db.DATE)
 
-    def __init__(self, id_user, id_objectif, objectif):
+    def __init__(self, id_user, id_objectif, objectif, date):
         self.id_user = id_user
         self.id_objectif = id_objectif
         self.objectif = objectif
+        self.date = date
 
 
 class Encodage(db.Model):

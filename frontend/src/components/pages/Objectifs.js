@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import '../Objectifs.css'
 import Select from 'react-select';
-import { Box } from "@chakra-ui/react"
+import { Box, Spinner} from "@chakra-ui/react"
 import { Center, Square, Circle } from "@chakra-ui/react"
+
+
 
 const FormulaireVitesse =() =>{
    const [vitesse, setVitesse] = useState(2)
@@ -22,17 +24,11 @@ const FormulaireVitesse =() =>{
             },
             body: JSON.stringify({id_user, id_objectif, objectif})
         })
-          .then((res) => {
-              res.json()
-
+          .then((res) => res.json())
+          .then(data => {
+              window.location.replace("/objectifs")
           })
-          .then(texte => {
-              texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
-              setMessage(texte)
-              console.log("ok")
 
-          })
-        window.location.replace("/objectifs")
     }
 
 
@@ -50,7 +46,7 @@ const FormulaireVitesse =() =>{
                 min="2"
                 step="0.01"
                 name='number'
-                placeholder='Entrez votre distance souhaité'
+                placeholder='Entrez une vitesse'
                 value={vitesse}
                   onChange={(e) => setVitesse(e.target.value) }
 
@@ -71,7 +67,7 @@ const FormulaireDistance =() =>{
         e.preventDefault()
         const apiUrl = `/api/objectifs_user`;
         const id_user = localStorage.getItem("id");
-        const id_objectif = 3
+        const id_objectif = 2
         const objectif = distance
         fetch(apiUrl, {
             method: "POST",
@@ -82,10 +78,8 @@ const FormulaireDistance =() =>{
             },
             body: JSON.stringify({id_user, id_objectif, objectif})
         })
-          .then((res) => res.json())
-          .then(texte => {
-              texte = "Vous vous êtes inscrit à l'objectif DISTANCE"
-              setMessage(texte)
+        .then((res) => res.json())
+          .then(data => {
               window.location.replace("/objectifs")
           })
     }
@@ -136,7 +130,6 @@ function Objectifs_Utilisateur() {
           .then((res) => res.json())
           .then((response) => {
               setValeurs(response[id])
-              console.log("je suis ici")
 
 
           });
@@ -168,13 +161,14 @@ function Objectifs_Utilisateur() {
 
         <div>
             <h1>Votre objectif est {valeurs.nom_objectif}  </h1>
-
+            <p>Votre objectif a demarré le {valeurs.date}</p>
             {valeurs.nom_objectif === 'Vitesse' ?
 
                 <Center h="300px" >
                 <Box  w="55%"  p={150}  alignItems="center" border="500px" >
                         <h3 style={{textAlign:"center"}}>Votre barre de progression</h3>
                         <div className="progressbar-container">
+
                           <div className="progressbar-complete" style={{width: `${pourcentageVitesse}%`}}>
                             <div className="progressbar-liquid"></div>
                           </div>
@@ -212,10 +206,11 @@ function Objectifs_Utilisateur() {
 
 }
 
+
 export default function Objectifs() {
     const [donnees, setDonnees] = useState(null)
     const [valeurs, setValeurs] = useState(null)
-
+    const [hasPurpose,setHasPurpose ] = useState(null)
 
     useEffect(() => {
         const apiUrl = `/api/objectifs`;
@@ -226,9 +221,12 @@ export default function Objectifs() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         })
-          .then((res) => res.json())
+          .then((res) => {console.log(res);
+
+          return res.json()})
           .then((response) => {
                     setDonnees(response)
+                    getObjectif()
           });
   }, [setDonnees]);
     const donnee = [];
@@ -238,7 +236,7 @@ export default function Objectifs() {
     };
 
 
-    useEffect( () => {
+    const getObjectif = () => {
         const apiUrl = `/api/obtenir_objectif_encodage_utilisateur/`;
         fetch(apiUrl + localStorage.getItem("id"), {
             headers: {
@@ -247,13 +245,34 @@ export default function Objectifs() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         })
-          .then((res) => res.json())
-          .then((response) => {
-                    setValeurs('ok')
+            .then(async (res) => {
+                switch (res.status) {
+                    case 200:
+                        const data = await res.json()
+                        setHasPurpose(true);
+                        break;
+                    case 400:
+                        //400 bad request
+                        setHasPurpose(false);
+                        break;
 
-
-          });
-  }, [setValeurs]);
+                    default:
+                        setHasPurpose(null);
+                        break;
+                }
+                /*console.log(res.status)
+                if(res.status === 404){
+                    setHasPurpose(false)
+                }else{
+                    setHasPurpose(true)
+                    return res.json()
+                }*/
+            })
+            .catch(error => {
+                console.log(error);
+                setHasPurpose(null);
+            });
+    };
 
 
 
@@ -264,57 +283,73 @@ export default function Objectifs() {
   const handleChange = e => {
     setSelectedValue(e.value);
   }
-   if(valeurs == null){
-       return (
-       <>
-        <h1 className='objectifs'>OBJECTIFS</h1>
-           <div className='App'>
+    switch (hasPurpose) {
+        case null:
+            return(
+                <div>
+                    <div className="spinner-border" role="status">
 
-            <Box maxW="960px" mx="auto" borderWidth="1px" display="flex"  overflow="hidden"  borderColor="gray" >
-
-                    <Box  w="50%" p={6} l='left' alignItems="center" border="50px" borderColor="gray">
-                        <h3 style={{textAlign:"center"}}>Definissez un objectif à atteindre</h3>
-                        <Select
-                        placeholder="Select Option"
-                        className="selection"
-                        style={{display: 'block'}}
-                        value={donnee.find(obj => obj.value === selectedValue)}
-                        options={donnee}
-                        onChange={handleChange}
-                        />
-                        {selectedValue && <div>
-                            {selectedValue === 1 ? <FormulaireVitesse/>
-                                : <FormulaireDistance/>
-                            }</div>}
-                  </Box>
-                <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
-                        <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
-                        <div className="progressbar-container">
-                          <div className="progressbar-complete" style={{width: `65%`}}>
-                            <div className="progressbar-liquid"></div>
-                          </div>
-                          <span className="progress">65%</span>
-                        </div>
-
-                  </Box>
-
-                </Box>
-
-            </div>
-       </>
-   );}else{
+                    </div>
 
 
+                </div>
+            )
+            break;
+        case true:
+
+            return(
+                <div>
+                    <Objectifs_Utilisateur/>
+                 </div>
+            )
+            break;
+        case false:
+
+            return (
+               <>
+                <h1 className='objectifs'>OBJECTIFS</h1>
+                   <div className='App'>
+
+                    <Box maxW="960px" mx="auto" borderWidth="1px" display="flex"  overflow="hidden"  borderColor="gray" >
+
+                            <Box  w="50%" p={6} l='left' alignItems="center" border="50px" borderColor="gray">
+                                <h3 style={{textAlign:"center"}}>Definissez un objectif à atteindre</h3>
+                                <Select
+                                placeholder="Select Option"
+                                className="selection"
+                                style={{display: 'block'}}
+                                value={donnee.find(obj => obj.value === selectedValue)}
+                                options={donnee}
+                                onChange={handleChange}
+                                />
+                                {selectedValue && <div>
+                                    {selectedValue === 1 ? <FormulaireVitesse/>
+                                        : <FormulaireDistance/>
+                                    }</div>}
+                          </Box>
+                        <Box  w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
+                                <h3 style={{textAlign:"center"}}>Voilà comment devrait se voir votre barre de progression</h3>
+                                <div className="progressbar-container">
+                                  <div className="progressbar-complete" style={{width: `65%`}}>
+                                    <div className="progressbar-liquid"></div>
+                                  </div>
+                                  <span className="progress">65%</span>
+                                </div>
+
+                          </Box>
+
+                        </Box>
+
+                    </div>
+               </>
+            )
+            break;
+
+        default:
+            break;
+
+    }
 
 
-       return(
-            <div>
-                <Objectifs_Utilisateur/>
-
-         </div>
-
-
-       )
-   }
 
 }
