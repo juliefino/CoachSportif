@@ -46,7 +46,7 @@ const FormulaireVitesse =() =>{
                 min="2"
                 step="0.01"
                 name='number'
-                placeholder='Entrez votre distance souhaité'
+                placeholder='Entrez une vitesse'
                 value={vitesse}
                   onChange={(e) => setVitesse(e.target.value) }
 
@@ -67,7 +67,7 @@ const FormulaireDistance =() =>{
         e.preventDefault()
         const apiUrl = `/api/objectifs_user`;
         const id_user = localStorage.getItem("id");
-        const id_objectif = 3
+        const id_objectif = 2
         const objectif = distance
         fetch(apiUrl, {
             method: "POST",
