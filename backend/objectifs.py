@@ -56,18 +56,16 @@ obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_uti
 @obtenir_objectif_encodage_utilisateur.route('<id_user>', methods=['GET'])
 
 def objectif_encodage_par_user(id_user):
-    objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).all()
+    objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
+    print(objectif)
     encodages = models.Encodage.query.filter_by(id_user=id_user).all()
     if objectif is not None:
         distance = 0
         vitesse = 0
-        dateObjectif = 0
-        objectif_final = 0
-        id_objectif = 0
-        for obj in objectif:
-            dateObjectif = obj.date
-            id_objectif = obj.id_objectif
-            objectif_final = obj.objectif
+        dateObjectif = objectif.date
+        id_objectif = objectif.id_objectif
+        objectif_final = objectif.objectif
+
         id_activite = 0
         for encodage in encodages:
             id_activite = encodage.id_activite
@@ -100,7 +98,7 @@ def objectif_encodage_par_user(id_user):
         return result
     else :
         app.db.session.commit()
-        return {'message' : "pas d'objectif"}, 404
+        return {'message' : "pas d'objectif"}, 400
 
 
 

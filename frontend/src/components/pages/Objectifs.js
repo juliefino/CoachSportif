@@ -245,24 +245,34 @@ export default function Objectifs() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         })
-          .then((res) => {
-              console.log(res.status)
-              if(res.status === 404){
-                  setHasPurpose(false)
+            .then(async (res) => {
+                switch (res.status) {
+                    case 200:
+                        const data = await res.json()
+                        setHasPurpose(true);
+                        break;
+                    case 400:
+                        //400 bad request
+                        setHasPurpose(false);
+                        break;
 
-                  Promise.reject("")
-              }else{
-                  setHasPurpose(true)
-                  return res.json()
-              }
-           })
-          .then((response) => {
-              console.log(response)
-
-
-
-          }).catch(error => console.log(error));
-  };
+                    default:
+                        setHasPurpose(null);
+                        break;
+                }
+                /*console.log(res.status)
+                if(res.status === 404){
+                    setHasPurpose(false)
+                }else{
+                    setHasPurpose(true)
+                    return res.json()
+                }*/
+            })
+            .catch(error => {
+                console.log(error);
+                setHasPurpose(null);
+            });
+    };
 
 
 
