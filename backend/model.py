@@ -29,6 +29,7 @@ class Activites(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nom_activite = db.Column(db.String(200))
     path_image = db.Column(db.String(200))
+    type_activite = db.Column(db.String(200))
 
 
 class Activites_Likees(db.Model):

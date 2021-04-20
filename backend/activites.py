@@ -17,7 +17,8 @@ def getActivites():
         result[activity.id] = {
             'id': activity.id,
             'label': activity.nom_activite,
-            'img': activity.path_image
+            'img': activity.path_image,
+            'type': activity.type_activite
         }
     app.db.session.commit()
 

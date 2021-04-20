@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,25 @@ import {isLoggedIn} from './auth.js';
 import axios from "axios";
 
 function CardItem(props) {
+
+    const [kindActivity, setRedirect] = useState(null);
+    let contentButton = null;
+
+    useEffect(() => {
+        switch (props.type) {
+            case 'distance':
+                setRedirect('/Encodage_distance');
+                break;
+            case 'aquatique':
+                setRedirect('/Encodage_aquatique');
+                break;
+            case 'score':
+                setRedirect('/Encodage_score');
+                break;
+            default:
+                setRedirect('/NotFound');
+        }
+    }, [])
 
     const toggleLike = () => {
         axios.post('/api/activiteFavorite', {
@@ -24,11 +43,25 @@ function CardItem(props) {
                     let actualCard = document.getElementById(props.id).childNodes[0];
                     actualCard.style.color = "grey";
                 }
+                checkIfDisplayButton();
             }, (error) => {
                 console.log(error);
             });
 
     }
+
+    const checkIfDisplayButton = () => {
+        let testCard = document.getElementById(props.id).childNodes[0];
+        if(testCard.style.color === "grey"){
+            contentButton = null;
+        }
+        else{
+            contentButton = <Link to={kindActivity} id={props.id + 'stat'}>
+                            <button className='btnEncodage btn--large'>Ajouter une performance</button>
+                            </Link>
+        }
+    }
+
     if (isLoggedIn()) {
         return (
 
@@ -48,6 +81,7 @@ function CardItem(props) {
                         <div className='cards__item__info'>
                             <h5 className='cards__item__text'>{props.text}</h5>
                         </div>
+                        {contentButton}
                     </Link>
                 </li>
             </>

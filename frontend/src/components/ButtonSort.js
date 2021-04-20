@@ -35,6 +35,7 @@ const Ascending = () => {
                         label={items['1'].label}
                         path='/activites'
                         id={items['1'].id}
+                        type = {items['1'].type}
                     />
                     <CardItem
                         src={items['2'].img}
@@ -42,6 +43,7 @@ const Ascending = () => {
                         label={items['2'].label}
                         path='/activites'
                         id={items['2'].id}
+                        type = {items['2'].type}
                     />
                 </ul>
                 <ul className='cards__items'>
@@ -51,6 +53,7 @@ const Ascending = () => {
                         text='Inscrivez-vous à cette activité'
                         path='/activites'
                         id={items['3'].id}
+                        type = {items['3'].type}
                     />
                     <CardItem
                         src={items['4'].img}
@@ -58,6 +61,7 @@ const Ascending = () => {
                         label={items['4'].label}
                         path='/activites'
                         id={items['4'].id}
+                        type = {items['4'].type}
                     />
                     <CardItem
                         src={items['5'].img}
@@ -65,6 +69,7 @@ const Ascending = () => {
                         label={items['5'].label}
                         path='/activites'
                         id={items['5'].id}
+                    type = {items['5'].type}
                     />
                 </ul>
             </div>
@@ -107,6 +112,7 @@ const Descending = () => {
                         label={items['5'].label}
                         id={items['5'].id}
                         path='/activites'
+                        type = {items['5'].type}
                     />
                     <CardItem
                         src={items['4'].img}
@@ -114,6 +120,7 @@ const Descending = () => {
                         label={items['4'].label}
                         path='/activites'
                         id={items['4'].id}
+                        type = {items['4'].type}
                     />
                 </ul>
                 <ul className='cards__items'>
@@ -123,6 +130,7 @@ const Descending = () => {
                         text='Inscrivez-vous à cette activité'
                         path='/activites'
                         id={items['3'].id}
+                        type = {items['3'].type}
                     />
                     <CardItem
                         src={items['2'].img}
@@ -130,6 +138,7 @@ const Descending = () => {
                         label={items['2'].label}
                         path='/activites'
                         id={items['2'].id}
+                        type = {items['2'].type}
                     />
                     <CardItem
                         src={items['1'].img}
@@ -137,6 +146,7 @@ const Descending = () => {
                         label={items['1'].label}
                         path='/activites'
                         id={items['1'].id}
+                        type = {items['1'].type}
                     />
                 </ul>
             </div>
