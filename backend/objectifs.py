@@ -57,9 +57,10 @@ obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_uti
 
 def objectif_encodage_par_user(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
-    print(objectif)
+
     encodages = models.Encodage.query.filter_by(id_user=id_user).all()
     if objectif is not None:
+
         distance = 0
         vitesse = 0
         dateObjectif = objectif.date
