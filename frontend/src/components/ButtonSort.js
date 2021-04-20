@@ -76,7 +76,6 @@ const Ascending = () => {
         </div>
     }
     return <div className='cards'>
-        <h1>ACTIVITÉS</h1>
         {content}
 
     </div>;
@@ -153,7 +152,6 @@ const Descending = () => {
         </div>
     }
     return <div className='cards'>
-        <h1>ACTIVITÉS</h1>
         {content}
 
     </div>;
@@ -181,7 +179,8 @@ const ButtonSort = () => {
 
     return (
         <div>
-            <button className='btn' onClick={handleClick}>{button ? descendant : ascendant}</button>
+            <h1>ACTIVITÉS</h1>
+            <button className='btns' onClick={handleClick}>{button ? descendant : ascendant}</button>
             {button ? <Ascending/> : <Descending/>}
         </div>
     );
