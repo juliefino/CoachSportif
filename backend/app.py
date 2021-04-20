@@ -1,5 +1,6 @@
 import flask
 from flask import Flask, request, jsonify, redirect, url_for
+from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager, create_refresh_token
@@ -13,17 +14,18 @@ from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
 from contactMail import contact
 
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:dev3Pr0@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'procoach.contact@gmail.com'
 app.config['MAIL_PASSWORD'] = 'devIIIPr0'
+mail = Mail(app)
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
 
