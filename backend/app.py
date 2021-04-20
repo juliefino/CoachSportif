@@ -11,13 +11,19 @@ from inscription import inscription
 from objectifs import objectifs, objectifs_user, obtenir_objectif_encodage_utilisateur, effacer_objectif_utilisateur
 from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
+from contactMail import contact
 
 app = Flask(__name__)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:dev3Pr0@localhost/WEB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'procoach.contact@gmail.com'
+app.config['MAIL_PASSWORD'] = 'devIIIPr0'
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "toisjifefgvgrocb930491eibvf"  # Change this!
 
@@ -35,7 +41,7 @@ app.register_blueprint(objectifs, url_prefix="/api/objectifs")
 app.register_blueprint(objectifs_user, url_prefix="/api/objectifs_user")
 app.register_blueprint(obtenir_objectif_encodage_utilisateur, url_prefix="/api/obtenir_objectif_encodage_utilisateur")
 app.register_blueprint(effacer_objectif_utilisateur, url_prefix='/api/effacer_objectif_utilisateur')
-
+app.register_blueprint(contact, url_prefix='/api/contact')
 db.create_all()
 
 
