@@ -1,4 +1,5 @@
 import React, {  useState } from 'react';
+import {Link} from "react-router-dom";
 import './Form.css';
 
 import { Redirect } from 'react-router-dom';
@@ -92,7 +93,11 @@ const FormSignin = () => {
                         </div>
 
                         <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
+                        <div className="connexion">
+                         <p className="conect">Vous n'avez pas de compte, alors <Link to='/sign-up' className="inscrire" style={{color: 'white'}}>INSCRIVEZ VOUS</Link></p>
+                        </div>
                     </form>
+
                      </div>
             </div>
    );
