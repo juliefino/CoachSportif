@@ -9,7 +9,6 @@ import axios from "axios";
 function CardItem(props) {
 
     const [kindActivity, setRedirect] = useState(null);
-    let contentButton = null;
 
     useEffect(() => {
         switch (props.type) {
@@ -52,13 +51,10 @@ function CardItem(props) {
 
     const checkIfDisplayButton = () => {
         let testCard = document.getElementById(props.id).childNodes[0];
-        if(testCard.style.color === "grey"){
-            contentButton = null;
-        }
-        else{
-            contentButton = <Link to={kindActivity} id={props.id + 'stat'}>
-                            <button className='btnEncodage btn--large'>Ajouter une performance</button>
-                            </Link>
+        if (testCard.style.color === "grey") {
+            document.getElementById(props.id + 'stat').style.visibility = 'hidden';
+        } else {
+           document.getElementById(props.id + 'stat').style.visibility = 'visible';
         }
     }
 
@@ -81,7 +77,9 @@ function CardItem(props) {
                         <div className='cards__item__info'>
                             <h5 className='cards__item__text'>{props.text}</h5>
                         </div>
-                        {contentButton}
+                        <Link to={kindActivity} id={props.id + 'stat'} className='linkToStat' >
+                            <button className='btnEncodage btn--large'>Ajouter une performance</button>
+                        </Link>
                     </Link>
                 </li>
             </>
