@@ -19,6 +19,7 @@ const Ascending = () => {
                      for (let i in data2.data) {
                         if (data2.data[i].id_user === +localStorage.getItem('id')) {
                             document.getElementById(data2.data[i].id_activity).childNodes[0].style.color = "red";
+                            document.getElementById(data2.data[i].id_activity + 'stat').style.visibility = "visible";
                         }
                     }
                 }));
