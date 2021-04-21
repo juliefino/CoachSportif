@@ -13,3 +13,7 @@
 .btnEncodage{
     width: 100%;
 }
+
+.linkToStat{
+    visibility: hidden;
+}
