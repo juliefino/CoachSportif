@@ -346,3 +346,39 @@ bdi {
     font-size: 0.95rem
 }
 
+.textbox{
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 135px;
+    width: 100%;
+    color: #595959;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-radius : 8px;
+    padding: 10px;
+    margin: 1px 0px 10px 0px;
+    text-indent: 5px;
+    border: solid #663300 1px;
+    text-align: justify-all;
+    resize: none;
+}
+
+
+.form-content-contact{
+  margin: 100px auto;
+  width: 500px;
+  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: sandybrown;
+  position: relative;
+  border-radius: 10px;
+  height: 525px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
