@@ -1,4 +1,4 @@
-import './FormContact.css';
+import './Form.css';
 import React, {useState} from "react";
 
 
@@ -30,36 +30,39 @@ const FormContact = () => {
             return(
                 <div>
                     <h1 className='title'>FORMULAIRE DE CONTACT</h1>
-                    <form className="box" onSubmit={(event) => {sendData(event)}}>
-                        <div className='pack'>
-                            <label className='subtitles'>ADRESSE E-MAIL : </label>
+                    <form className="form-content-contact" onSubmit={(event) => {sendData(event)}}>
+                        <div className='form'>
 
-                            <input className='entry' type='email' required value={email}
+                            <div className="form-inputs">
+                            <label className='form-label'>ADRESSE E-MAIL : </label>
+
+                            <input className='form-input' type='email' required value={email}
                                    name='email' placeholder='Entrez votre adresse e-mail'
                                    onChange={(jsp) => setEmail(jsp.target.value)}
                             />
-                        </div>
+                            </div>
 
-                        <div className="pack">
-                            <label className='subtitles'>SUJET : </label>
+                            <div className="form-inputs">
+                            <label className='form-label'>SUJET : </label>
                             <br></br>
-                            <input className='entry' type='text' required value={subject}
+                            <input className='form-input' type='text' required value={subject}
                                    name='subject' placeholder='Sujet de la demande'
                                    onChange={(jsp) => setSubject(jsp.target.value)}
                             />
-                        </div>
+                            </div>
 
-                        <div className='pack'>
-                            <label className='subtitles'>DÉCRIVEZ VOTRE DEMANDE : </label>
+                            <div className='form-inputs'>
+                            <label className='form-label'>DÉCRIVEZ VOTRE DEMANDE : </label>
                             <br></br>
                             <textarea placeholder="Ecrivez votre demande ici" className='textbox' required
                                       value={demande} name='demande' maxLength='300'
                                       onChange={(jsp) => setDemande(jsp.target.value)}>
-                        </textarea>
-                        </div>
+                            </textarea>
+                            </div>
 
-                        <button type="submit" className='form-input-btn-contact'>ENVOYER LA DEMANDE</button>
-                    </form>
+                        <button type="submit" className='form-input-btn'>ENVOYER LA DEMANDE</button>
+                        </div>
+                        </form>
                 </div>
             );
 }
