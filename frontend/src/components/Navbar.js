@@ -78,14 +78,7 @@ function Navbar() {
                     </Link>
                   </li>
 
-                  <li>
-                    <Link
-                        to='/objectifs'
-                        className='nav-links'
-                        onClick={closeMobileMenu}
-                    >
-                      <FontAwesomeIcon icon={faUser} style={{color: "white"}}/></Link>
-                  </li>
+
 
 
                 </ul>
