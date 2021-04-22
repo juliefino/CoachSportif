@@ -4,6 +4,7 @@ import { Button } from './Button';
 import {Link} from "react-router-dom";
 import './HeroSection.css';
 import {isLoggedIn} from './auth.js';
+import {Sidebar} from './sidebar'
 function HeroSection() {
 
     if(isLoggedIn()){
@@ -11,6 +12,7 @@ function HeroSection() {
 
         <div className='hero-container'>
           <img src='/images/img-02.jpg' />
+
           <h1>WORK HARDER, GET STRONGER</h1>
           <p>What are you waiting for?</p>
 
