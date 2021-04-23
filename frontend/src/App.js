@@ -18,9 +18,38 @@ import {isLoggedIn} from './components/auth.js';
 import Profile from "./components/pages/Profile";
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import Contact from "./components/pages/Contact";
+import Sidebar from "./components/sidebar";
 
 
 function App() {
+  if(isLoggedIn()){
+    return(
+         <>
+      <Router>
+        <Navbar />
+        <Sidebar/>
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_distance" component={Distance} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_score" component={Score} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_aquatique" component={Aquatique} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path='/profile' component={Profile} />
+          <Route path='/partage' component={Partage} />
+          <Route path='/activites' component={Activites} />
+          <Route path='/sign-up' component={FormSignup} />
+          <Route path='/login' component={FormSignin} />
+          <Route path='/conditions' component={Conditions} />
+          <Route path='/success' component={Success} />
+          <Route path='/contact' component={Contact} />
+
+          <Route component={NotFound} />
+
+        </Switch>
+      </Router>
+    </>
+    )
+  }else{
   return (
     <>
       <Router>
@@ -45,7 +74,7 @@ function App() {
         </Switch>
       </Router>
     </>
-  );
+  );}
 }
 
 export default App;

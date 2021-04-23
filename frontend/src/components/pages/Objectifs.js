@@ -91,7 +91,7 @@ const FormulaireDistance =() =>{
               <div className='form-inputs-ob'>
                   <h3>{message}</h3>
 
-              <label className='form-label-ob'>Distance exprimée en mètres</label>
+              <label className='form-label-ob'>Distance exprimée en km</label>
               <input
                 required
                 className='form-input-ob'
