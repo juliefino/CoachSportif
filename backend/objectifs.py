@@ -24,6 +24,7 @@ def getObjectifs():
 
 
 @objectifs.route('<id>', methods=['GET'])
+@jwt_required()
 def get_objectifs_utilisateurs(id):
     objectifs = models.Objectifs.query.get_or_404(id)
     result = {
@@ -36,7 +37,7 @@ objectifs_user = Blueprint('objectifs_user', __name__)
 
 
 @objectifs_user.route('', methods=['GET','POST'])
-
+@jwt_required()
 def objectif_favorit():
     if request.method == 'POST':
         info = request.get_json(force=True)
@@ -54,7 +55,7 @@ def objectif_favorit():
 obtenir_objectif_encodage_utilisateur = Blueprint('obtenir_objectif_encodage_utilisateur', __name__)
 
 @obtenir_objectif_encodage_utilisateur.route('<id_user>', methods=['GET'])
-
+@jwt_required()
 def objectif_encodage_par_user(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
 
@@ -106,7 +107,7 @@ def objectif_encodage_par_user(id_user):
 effacer_objectif_utilisateur = Blueprint('effacer_objectif_utilisateur', __name__)
 
 @effacer_objectif_utilisateur.route('<id_user>', methods=['DELETE'])
-
+@jwt_required()
 def effacement_utilisateur_objectif(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
     app.db.session.delete(objectif)
