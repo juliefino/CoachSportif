@@ -13,8 +13,9 @@ class Utilisateur(db.Model):
     taille = db.Column(db.Integer)
     poids = db.Column(db.Integer)
     password = db.Column(db.String(200))
+    premium = db.Column(db.Boolean)
 
-    def __init__(self, alias, email, naissance, taille, poids, password):
+    def __init__(self, alias, email, naissance, taille, poids, password, premium):
         self.alias = alias
         self.email = email
         self.naissance = naissance
@@ -22,7 +23,7 @@ class Utilisateur(db.Model):
         self.poids = poids
         self.password = hashlib.md5(
             password.encode()).hexdigest()  # faut pas laisser en 'claire' les password dans la DB !
-
+        self.premium = premium
 
 class Activites(db.Model):
     __tablename__ = "activites"
