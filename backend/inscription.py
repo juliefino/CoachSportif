@@ -10,7 +10,7 @@ def post_utilisateur():
         info = request.get_json(force=True)
         print(info)
 
-        user= models.Utilisateur( info["alias"], info["email"],info["naissance"],info["taille"],info["poids"], info["password"])
+        user= models.Utilisateur( info["alias"], info["email"],info["naissance"],info["taille"],info["poids"], info["password"], False)
         app.db.session.add(user)
         app.db.session.commit()
 
