@@ -33,6 +33,7 @@ const FormSignin = () => {
                     localStorage.setItem('access_token', token.access_token);
                     localStorage.setItem('id', token.id)
                     localStorage.setItem('username', token.username);
+                    localStorage.setItem('premium', token.premium)
 
                     if (localStorage.getItem("access_token") !== null && localStorage.getItem("access_token") !== "undefined") {
                         window.location.replace("/")
