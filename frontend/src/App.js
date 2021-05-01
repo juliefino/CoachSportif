@@ -28,8 +28,8 @@ import Premium from "./components/pages/Premium";
 
 
 function App() {
-  if(isLoggedIn()){
-    return(
+  if(isLoggedIn() && localStorage.getItem("premium") !== "false"){
+     return(
          <>
       <Router>
         <Navbar />
@@ -44,6 +44,37 @@ function App() {
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_aquatique" component={Aquatique} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path='/profile' component={Profile} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path='/nutrition' component={Nutrition} />
+          <Route path='/partage' component={Partage} />
+          <Route path='/activites' component={Activites} />
+          <Route path='/sign-up' component={FormSignup} />
+          <Route path='/login' component={FormSignin} />
+          <Route path='/conditions' component={Conditions} />
+          <Route path='/success' component={Success} />
+          <Route path='/contact' component={Contact} />
+          <Route path='/premium' component={Premium} />
+
+          <Route component={NotFound} />
+
+        </Switch>
+      </Router>
+    </>
+    )
+  }
+  else if(isLoggedIn() && localStorage.getItem("premium") == "false"){
+    return(
+         <>
+      <Router>
+        <Navbar />
+        <Sidebar/>
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/mes-donnees" component={DonneesPersonnels} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/mes-statistiques" component={BarChart} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_distance" component={Distance} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_score" component={Score} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_aquatique" component={Aquatique} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path='/profile' component={Profile} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={FormSignup} />

@@ -27,7 +27,8 @@ def creation_token():
             app.db.session.commit()
             return jsonify({'username': current_user.alias,
                             'id': current_user.id,
-                            'access_token': token}), 200
+                            'access_token': token,
+                            'premium': current_user.premium}), 200
         else:
             app.db.session.commit()
             return {'error': "Mot de passe ou email n'est pas correct"}
