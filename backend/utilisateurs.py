@@ -40,13 +40,14 @@ def get_utilisateur(id):
     elif request.method == "PUT" :
         user = models.Utilisateur.query.get_or_404(id)
         info = request.get_json(force=True)
+        if user.alias == info["alias"] and user.email == info["email"] and user.taille == info["taille"] and user.poids == info["poids"]:
+            app.db.session.commit()
+            return {"status": "400"}, 400
+        else:
+            user.alias = info["alias"]
+            user.email = info["email"]
+            user.taille = info["taille"]
+            user.poids = info["poids"]
 
-        user.alias = info["alias"]
-        user.email = info["email"]
-        user.taille = info["taille"]
-        user.poids = info["poids"]
-
-        app.db.session.commit()
-        return 'ok'
-
-
+            app.db.session.commit()
+            return {"status" : "200"}, 200
