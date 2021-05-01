@@ -20,6 +20,7 @@ import { PrivateRoute } from "./components/PrivateRoute.js";
 import Contact from "./components/pages/Contact";
 import Sidebar from "./components/sidebar";
 import BarChart from "./components/pages/Statistiques";
+import Premium from "./components/pages/Premium";
 
 function App() {
   if(isLoggedIn()){
@@ -43,6 +44,7 @@ function App() {
           <Route path='/conditions' component={Conditions} />
           <Route path='/success' component={Success} />
           <Route path='/contact' component={Contact} />
+          <Route path='/premium' component={Premium} />
 
           <Route component={NotFound} />
 
