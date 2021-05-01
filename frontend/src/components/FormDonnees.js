@@ -186,7 +186,7 @@ const FormDonnees = () => {
 
                             <button onClick={handleClick} className='form-input-btn-don'>MODIFIER</button>
 
-                            <button onClick="#" className='form-input-btn-prem'>DEVENIR PREMIUM</button>
+                            <button className='form-input-btn-prem'><Link className='form-input-btn-prem' to='/premium'>DEVENIR PREMIUM</Link></button>
 
                         </form>
 

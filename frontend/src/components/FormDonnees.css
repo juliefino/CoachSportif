@@ -121,6 +121,7 @@ Link {
   border-radius: 25px;
   borderWidth: 1;
   border-color : #663300;
+  text-decoration: none;
   width : 200px
 }
 
@@ -129,7 +130,9 @@ Link {
   background-color: #8A6735;
   color: #242424;
   transition: all 0.4s ease-out;
+  text-decoration: none;
 }
+
 
 .form-input-btn-don {
   width: 80%;
@@ -138,6 +141,7 @@ Link {
   border-radius: 2px;
   background-color: #663300;
   outline: none;
+
   border: none;
   color: #fff;
   font-size: 20px;
