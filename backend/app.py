@@ -13,7 +13,7 @@ from objectifs import objectifs, objectifs_user, obtenir_objectif_encodage_utili
 from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
 from contactMail import contact
-from paypal import payment
+from paypal import payment, get_premium
 
 
 app = Flask(__name__)
@@ -46,6 +46,7 @@ app.register_blueprint(obtenir_objectif_encodage_utilisateur, url_prefix="/api/o
 app.register_blueprint(effacer_objectif_utilisateur, url_prefix='/api/effacer_objectif_utilisateur')
 app.register_blueprint(contact, url_prefix='/api/contact')
 app.register_blueprint(payment, url_prefix='/api/payment')
+app.register_blueprint(get_premium, url_prefix='/api/isPremium')
 db.create_all()
 
 

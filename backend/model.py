@@ -106,4 +106,19 @@ class Encodage(db.Model):
         self.score_team_2 = score_team_2
 
 
+class Commandes(db.Model):
+    __tablename__ = "commandes"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
+    id_subscription = db.Column(db.String(50))
+    date = db.Column(db.DATE)
+
+    def __init__(self, id_user, id_subscription, date):
+        self.id_user = id_user
+        self.id_subscription = id_subscription
+        self.date = date
+
+
+
 db.create_all()

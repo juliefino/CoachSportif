@@ -17,3 +17,18 @@ def paypal_payement():
         app.db.session.commit()
 
     return 'SUCCESS'
+
+
+get_premium = Blueprint('get_premium', __name__)
+
+
+@get_premium.route('', methods=['GET'])
+def get_premium_users():
+    users = models.Utilisateur.query.all()
+    result = {}
+    for user in users:
+        result[user.id] = {
+            'id_user': user.id,
+            'premium': user.premium
+        }
+    return result

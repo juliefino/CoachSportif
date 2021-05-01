@@ -5,8 +5,10 @@
 .container-premium{
     background-color: burlywood;
     text-align: center;
+    height: 800px;
+
 }
 
-.container-premium p {
+.container-premium p, .container-premium a{
     padding-bottom: 30px;
 }

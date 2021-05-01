@@ -109,6 +109,7 @@ function App() {
           <Route path='/conditions' component={Conditions} />
           <Route path='/success' component={Success} />
           <Route path='/contact' component={Contact} />
+          <Route path='/premium' component={Premium} />
 
           <Route component={NotFound} />
 
