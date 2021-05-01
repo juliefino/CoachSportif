@@ -21,7 +21,11 @@ import Contact from "./components/pages/Contact";
 import Sidebar from "./components/sidebar";
 import BarChart from "./components/pages/Statistiques";
 import DonneesPersonnels from "./components/pages/DonneesPersonnels";
+<<<<<<< HEAD
 import Nutrition from "./components/pages/nutrition";
+=======
+import Premium from "./components/pages/Premium";
+>>>>>>> b95c1f4adc1b4e7aff30f3d2637eba801986a2d8
 
 function App() {
   if(isLoggedIn()){
@@ -47,6 +51,7 @@ function App() {
           <Route path='/conditions' component={Conditions} />
           <Route path='/success' component={Success} />
           <Route path='/contact' component={Contact} />
+          <Route path='/premium' component={Premium} />
 
           <Route component={NotFound} />
 

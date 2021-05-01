@@ -1,0 +1,12 @@
+.container-paypal{
+    text-align: center;
+}
+
+.container-premium{
+    background-color: burlywood;
+    text-align: center;
+}
+
+.container-premium p {
+    padding-bottom: 30px;
+}
