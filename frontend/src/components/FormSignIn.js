@@ -1,8 +1,8 @@
-import React, {  useState } from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import './Form.css';
 
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 const FormSignin = () => {
 
@@ -12,95 +12,94 @@ const FormSignin = () => {
     const [password, setPassword] = useState('');
 
 
-        // envoi les données des inputs onSubmit
-    const handleClick =  (e)=>{
+    // envoi les données des inputs onSubmit
+    const handleClick = (e) => {
         e.preventDefault()
         console.log("Se connecter")
         let options = {
-          'email': email,
-          'password': password
+            'email': email,
+            'password': password
         }
         console.log(options)
         fetch('/api/login', {
             method: 'post',
             body: JSON.stringify(options)
-            }).then(r => r.json())
-                .then(token => {
-                    if (token.access_token){
-                        //login(token)
-                        //localStorage.setItem('token',token.access_token)
-                        console.log(token)
-                        localStorage.setItem('access_token', token.access_token);
-                        localStorage.setItem('id', token.id)
-                        localStorage.setItem('username', token.username);
+        }).then(r => r.json())
+            .then(token => {
+                if (token.access_token) {
+                    //login(token)
+                    //localStorage.setItem('token',token.access_token)
+                    console.log(token)
+                    localStorage.setItem('access_token', token.access_token);
+                    localStorage.setItem('id', token.id)
+                    localStorage.setItem('username', token.username);
 
-                        if (localStorage.getItem("access_token") !== null && localStorage.getItem("access_token")!=="undefined") {
-                            window.location.replace("/")}
-                        else{
-                            alert("erreur")
-                            }
+                    if (localStorage.getItem("access_token") !== null && localStorage.getItem("access_token") !== "undefined") {
+                        window.location.replace("/")
+                    } else {
+                        alert("erreur")
                     }
-                    else {
+                } else {
                     console.log("Please type in correct username/password")
-                     }
-                })
-         /*fetch('/api/login', {
-          method: 'post',
-          body: JSON.stringify(options)
-        }).then(resp => {
-            console.log(resp)
-            return resp.json();
-         }).then(data => {
-                console.log("Ça vient du backend ", data.result)
-                localStorage.setItem("token", data.result.access_token)
-                //console.log(data.result.access_token, " hola")
-                ;
-          }).catch(error => {console.error("Il y a une erreur", error)})*/
-  }
+                }
+            })
+        /*fetch('/api/login', {
+         method: 'post',
+         body: JSON.stringify(options)
+       }).then(resp => {
+           console.log(resp)
+           return resp.json();
+        }).then(data => {
+               console.log("Ça vient du backend ", data.result)
+               localStorage.setItem("token", data.result.access_token)
+               //console.log(data.result.access_token, " hola")
+               ;
+         }).catch(error => {console.error("Il y a une erreur", error)})*/
+    }
 
 
+    return (
+        <div>
+            <div className='form-content-in'>
+                <form className="form">
 
-       return (
-            <div>
-                <div className='form-content-in'>
-                    <form className="form">
-
-                        <div className='form-inputs'>
-
+                    <div className='form-inputs'>
 
 
-                          <label className='form-label'>EMAIL</label>
-                          <input
+                        <label className='form-label'>EMAIL</label>
+                        <input
                             className='form-input'
                             type='email'
                             name='email'
                             placeholder='Entrez votre e-mail'
                             value={email}
-                            onChange={ (e) => setEmail(e.target.value) }
+                            onChange={(e) => setEmail(e.target.value)}
 
-                          />
-                          </div>
-                        <div className='form-inputs'>
-                          <label className='form-label'>MOT DE PASSE</label>
-                          <input
+                        />
+                    </div>
+                    <div className='form-inputs'>
+                        <label className='form-label'>MOT DE PASSE</label>
+                        <input
                             className='form-input'
                             type='password'
                             name='password'
                             placeholder='Entrez mot de passe'
                             value={password}
-                            onChange={ (e) => setPassword(e.target.value) }
-                            />
-                        </div>
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
 
-                        <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
-                        <div className="connexion">
-                         <p className="conect">Vous n'avez pas de compte, alors <Link to='/sign-up' className="inscrire" style={{color: 'white'}}>INSCRIVEZ VOUS</Link></p>
-                        </div>
-                    </form>
+                    <button onClick={handleClick} className='form-input-btn'>SE CONNECTER</button>
+                    <div className="connexion">
+                        <p className="conect">Vous n'avez pas de compte, alors <Link to='/sign-up' className="inscrire"
+                                                                                     style={{color: 'white'}}>INSCRIVEZ
+                            VOUS</Link></p>
+                    </div>
+                </form>
 
-                     </div>
             </div>
-   );
+        </div>
+    );
 
 }
 
