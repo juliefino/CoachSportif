@@ -20,6 +20,7 @@ import { PrivateRoute } from "./components/PrivateRoute.js";
 import Contact from "./components/pages/Contact";
 import Sidebar from "./components/sidebar";
 import BarChart from "./components/pages/Statistiques";
+import DonneesPersonnels from "./components/pages/DonneesPersonnels";
 
 function App() {
   if(isLoggedIn()){
@@ -30,6 +31,7 @@ function App() {
         <Sidebar/>
         <Switch>
           <Route path='/' exact component={Home} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/mes-donnees" component={DonneesPersonnels} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/mes-statistiques" component={BarChart} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_distance" component={Distance} />

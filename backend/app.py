@@ -49,7 +49,7 @@ db.create_all()
 
 @app.route('/')
 def home():
-    return "<h1>HOLA</h1>"
+    return {'hello': 'world'}
 
 
 # Run the example
