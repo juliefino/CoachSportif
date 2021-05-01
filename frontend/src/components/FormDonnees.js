@@ -14,6 +14,7 @@ const FormDonnees = () => {
     const [poids, setPoids] = useState(null)
     const [premium, setPremium] = useState(null)
 
+
     useEffect(() => {
         const id = localStorage.getItem('id')
         const apiUrl = `/api/utilisateurs/`;
@@ -46,12 +47,22 @@ const FormDonnees = () => {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             },
             body: JSON.stringify({alias, email, taille, poids})
-        }).then(() => {
-            //window.location.replace("/objectifs")
+        }).then((response) => {
+            if (response.status === 200) {
+                document.getElementById("solution").innerHTML = "Votre profile a été mis à jour !";
+                document.getElementById("solution").style.color = "green"
+            } else if (response.status === 400) {
+                document.getElementById("solution").innerHTML = "Votre profile n'a pas pu être mis à jour !";
+                document.getElementById("solution").style.color = "red"
+            } else {
+                document.getElementById("solution").innerHTML = "";
+            }
+
         }).catch(() => {
             console.log("erreur")
         })
     }
+
 
     switch (premium) {
         case null:
@@ -68,10 +79,16 @@ const FormDonnees = () => {
         case true:
             return (
 
+
                 <div>
                     <h1>VOS DONNÉES</h1>
+
                     <div className='form-content-don'>
+
+
                         <form className="form-don">
+                            <h3 id="solution"></h3>
+
 
                             <div className='form-inputs-don'>
 
@@ -135,7 +152,9 @@ const FormDonnees = () => {
                 <div>
                     <h1>VOS DONNÉES</h1>
                     <div className='form-content-don'>
+
                         <form className="form-don">
+                            <h3 id="solution"></h3>
 
                             <div className='form-inputs-don'>
 
@@ -186,7 +205,8 @@ const FormDonnees = () => {
 
                             <button onClick={handleClick} className='form-input-btn-don'>MODIFIER</button>
 
-                            <button className='form-input-btn-prem'><Link className='form-input-btn-prem' to='/premium'>DEVENIR PREMIUM</Link></button>
+                            <button className='form-input-btn-prem'><Link className='form-input-btn-prem' to='/premium'>DEVENIR
+                                PREMIUM</Link></button>
 
                         </form>
 
