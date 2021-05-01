@@ -3,11 +3,11 @@ import Content from "../ContenuProfile";
 
 
 export default function Profile() {
-  return (
-      <>
-        <Content/>
+    return (
+        <>
+            <Content/>
 
-      </>
+        </>
 
-  );
+    );
 }

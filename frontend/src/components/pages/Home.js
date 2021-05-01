@@ -7,22 +7,22 @@ import Sidebar from "../sidebar";
 import {isLoggedIn} from "../auth";
 
 function Home() {
-    if(isLoggedIn()){
-      return (
-        <>
-          <HeroSection />
-
-          <Footer />
-        </>
-      );
-   } else {
+    if (isLoggedIn()) {
         return (
-        <>
-          <HeroSection />
+            <>
+                <HeroSection/>
 
-          <Footer />
-        </>
-      );
+                <Footer/>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <HeroSection/>
+
+                <Footer/>
+            </>
+        );
 
     }
 }
