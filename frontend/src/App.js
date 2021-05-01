@@ -21,7 +21,11 @@ import Contact from "./components/pages/Contact";
 import Sidebar from "./components/sidebar";
 import BarChart from "./components/pages/Statistiques";
 import DonneesPersonnels from "./components/pages/DonneesPersonnels";
+<<<<<<< HEAD
+import Nutrition from "./components/pages/nutrition";
+=======
 import Premium from "./components/pages/Premium";
+>>>>>>> b95c1f4adc1b4e7aff30f3d2637eba801986a2d8
 
 function App() {
   if(isLoggedIn()){
@@ -39,6 +43,7 @@ function App() {
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_score" component={Score} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_aquatique" component={Aquatique} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path='/profile' component={Profile} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path='/nutrition' component={Nutrition} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />
           <Route path='/sign-up' component={FormSignup} />
