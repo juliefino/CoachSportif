@@ -24,7 +24,6 @@ def getObjectifs():
 
 
 @objectifs.route('<id>', methods=['GET'])
-@jwt_required()
 def get_objectifs_utilisateurs(id):
     objectifs = models.Objectifs.query.get_or_404(id)
     result = {
