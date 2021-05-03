@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a div 1`] = `
+<div
+  className="hero-container"
+>
+  <img
+    src="/images/img-02.jpg"
+  />
+  <h1>
+    WORK HARDER, GET STRONGER
+  </h1>
+  <p>
+    What are you waiting for?
+  </p>
+  <div
+    className="hero-btns"
+  >
+    <a
+      className="btn-mobile"
+      href="/login"
+      onClick={[Function]}
+    >
+      <button
+        className="btn btn--primary btn--medium"
+      >
+        <a
+          href="/sign-up"
+          onClick={[Function]}
+        >
+          S'INSCRIRE
+        </a>
+      </button>
+    </a>
+  </div>
+</div>
+`;

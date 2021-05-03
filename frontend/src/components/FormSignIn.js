@@ -44,18 +44,7 @@ const FormSignin = () => {
                     console.log("Please type in correct username/password")
                 }
             })
-        /*fetch('/api/login', {
-         method: 'post',
-         body: JSON.stringify(options)
-       }).then(resp => {
-           console.log(resp)
-           return resp.json();
-        }).then(data => {
-               console.log("Ça vient du backend ", data.result)
-               localStorage.setItem("token", data.result.access_token)
-               //console.log(data.result.access_token, " hola")
-               ;
-         }).catch(error => {console.error("Il y a une erreur", error)})*/
+
     }
 
 

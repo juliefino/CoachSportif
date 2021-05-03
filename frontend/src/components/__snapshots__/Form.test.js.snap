@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a form 1`] = `
+<div>
+  <div
+    className="form-content-in"
+  >
+    <form
+      className="form"
+    >
+      <div
+        className="form-inputs"
+      >
+        <label
+          className="form-label"
+        >
+          EMAIL
+        </label>
+        <input
+          className="form-input"
+          name="email"
+          onChange={[Function]}
+          placeholder="Entrez votre e-mail"
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        className="form-inputs"
+      >
+        <label
+          className="form-label"
+        >
+          MOT DE PASSE
+        </label>
+        <input
+          className="form-input"
+          name="password"
+          onChange={[Function]}
+          placeholder="Entrez mot de passe"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        className="form-input-btn"
+        onClick={[Function]}
+      >
+        SE CONNECTER
+      </button>
+      <div
+        className="connexion"
+      >
+        <p
+          className="conect"
+        >
+          Vous n'avez pas de compte, alors 
+          <a
+            className="inscrire"
+            href="/sign-up"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "white",
+              }
+            }
+          >
+            INSCRIVEZ VOUS
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+`;
