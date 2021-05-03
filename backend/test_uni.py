@@ -1,5 +1,7 @@
 import unittest
 import requests
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 import json
 
 
@@ -39,8 +41,6 @@ class UtilisateurTest(unittest.TestCase):
 
         test_request_un = requests.get(UtilisateurTest.UTILISATEUR_URL.format('') + str("/2"))
         self.assertEqual(test_request_un.status_code, 404)
-
-
 
 
 
