@@ -18,5 +18,5 @@ def post_encodage():
         db.session.add(user_encodage)
         db.session.commit()
 
-        return redirect('http://localhost:5000/')
+        return 'SUCCESS'
 
