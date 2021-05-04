@@ -14,8 +14,9 @@ db.init_app(app)
 from model import  *
 from utilisateurs import get_utilisateurs, get_utilisateur
 from inscription import post_utilisateur
-from objectifs import getObjectifs, objectif_favorit
-
+from objectifs import getObjectifs, objectif_favorit, get_objectifs_utilisateurs, effacement_utilisateur_objectif
+from encodage import post_encodage
+from activites import getActivites, getActivitesLiked
 class IntegrationTest(unittest.TestCase):
 
     def setUp(self):
@@ -27,7 +28,7 @@ class IntegrationTest(unittest.TestCase):
     def test_get_utilisateurs(self):
         with app.app_context():
             user = get_utilisateurs()
-            print(user)
+            #print(user)
             self.assertEqual(len(user), 0 )
 
             # Ajout des utilisateurs
@@ -45,7 +46,7 @@ class IntegrationTest(unittest.TestCase):
             db.session.commit()
 
             user = get_utilisateurs()
-            print(user)
+            #print(user)
             self.assertEqual(user[1]['alias'], info["alias"])
             self.assertEqual(user[1]['email'], info["email"])
             self.assertEqual(user[1]['taille'], info["taille"])
@@ -82,7 +83,7 @@ class IntegrationTest(unittest.TestCase):
             db.session.commit()
 
             objectifs = getObjectifs()
-            print(objectifs)
+            #print(objectifs)
             self.assertEqual(objectifs[1]["label"], info["nom_objectif"])
             self.assertNotEqual(objectifs[1]["label"], "Vitesse")
 
@@ -121,7 +122,156 @@ class IntegrationTest(unittest.TestCase):
             m.get_json = get_json
             with mock.patch("objectifs.request", m):
                 p = objectif_favorit()
-                self.assertTrue(True)
+                self.assertEqual(p[0]["id"], 1)
+                self.assertEqual(p[1], 200)
+
+
+            user = get_objectifs_utilisateurs(info_objeuser["id_objectif"])
+            #print(user)
+            self.assertEqual(user["nom_objectif"], "Distance")
+            self.assertNotEqual(user["nom_objectif"], "Vitesse")
+
+    def test_utilisateur_unique(self):
+        with app.app_context():
+            # Ajout des utilisateurs
+            info = {
+                "alias": "Ikram",
+                "email": "ikram@ephec.be",
+                "naissance": "1999-12-3",
+                "taille": 170,
+                'poids': 60,
+                "password": "ikram33"
+            }
+            utilisateur = Utilisateur(info["alias"], info["email"], info["naissance"], info["taille"], info["poids"],
+                                      info["password"], False)
+            db.session.add(utilisateur)
+            db.session.commit()
+
+            m = mock.MagicMock()
+            m.method = "GET"
+            with mock.patch("utilisateurs.request", m):
+                user = get_utilisateur(1)
+                self.assertEqual(user[1]["alias"], info['alias'])
+
+            info_uti = {
+                "id": 1,
+                "alias": "Ikram",
+                "email": "ikram@ephec.be",
+                "naissance": "1999-12-3",
+                "taille": 170,
+                'poids': 60,
+                "password": "ikram33"
+            }
+
+            m = mock.MagicMock()
+            m.method = "PUT"
+            def get_json(force):
+                return info_uti
+            m.get_json = get_json
+            with mock.patch("utilisateurs.request", m):
+                p = get_utilisateur(info_uti["id"])
+                #print(p)
+                self.assertEqual(p[0]["status"], "400")
+
+            info_uti = {
+                "id": 1,
+                "alias": "ikram33",
+                "email": "ikram@ephec.be",
+                "naissance": "1999-12-3",
+                "taille": 170,
+                'poids': 60,
+                "password": "ikram33"
+            }
+            m = mock.MagicMock()
+            m.method = "PUT"
+            def get_json(force):
+                return info_uti
+
+            m.get_json = get_json
+            with mock.patch("utilisateurs.request", m):
+                p = get_utilisateur(info_uti["id"])
+                #print(p)
+                self.assertEqual(p[0]["status"], "200")
+
+    def test_get_activites(self):
+            with app.app_context():
+                act = getActivites()
+                # print(user)
+                self.assertEqual(len(act), 0)
+
+                # Ajout des utilisateurs
+                info = {
+                    "nom_activite": "Natation",
+                    "path_image": "/image.jpg",
+                    "type_activite": "Distance"
+                }
+                activite = Activites(info["nom_activite"], info["path_image"], info["type_activite"])
+                db.session.add(activite)
+                db.session.commit()
+
+                act = getActivites()
+                # print(user)
+                self.assertEqual(act[1]['label'], info["nom_activite"])
+                self.assertEqual(act[1]['img'], info["path_image"])
+
+
+                likes = getActivitesLiked()
+                self.assertEqual(len(likes), 0)
+                # Ajout des utilisateurs
+                info = {
+                    "alias": "Ikram",
+                    "email": "ikram@ephec.be",
+                    "naissance": "1999-12-3",
+                    "taille": 170,
+                    'poids': 60,
+                    "password": "ikram33"
+                }
+                utilisateur = Utilisateur(info["alias"], info["email"], info["naissance"], info["taille"],
+                                          info["poids"],
+                                          info["password"], False)
+                db.session.add(utilisateur)
+                db.session.commit()
+
+    # def test_encodage(self):
+    #     with app.app_context():
+    #         info = {
+    #             "alias": "Ikram",
+    #             "email": "ikram@ephec.be",
+    #             "naissance": "1999-12-3",
+    #             "taille": 170,
+    #             'poids': 60,
+    #             "password": "ikram33"
+    #         }
+    #         utilisateur = Utilisateur(info["alias"], info["email"], info["naissance"], info["taille"], info["poids"],
+    #                                   info["password"], False)
+    #         db.session.add(utilisateur)
+    #         db.session.commit()
+    #
+    #         info_en = {
+    #             "id_user": 1,
+    #             "id_activite": 1,
+    #             "date": "1999-12-3",
+    #             "heure": "20:00",
+    #             'distance': 60,
+    #             "duree" : "12:05",
+    #             "vitesse_moyenne" : None,
+    #             "nom_team_1" : "hola",
+    #             "score_team_1": 0,
+    #             "nom_team_2": "hola",
+    #             "score_team_2": 0
+    #         }
+    #
+    #         m = mock.MagicMock()
+    #         m.method = "POST"
+    #
+    #         def get_json(force):
+    #             return info_en
+    #
+    #         m.get_json = get_json
+    #         with mock.patch("encodage.request", m):
+    #             p = post_encodage()
+    #             self.assertTrue(True)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
