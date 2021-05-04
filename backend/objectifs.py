@@ -5,7 +5,7 @@ from sqlalchemy.sql import func
 import json
 from datetime import date
 import model as models
-import app as app
+from database import db
 objectifs = Blueprint('objectifs', __name__)
 
 
@@ -18,7 +18,7 @@ def getObjectifs():
             'value': objet.id,
             'label': objet.nom_objectif
         }
-    app.db.session.commit()
+    db.session.commit()
     return result
 
 
@@ -29,14 +29,13 @@ def get_objectifs_utilisateurs(id):
     result = {
         'nom_objectif': objectifs.nom_objectif
     }
-    app.db.session.commit()
+    db.session.commit()
     return result
 
 objectifs_user = Blueprint('objectifs_user', __name__)
 
 
-@objectifs_user.route('', methods=['GET','POST'])
-@jwt_required()
+@objectifs_user.route('', methods=['POST'])
 def objectif_favorit():
     if request.method == 'POST':
         info = request.get_json(force=True)
@@ -45,8 +44,8 @@ def objectif_favorit():
         print("Nous sommes le :", today)
 
         objectif = models.Objectifs_Utilisateurs( info["id_user"], info["id_objectif"], info["objectif"], today)
-        app.db.session.add(objectif)
-        app.db.session.commit()
+        db.session.add(objectif)
+        db.session.commit()
 
         return {'id': objectif.id}, 200
 
@@ -94,11 +93,11 @@ def objectif_encodage_par_user(id_user):
                 'date' : str(dateObjectif)
             }}
         print(result)
-        app.db.session.commit()
+        db.session.commit()
 
         return result
     else :
-        app.db.session.commit()
+        db.session.commit()
         return {'message' : "pas d'objectif"}, 400
 
 
@@ -109,8 +108,8 @@ effacer_objectif_utilisateur = Blueprint('effacer_objectif_utilisateur', __name_
 @jwt_required()
 def effacement_utilisateur_objectif(id_user):
     objectif = models.Objectifs_Utilisateurs.query.filter_by(id_user=id_user).first()
-    app.db.session.delete(objectif)
-    app.db.session.commit()
+    db.session.delete(objectif)
+    db.session.commit()
     return 'SUCCESS'
 
 

@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, redirect, url_for, Blueprint
 from flask_jwt_extended import get_jwt_identity, jwt_required
 
 import model as models
-import app as app
+from database import db
 
 activites = Blueprint('activites', __name__)
 
@@ -20,7 +20,7 @@ def getActivites():
             'img': activity.path_image,
             'type': activity.type_activite
         }
-    app.db.session.commit()
+    db.session.commit()
 
     return result
 
@@ -50,12 +50,12 @@ def switchFavorite():
 
         if data_exist:
             models.Activites_Likees.query.filter_by(id_user=user_id, id_activite=card_id).delete()
-            app.db.session.commit()
+            db.session.commit()
             result = "Deleted!"
 
         else:
-            app.db.session.add(id_activity)
-            app.db.session.commit()
+            db.session.add(id_activity)
+            db.session.commit()
             result = "Added!"
 
         return result
