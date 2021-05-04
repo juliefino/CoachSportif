@@ -32,6 +32,11 @@ class Activites(db.Model):
     path_image = db.Column(db.String(200))
     type_activite = db.Column(db.String(200))
 
+    def __init__(self, nom_activite, path_image, type_activite):
+        self.nom_activite = nom_activite
+        self.path_image = path_image
+        self.type_activite = type_activite
+
 
 class Activites_Likees(db.Model):
     __tablename__ = "activites_likees"
