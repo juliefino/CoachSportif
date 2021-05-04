@@ -1,4 +1,4 @@
-from app import *
+from database import db
 from werkzeug.security import generate_password_hash
 import hashlib
 
@@ -50,6 +50,9 @@ class Objectifs(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nom_objectif = db.Column(db.String(200))
+
+    def __init__(self, nom_objectif):
+        self.nom_objectif = nom_objectif
 
 
 class Objectifs_Utilisateurs(db.Model):
@@ -121,4 +124,3 @@ class Commandes(db.Model):
 
 
 
-db.create_all()

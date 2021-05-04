@@ -1,7 +1,7 @@
 from flask import Blueprint
 import model as models
 from flask import Flask, request
-import app as app
+from database import db
 
 utilisateurs = Blueprint('utilisateurs', __name__)
 
@@ -18,7 +18,7 @@ def get_utilisateurs():
             "taille": user.taille,
             "poids": user.poids
         }
-    app.db.session.commit()
+    db.session.commit()
 
     return result
 
@@ -35,13 +35,13 @@ def get_utilisateur(id):
             "poids": user.poids,
             "premium" : user.premium
         }}
-        app.db.session.commit()
+        db.session.commit()
         return reponse
     elif request.method == "PUT" :
         user = models.Utilisateur.query.get_or_404(id)
         info = request.get_json(force=True)
         if user.alias == info["alias"] and user.email == info["email"] and user.taille == info["taille"] and user.poids == info["poids"]:
-            app.db.session.commit()
+            db.session.commit()
             return {"status": "400"}, 400
         else:
             user.alias = info["alias"]
@@ -49,5 +49,5 @@ def get_utilisateur(id):
             user.taille = info["taille"]
             user.poids = info["poids"]
 
-            app.db.session.commit()
+            db.session.commit()
             return {"status" : "200"}, 200
