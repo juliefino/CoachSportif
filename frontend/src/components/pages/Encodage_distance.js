@@ -7,7 +7,7 @@ export default function Distance() {
 
 // Met le state des inputs
   const [id_user, setUser] = localStorage.getItem("id")
-  const [id_activite] = useState(2)
+  const [id_activite] = localStorage.getItem("id_activite")
   const [date, setDate] = useState('')
   const [heure, setHeure] = useState('')
   const [distance, setDistance] = useState('')
