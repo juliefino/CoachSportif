@@ -7,7 +7,7 @@ import '../Encodage_aquatique.css'
 export default function Aquatique() {
 
   const [id_user, setUser] = localStorage.getItem("id")
-  const [id_activite] = useState(2)
+  const [id_activite] = localStorage.getItem("id_activite")
   const [date, setDate] = useState('')
   const heure = null
   const [distance, setDistance] = useState('')
