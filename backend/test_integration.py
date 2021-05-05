@@ -69,7 +69,7 @@ class IntegrationTest(unittest.TestCase):
             m.get_json = get_json
             with mock.patch("inscription.request", m):
                 p = post_utilisateur()
-                self.assertTrue(True)
+                self.assertEqual(p[1], 200)
 
     def test_get_objectifs(self):
         with app.app_context():
@@ -272,6 +272,46 @@ class IntegrationTest(unittest.TestCase):
     #             p = post_encodage()
     #             self.assertTrue(True)
 
+    def test_switch_favorite(self):
+        with app.app_context():
+            info = {
+                "alias": "Ikram",
+                "email": "ikram@ephec.be",
+                "naissance": "1999-12-3",
+                "taille": 170,
+                'poids': 60,
+                "password": "ikram33"
+            }
+            utilisateur = Utilisateur(info["alias"], info["email"], info["naissance"], info["taille"],
+                                      info["poids"],
+                                      info["password"], False)
+            db.session.add(utilisateur)
+            db.session.commit()
+            info_act = {
+                "nom_activite": "Natation",
+                "path_image": "/image.jpg",
+                "type_activite": "Distance"
+            }
+            activite = Activites(info_act["nom_activite"], info_act["path_image"], info_act["type_activite"])
+            db.session.add(activite)
+            db.session.commit()
+
+
+
+            act = getActivitesLiked()
+            self.assertEqual(len(act), 0)
+
+            info_liked = {
+                "id_user": 1,
+                "id_activite": 1
+            }
+
+            activite_like = Activites_Likees(info_liked["id_user"], info_liked["id_activite"])
+            db.session.add(activite_like)
+            db.session.commit()
+
+            act = getActivitesLiked()
+            self.assertNotEqual(len(act), 0)
 
 if __name__ == '__main__':
     app.run(debug=True)
