@@ -9,11 +9,13 @@ import axios from "axios";
 function CardItem(props) {
 
     const [kindActivity, setRedirect] = useState(null);
+    const click = () =>{ localStorage.setItem('id_activite', props.id) }
 
     useEffect(() => {
         switch (props.type) {
             case 'distance':
                 setRedirect('/Encodage_distance');
+
                 break;
             case 'aquatique':
                 setRedirect('/Encodage_aquatique');
@@ -78,7 +80,7 @@ function CardItem(props) {
                             <h5 className='cards__item__text'>{props.text}</h5>
                         </div>
                         <Link to={kindActivity} id={props.id + 'stat'} className='linkToStat' >
-                            <button className='btnEncodage btn--large'>Ajouter une performance</button>
+                            <button className='btnEncodage btn--large' onClick={click}>Ajouter une performance</button>
                         </Link>
                     </Link>
                 </li>
