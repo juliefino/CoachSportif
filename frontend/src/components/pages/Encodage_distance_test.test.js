@@ -12,10 +12,9 @@ describe("Form encodage", () => {
             const mockOnSubmit = jest.fn()
             const {getByLabelText, getByRole} = render(<form onSubmit={mockOnSubmit}/>)
 
-
             await act(async () => {
-                fireEvent.change(getByLabelText("date *"), {target: {value : '2021-02-22'}})
-                fireEvent.change(getByLabelText("heure *"), {target: {value : '20:03'}})
+                fireEvent.change(getByLabelText("Date"), {target: {value : '2021-02-22'}})
+                fireEvent.change(getByLabelText("Heure"), {target: {value : '20:03'}})
             })
 
             await act(async () => {
