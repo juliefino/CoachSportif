@@ -7,7 +7,8 @@ import '../Encodage.css'
 export default function Score() {
       // Met le state des inputs
   const [id_user, setUser] = localStorage.getItem("id")
-  const [id_activite] = useState(2)
+  const [id_activite] = localStorage.getItem("id_activite")
+  console.log(typeof(id_activite))
   const [date, setDate] = useState('')
   const [duree, setDuree] = useState('')
 
