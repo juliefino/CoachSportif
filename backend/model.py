@@ -117,12 +117,13 @@ class Encodage(db.Model):
 class Commandes(db.Model):
     __tablename__ = "commandes"
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.String(50), primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
     id_subscription = db.Column(db.String(50))
-    date = db.Column(db.DATE)
+    date = db.Column(db.DateTime)
 
-    def __init__(self, id_user, id_subscription, date):
+    def __init__(self, id, id_user, id_subscription, date):
+        self.id = id
         self.id_user = id_user
         self.id_subscription = id_subscription
         self.date = date

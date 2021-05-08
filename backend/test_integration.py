@@ -28,7 +28,7 @@ class IntegrationTest(unittest.TestCase):
     def test_get_utilisateurs(self):
         with app.app_context():
             user = get_utilisateurs()
-            #print(user)
+            #pri
             self.assertEqual(len(user), 0 )
 
             # Ajout des utilisateurs
@@ -231,6 +231,45 @@ class IntegrationTest(unittest.TestCase):
                                           info["password"], False)
                 db.session.add(utilisateur)
                 db.session.commit()
+
+    def test_switch_favorite(self):
+        with app.app_context():
+            info = {
+                "alias": "Ikram",
+                "email": "ikram@ephec.be",
+                "naissance": "1999-12-3",
+                "taille": 170,
+                'poids': 60,
+                "password": "ikram33"
+            }
+            utilisateur = Utilisateur(info["alias"], info["email"], info["naissance"], info["taille"],
+                                      info["poids"],
+                                      info["password"], False)
+            db.session.add(utilisateur)
+            db.session.commit()
+            info_act = {
+                "nom_activite": "Natation",
+                "path_image": "/image.jpg",
+                "type_activite": "Distance"
+            }
+            activite = Activites(info_act["nom_activite"], info_act["path_image"], info_act["type_activite"])
+            db.session.add(activite)
+            db.session.commit()
+
+            act = getActivitesLiked()
+            self.assertEqual(len(act), 0)
+
+            info_liked = {
+                "id_user": 1,
+                "id_activite": 1
+            }
+
+            activite_like = Activites_Likees(info_liked["id_user"], info_liked["id_activite"])
+            db.session.add(activite_like)
+            db.session.commit()
+
+            act = getActivitesLiked()
+            self.assertNotEqual(len(act), 0)
 
     # def test_encodage(self):
     #     with app.app_context():

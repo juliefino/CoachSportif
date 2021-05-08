@@ -24,38 +24,31 @@ const PaypalForm = () => {
                                      <p>Accès à des conseils de professionnels</p>
                                      <p>Un pseudo couleur or</p>
                                      <div className='container-paypal'>
-                                     <PayPalButton options={{
-                                         vault: true,
-                                         clientId: "AX6812X_V-4Clzi08FkLsbPl10aZ86x-cxNXoAAIYKhoFj1KbaEfFsyDnv3USxRObzhP_vNeJX7Stz_s",
-                                         currency: "EUR",
-                                         intent: "subscription"
-                                     }}
-                                                   createSubscription={(data, actions) => {
-                                                       return actions.subscription.create({
-                                                           plan_id: 'P-6DW43585EH102802KMCFR64Y'
-                                                       });
-                                                   }}
-                                                   onApprove={(data, actions) => {
-                                                       // Capture the funds from the transaction
-                                                       return actions.subscription.get().then(function (details) {
-                                                           // Show a success message to your buyer
-                                                           window.location.replace("/");
-                                                           alert("Subscription completed");
-                                                           // OPTIONAL: Call your server to save the subscription
-                                                           // Rajouter un 2 eme post pour injecter la sub id dans la table adéquate
-                                                           /*
-                                                                body: JSON.stringify({
-                                                                    orderID: data.orderID,
-                                                                    subscriptionID: data.subscriptionID
-                                                                })
-                                                            */
-                                                               return axios.post('/api/payment', {
-                                                                   user_id: localStorage.getItem('id')
-                                                               }
-                                                               )
-                                                       });
-                                                   }}
-                                     />
+                                         <PayPalButton
+                                             options={{
+                                                 vault: true,
+                                                 clientId: "AX6812X_V-4Clzi08FkLsbPl10aZ86x-cxNXoAAIYKhoFj1KbaEfFsyDnv3USxRObzhP_vNeJX7Stz_s",
+                                                 currency: "EUR"
+                                             }}
+                                             createSubscription={(data, actions) => {
+                                                 return actions.subscription.create({
+                                                     plan_id: 'P-6DW43585EH102802KMCFR64Y'
+                                                 });
+                                             }}
+                                             onApprove={(data, actions) => {
+                                                 return actions.subscription.get().then(function(details) {
+                                                     return axios.post('/api/payment', {
+                                                         user_id: idOfUser,
+                                                         order_id: data.orderID,
+                                                         subscription_id: data.subscriptionID
+                                                     })
+                                                         .then(function (){
+                                                             document.location.href="/";
+                                                             console.log(data);
+                                                         })
+                                                 });
+                                             }}
+                                         />
                                      </div>
                                  </>
                              )
@@ -65,7 +58,7 @@ const PaypalForm = () => {
                                     <>
                                         <h1>Toujours plus avec notre formule PREMIUM !</h1>
                                         <h3>Vous êtes déjà un membre PREMIUM !</h3>
-                                        <a href="">
+                                        <a href="https://www.sandbox.paypal.com/myaccount/settings/payments">
                                             Annuler l'abonnement
                                         </a>
                                     </>

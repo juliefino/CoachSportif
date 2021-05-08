@@ -88,7 +88,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar data-testid="navbar" />
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/objectifs" component={Objectifs} />
