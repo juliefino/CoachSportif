@@ -31,7 +31,7 @@ function App() {
          <>
       <Router>
         <Navbar />
-        <Sidebar/>
+
         <Switch>
           <Route path='/' exact component={Home} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/mes-donnees" component={DonneesPersonnels} />
