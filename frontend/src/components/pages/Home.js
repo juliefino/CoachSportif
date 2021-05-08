@@ -10,6 +10,8 @@ function Home() {
     if (isLoggedIn()) {
         return (
             <>
+                <Sidebar/>
+
                 <HeroSection/>
 
                 <Footer/>
