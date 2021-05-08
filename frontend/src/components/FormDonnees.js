@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import './FormDonnees.css';
-
-import {Redirect} from 'react-router-dom';
+import ReactNotification, {store} from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 const FormDonnees = () => {
 
@@ -49,11 +49,35 @@ const FormDonnees = () => {
             body: JSON.stringify({alias, email, taille, poids})
         }).then((response) => {
             if (response.status === 200) {
-                document.getElementById("solution").innerHTML = "Votre profile a été mis à jour !";
-                document.getElementById("solution").style.color = "green"
+
+                store.addNotification({
+                    title: "PARFAIT!",
+                    message: "Votre profil a bien été sauvegarder",
+                    type: "success",
+                    insert: "top",
+                    container: "top-left",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
             } else if (response.status === 400) {
-                document.getElementById("solution").innerHTML = "Votre profile n'a pas pu être mis à jour !";
-                document.getElementById("solution").style.color = "red"
+
+                store.addNotification({
+                    title: "ERROR!",
+                    message: "Votre profil n'a pas pu être mis à jour",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-left",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }
+                });
             } else {
                 document.getElementById("solution").innerHTML = "";
             }
@@ -81,6 +105,7 @@ const FormDonnees = () => {
 
 
                 <div>
+                    <ReactNotification/>
                     <h1>VOS DONNÉES</h1>
 
                     <div className='form-content-don'>

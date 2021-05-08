@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import './Form.css';
-
+import ReactNotification, {store} from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 import {Redirect} from 'react-router-dom';
 
 const FormSignin = () => {
@@ -41,7 +42,20 @@ const FormSignin = () => {
                         alert("erreur")
                     }
                 } else {
+                    store.addNotification({
+                    title: "ERROR!",
+                    message: "Mot de passe / mail incorrect",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-left",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: true
+                    }});
                     console.log("Please type in correct username/password")
+
                 }
             })
 
@@ -49,7 +63,10 @@ const FormSignin = () => {
 
 
     return (
+        <>
+        <ReactNotification />
         <div>
+
             <div className='form-content-in'>
                 <form className="form">
 
@@ -89,6 +106,7 @@ const FormSignin = () => {
 
             </div>
         </div>
+            </>
     );
 
 }

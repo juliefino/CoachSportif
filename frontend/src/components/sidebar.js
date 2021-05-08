@@ -25,7 +25,9 @@ function Sidebar() {
 
                     </NavIcon>
                     <NavText>
+                        <Link style={{textDecoration:'none'}} to='/mes-donnees'>
                         Mes données
+                        </Link>
                     </NavText>
                 </NavItem>
                 <NavItem eventKey="activites">
@@ -36,7 +38,8 @@ function Sidebar() {
 
                     </NavIcon>
                     <NavText>
-                        Mes activités
+                        <Link style={{textDecoration:'none'}} to='/mes-activites'>
+                            Mes activités</Link>
                     </NavText>
                 </NavItem>
                 <NavItem eventKey="charts">
@@ -46,7 +49,8 @@ function Sidebar() {
                         </Link>
                     </NavIcon>
                     <NavText>
-                        Mes statistiques
+                        <Link style={{textDecoration:'none'}} to='/mes-statistiques'>
+                            Mes statistiques</Link>
                     </NavText>
                 </NavItem>
                 <NavItem eventKey="objectifs">
@@ -56,7 +60,8 @@ function Sidebar() {
                         </Link>
                     </NavIcon>
                     <NavText>
-                        Mes objectifs
+                        <Link style={{textDecoration:'none'}} to='/objectifs'>
+                            Mes objectifs</Link>
                     </NavText>
                 </NavItem>
             </SideNav.Nav>
