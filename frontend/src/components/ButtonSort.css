@@ -11,10 +11,11 @@
 }
 
 .btns {
-  position: relative;
   top: 35px;
   bottom: 40px;
   left: 1322px;
+  margin-left: 20px;
+  font-size: 20px;
   padding: 8px 20px;
   border-radius: 2px;
   outline: none;
@@ -29,7 +30,9 @@
 
 .btns:hover {
   transition: all 0.3s ease-out;
-  background: darkgoldenrod;
-  color: white;
+  background:  black;
+  color: darkgoldenrod;
+  border-color: darkgoldenrod;
   transition: 250ms;
+
 }
