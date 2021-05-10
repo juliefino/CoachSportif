@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import '../../App.css';
-import Nutri from '../nutriCard'
+import '../../../App.css';
+import Nutri from '../../nutriCard'
 import {
     Modal,
     ModalOverlay,

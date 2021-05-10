@@ -38,6 +38,7 @@
     "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
     "react-select": "^4.3.0",
+    "react-spring": "^9.1.2",
     "react-test-renderer": "^17.0.2",
     "react-token-auth": "^1.1.8",
     "reactstrap": "^8.9.0",
