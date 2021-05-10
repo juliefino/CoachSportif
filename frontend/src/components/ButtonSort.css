@@ -2,12 +2,12 @@
   --primary: #fff;
 }
 
-.title {
-  position: relative;
-  left: -100px;
-  top: 25px;
-  bottom: 25px;
-
+.titles {
+  position : relative;
+  float : right;
+  top: 20px;
+  bottom: 50px;
+  margin-right: 50px;
 }
 
 .btns-d {
@@ -49,6 +49,15 @@
 }
 
 .btns:hover {
+  transition: all 0.3s ease-out;
+  background:  black;
+  color: darkgoldenrod;
+  border-color: darkgoldenrod;
+  transition: 250ms;
+
+}
+
+.btns-d:hover {
   transition: all 0.3s ease-out;
   background:  black;
   color: darkgoldenrod;
