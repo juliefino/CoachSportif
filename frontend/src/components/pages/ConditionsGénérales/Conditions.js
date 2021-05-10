@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Conditions.css';
+import '../../Conditions.css';
 
 export default function Conditions() {
     return (

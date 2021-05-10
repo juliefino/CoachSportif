@@ -6,7 +6,7 @@ import FormContact from "./FormContact";
 import FormDonnees from "./FormDonnees";
 import { MemoryRouter } from "react-router-dom";
 import TestRenderer from "react-test-renderer";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/Connexion/SignUp";
 
 test("render sans que ça plante", () => {
   const div = document.createElement("div");

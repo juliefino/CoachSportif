@@ -1,26 +1,27 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
-import Home from './components/pages/Home';
+import Home from './components/pages/Home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Partage from './components/pages/Services';
-import Activites from './components/pages/Activites';
+import Activites from './components/pages/Activites/Activites';
+import Malbouffe from './components/pages/Nutrition/malbouffe'
 import FormSignup from './components/FormSignUp';
-import NotFound from "./components/pages/NotFound";
+import NotFound from "./components/pages/NotFound/NotFound";
 import FormSignin from './components/FormSignIn';
-import Conditions from './components/pages/Conditions';
-import Objectifs from './components/pages/Objectifs';
+import Conditions from './components/pages/ConditionsGénérales/Conditions';
+import Objectifs from './components/pages/Objectifs/Objectifs';
 import Distance from './components/pages/Encodage_distance';
 import Score from './components/pages/Encodage_score';
 import Aquatique from './components/pages/Encodage_aquatique';
 import {isLoggedIn} from './components/auth.js';
 import { PrivateRoute } from "./components/PrivateRoute.js";
-import Contact from "./components/pages/Contact";
+import Contact from "./components/pages/FormulaireContact/Contact";
 import Sidebar from "./components/sidebar";
-import BarChart from "./components/pages/Statistiques";
-import DonneesPersonnels from "./components/pages/DonneesPersonnels";
+import BarChart from "./components/pages/Statistiques/Statistiques";
+import DonneesPersonnels from "./components/pages/DonneesPersonnels/DonneesPersonnels";
 
-import Nutrition from "./components/pages/nutrition";
+import Nutrition from "./components/pages/Nutrition/nutrition";
 
 import Premium from "./components/pages/Premium";
 
@@ -40,6 +41,7 @@ function App() {
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_distance" component={Distance} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_score" component={Score} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path="/encodage_aquatique" component={Aquatique} />
+          <PrivateRoute exact isloggedin={isLoggedIn()} path="/malbouffe" component={Malbouffe} />
           <PrivateRoute exact isloggedin={isLoggedIn()} path='/nutrition' component={Nutrition} />
           <Route path='/partage' component={Partage} />
           <Route path='/activites' component={Activites} />

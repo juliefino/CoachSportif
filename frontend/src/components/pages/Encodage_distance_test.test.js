@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import {MemoryRouter} from "react-router-dom";
-import SignUp from "./SignUp";
-import SignIn from "./SignIn";
+import SignUp from "./Connexion/SignUp";
+import SignIn from "./Connexion/SignIn";
 import React from "react";
 import {render, fireEvent} from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
