@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../Objectifs.css'
+import '../../Objectifs.css'
 import Select from 'react-select';
 import {Box, Spinner} from "@chakra-ui/react"
 import {Center, Square, Circle} from "@chakra-ui/react"
