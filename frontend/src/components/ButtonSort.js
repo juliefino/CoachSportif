@@ -180,8 +180,8 @@ const ButtonSort = () => {
 
     return (
         <div>
-            <h1>ACTIVITÉS</h1>
-            <button className='btns' onClick={handleClick}>{button ? descendant : ascendant}</button>
+            <h1 className='titles'>ACTIVITÉS</h1>
+            <button className='btns-d' data-testid='btn' onClick={handleClick}>{button ? descendant : ascendant}</button>
             {button ? <Ascending/> : <Descending/>}
         </div>
     );
@@ -189,3 +189,4 @@ const ButtonSort = () => {
 
 
 export default ButtonSort;
+export {ButtonSort};
