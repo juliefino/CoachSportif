@@ -3,7 +3,7 @@
 node_modules
 # dotenv
 .env
-
+*.env
 # virtualenv
 .venv/
 venv/
