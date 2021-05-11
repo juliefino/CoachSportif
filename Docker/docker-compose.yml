@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
 
@@ -9,6 +9,17 @@ services:
     volumes:
       - ./logs:/var/logs/postgresql
     ports:
-      - 5432:5432
+      - 5433:5432
     env_file:
       - .env
+    networks:
+      coach-network:
+        ipv4_address: 192.168.10.10
+
+networks:
+  coach-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24
+          gateway: 192.168.10.1
