@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import '../Encodage_aquatique.css'
+import ReactNotification, {store} from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 
 export default function Aquatique() {
@@ -30,7 +32,38 @@ export default function Aquatique() {
           },
         body: JSON.stringify({id_user, id_activite, date, heure, distance, duree, vitesse_moyenne,
             nom_team_1, score_team_1, nom_team_2, score_team_2})
-      })
+      })/*
+      .then((response) => {
+        if (response.status === 200) {
+            store.addNotification({
+                title: "DONE!",
+                message: "Les données ont bien été enregistrées",
+                type: "success",
+                insert: "top",
+                container: "top-left",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        } else if (response.status === 400) {
+            store.addNotification({
+                title: "ERROR!",
+                message: "Une erreur est survenue, les données n'est pas été enregistrées",
+                type: "danger",
+                insert: "top",
+                container: "top-left",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        }
+  })*/
         console.log("Done")
         console.log(result.status) //pour afficher le bon status, il faut retirer le mode no-cors
     }
