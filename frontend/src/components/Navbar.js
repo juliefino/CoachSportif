@@ -76,6 +76,16 @@ function Navbar() {
                                 </Link>
                             </li>
 
+                            <li className='nav-item'>
+                                <Link
+                                    to='/premium'
+                                    className='nav-links'
+                                    onClick={closeMobileMenu}
+                                >
+                                    PREMIUM
+                                </Link>
+                            </li>
+
                         </ul>
                         {button && <Button buttonStyle='btn--outline' onClick={() => {
                             deleteTokens();

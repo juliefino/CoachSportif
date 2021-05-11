@@ -75,7 +75,7 @@ const PaypalForm = () => {
                             setContent(
                                 <>
                                     <h1>Toujours plus avec notre formule PREMIUM !</h1>
-                                    <h3>Seulement 5,99 € par mois !</h3>
+                                    <h3>Seulement 5,99 € HTVA par mois !</h3>
                                     <p>Accès à des conseils de nutritions</p>
                                     <p>Accès à des conseils de professionnels</p>
                                     <p>Un pseudo couleur or</p>
