@@ -81,7 +81,7 @@ class Encodage(db.Model):
 
     # Data distance
     id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
-    id_activite = db.Column(db.Integer, db.ForeignKey("activites_likees.id"))
+    id_activite = db.Column(db.Integer, db.ForeignKey("activites.id"))
     id_encodage = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DATE)
     heure = db.Column(db.TIME)
