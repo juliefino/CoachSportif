@@ -15,7 +15,7 @@ from encodage import encodage
 from activites import activites, activiteFavorite, activitiesLiked
 #from contactMail import contact
 from statistiques import statistiques
-from paypal import payment, get_premium
+from paypal import payment, get_premium, payment_expired, get_order
 
 
 app = Flask(__name__)
@@ -53,7 +53,8 @@ app.register_blueprint(effacer_objectif_utilisateur, url_prefix='/api/effacer_ob
 app.register_blueprint(payment, url_prefix='/api/payment')
 app.register_blueprint(get_premium, url_prefix='/api/isPremium')
 app.register_blueprint(statistiques, url_prefix='/api/statistiques')
-
+app.register_blueprint(payment_expired, url_prefix='/api/expired')
+app.register_blueprint(get_order, url_prefix='/api/order')
 
 @app.route('/')
 def home():
