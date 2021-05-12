@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Redirect } from "react-router-dom"
 import '../../Objectifs.css'
 import Select from 'react-select';
 import {Box, Spinner} from "@chakra-ui/react"
@@ -79,7 +80,8 @@ const FormulaireDistance = () => {
         })
             .then((res) => res.json())
             .then(data => {
-                window.location.replace("/objectifs")
+                window.location.href = "/objectifs"
+                //window.location.replace("/objectifs")
             })
     }
 
@@ -135,7 +137,10 @@ function Objectifs_Utilisateur() {
     }, []);
     const handleClickPerformance = () => {
 
-        window.location.replace('/encodage_distance')
+        window.location.href = '/encodage_distance'
+        //return false;
+        //return <Redirect to='/encodage_distance'/>;
+
     }
     const handleClickReinitialiser = (e) => {
         e.preventDefault()
@@ -149,7 +154,9 @@ function Objectifs_Utilisateur() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         }).then(() => {
-            window.location.replace("/objectifs")
+            window.location.href = "/objectifs"
+            //return false;
+            //return <Redirect to='/objectifs'/>;
         }).catch(() => {
             console.log("erreur")
         })
