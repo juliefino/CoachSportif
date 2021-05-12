@@ -64,6 +64,7 @@ export default function Aquatique() {
             });
         }
   })*/
+        window.location.replace("/activites")
         console.log("Done")
         console.log(result.status) //pour afficher le bon status, il faut retirer le mode no-cors
     }
