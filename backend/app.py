@@ -11,7 +11,7 @@ from utilisateurs import utilisateurs
 from login import login
 from inscription import inscription
 from objectifs import objectifs, objectifs_user, obtenir_objectif_encodage_utilisateur, effacer_objectif_utilisateur
-from encodage import encodage
+from encodage import encodage, view_encodage
 from activites import activites, activiteFavorite, activitiesLiked
 #from contactMail import contact
 from statistiques import statistiques
@@ -55,6 +55,7 @@ app.register_blueprint(get_premium, url_prefix='/api/isPremium')
 app.register_blueprint(statistiques, url_prefix='/api/statistiques')
 app.register_blueprint(payment_expired, url_prefix='/api/expired')
 app.register_blueprint(get_order, url_prefix='/api/order')
+app.register_blueprint(view_encodage, url_prefix='/api/getEncodage')
 
 @app.route('/')
 def home():
