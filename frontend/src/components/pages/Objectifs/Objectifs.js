@@ -135,7 +135,7 @@ function Objectifs_Utilisateur() {
     }, []);
     const handleClickPerformance = () => {
 
-        window.location.replace('/encodage_distance')
+        window.location.href = '/encodage_distance'
     }
     const handleClickReinitialiser = (e) => {
         e.preventDefault()
@@ -149,7 +149,7 @@ function Objectifs_Utilisateur() {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token')
             }
         }).then(() => {
-            window.location.replace("/objectifs")
+            window.location.href = "/objectifs"
         }).catch(() => {
             console.log("erreur")
         })
