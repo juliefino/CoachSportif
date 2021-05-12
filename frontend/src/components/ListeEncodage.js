@@ -5,7 +5,11 @@ import axios from 'axios';
 const ListeEncodage = () => {
     let idOfUser = localStorage.getItem('id');
     let arrayEncoded = [];
-    let listEncoded = "";
+    let listEncoded_distance = "";
+    let listEncoded_score = "";
+    let listEncoded_aquatique = "";
+    let nom_activite = "";
+
     useEffect(() => {
         axios.get('/api/getEncodage').then(
             function (response) {
@@ -15,25 +19,41 @@ const ListeEncodage = () => {
                     }
                 }
                 for (let j = 0; j < arrayEncoded.length; j++) {
-                    if (arrayEncoded[j]['team1'] == null || arrayEncoded[j]['team1'] == undefined) {
-                        arrayEncoded[j]['team1'] = '/';
+                    if (arrayEncoded[j]['id_activite'] == 1) {
+                        nom_activite = "Athlétisme";
+                        listEncoded_distance += "<tr><td>" + nom_activite + "</td>" + "<td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['hour']
+                            + "</td>" + "<td>" + arrayEncoded[j]['distance'] + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td>" + arrayEncoded[j]['average_speed'] + "</td>" +
+                             "<td><Link to='/partage'><button>Partager</button></Link></td></tr>";
                     }
-                    if (arrayEncoded[j]['team2'] == null || arrayEncoded[j]['team2'] == undefined) {
-                        arrayEncoded[j]['team2'] = '/';
-                    }
-                    if (arrayEncoded[j]['score1'] == null || arrayEncoded[j]['score1'] == undefined) {
-                        arrayEncoded[j]['score1'] = '/';
-                    }
-                    if (arrayEncoded[j]['score2'] == null || arrayEncoded[j]['score2'] == undefined) {
-                        arrayEncoded[j]['score2'] = '/';
-                    }
-                    listEncoded += "<tr><td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['hour']
-                        + "</td>" + "<td>" + arrayEncoded[j]['distance'] + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td>" + arrayEncoded[j]['average_speed'] + "</td>" +
-                        "<td>" + arrayEncoded[j]['team1'] + "</td>" + "<td>" + arrayEncoded[j]['team2'] + "</td>" + "<td>" + arrayEncoded[j]['score1'] + "</td>" + "<td>" + arrayEncoded[j]['score2'] + "</td>" +
-                        "<td>Partager</td></tr>";
 
+                    else if (arrayEncoded[j]['id_activite'] == 4) {
+                        nom_activite = "Natation";
+                        listEncoded_aquatique += "<tr><td>" + nom_activite + "</td>" + "<td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['distance']
+                        + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td><Link to='/partage'><button>Partager</button></Link></td></tr>";
+                    }
+
+                    else if (arrayEncoded[j]['id_activite'] == 2 || 3 || 5) {
+                        if (arrayEncoded[j]['id_activite'] == 2) {
+                            nom_activite = "Basketball";
+                        }
+                        else if (arrayEncoded[j]['id_activite'] == 3) {
+                            nom_activite = "Football";
+                        }
+                        else if (arrayEncoded[j]['id_activite'] == 5) {
+                            nom_activite = "Tennis";
+                        }
+
+                        listEncoded_score += "<tr><td>" + nom_activite + "</td>" + "<td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td>" + arrayEncoded[j]['team1'] + "</td>" + "<td>" + arrayEncoded[j]['team2'] + "</td>" + "<td>" + arrayEncoded[j]['score1'] + "</td>" + "<td>"
+                        + arrayEncoded[j]['score2'] + "</td>" + "<td><Link to='/partage'><button>Partager</button></Link></td></tr>";
+                    }
+
+                    else {
+                        console.log("Error");
+                    }
                 }
-                document.getElementById("tableEncoded").innerHTML = listEncoded;
+                document.getElementById("tableEncoded_distance").innerHTML = listEncoded_distance;
+                document.getElementById("tableEncoded_score").innerHTML = listEncoded_score;
+                document.getElementById("tableEncoded_aquatique").innerHTML = listEncoded_aquatique;
             }
         )
     })
@@ -43,11 +63,24 @@ const ListeEncodage = () => {
             <table>
                 <thead>
                 <tr>
+                    <th scope="col">Type</th>
                     <th scope="col">Date</th>
                     <th scope="col">Heure</th>
-                    <th scope="col">Distance</th>
+                    <th scope="col">Distance - km</th>
                     <th scope="col">Durée</th>
-                    <th scope="col">Vitesse Moyenne</th>
+                    <th scope="col">Allure - min/km</th>
+                </tr>
+                </thead>
+                <tbody id="tableEncoded_distance">
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Durée</th>
                     <th scope="col">Team 1</th>
                     <th scope="col">Team 2</th>
                     <th scope="col">Score 1</th>
@@ -55,7 +88,20 @@ const ListeEncodage = () => {
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tbody id="tableEncoded">
+                <tbody id="tableEncoded_score">
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Distance - km</th>
+                    <th scope="col">Durée</th>
+                </tr>
+                </thead>
+                <tbody id="tableEncoded_aquatique">
                 </tbody>
             </table>
         </div>
