@@ -43,7 +43,8 @@ const ListeEncodage = () => {
                             nom_activite = "Tennis";
                         }
 
-                        listEncoded_score += "<tr><td>" + nom_activite + "</td>" + "<td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td>" + arrayEncoded[j]['team1'] + "</td>" + "<td>" + arrayEncoded[j]['team2'] + "</td>" + "<td>" + arrayEncoded[j]['score1'] + "</td>" + "<td>"
+                        listEncoded_score += "<tr><td>" + nom_activite + "</td>" + "<td>" + arrayEncoded[j]['date'] + "</td>" + "<td>" + arrayEncoded[j]['time'] + "</td>" + "<td>" + arrayEncoded[j]['team1'] + "</td>" + "<td>"
+                        + arrayEncoded[j]['team2'] + "</td>" + "<td>" + arrayEncoded[j]['score1'] + "</td>" + "<td>"
                         + arrayEncoded[j]['score2'] + "</td>" + "<td><Link to='/partage'><button>Partager</button></Link></td></tr>";
                     }
 
@@ -60,7 +61,7 @@ const ListeEncodage = () => {
 
     return (
         <div className="container-list-encoded">
-            <table>
+            <table class="form-table-first">
                 <thead>
                 <tr>
                     <th scope="col">Type</th>
@@ -75,7 +76,7 @@ const ListeEncodage = () => {
                 </tbody>
             </table>
 
-            <table>
+            <table class="form-table-second">
                 <thead>
                 <tr>
                     <th scope="col">Type</th>
@@ -85,14 +86,14 @@ const ListeEncodage = () => {
                     <th scope="col">Team 2</th>
                     <th scope="col">Score 1</th>
                     <th scope="col">Score 2</th>
-                    <th scope="col"></th>
+
                 </tr>
                 </thead>
                 <tbody id="tableEncoded_score">
                 </tbody>
             </table>
 
-            <table>
+            <table class="form-table-third">
                 <thead>
                 <tr>
                     <th scope="col">Type</th>
