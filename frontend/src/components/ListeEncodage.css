@@ -1,7 +1,7 @@
 .container-list-encoded table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 85%;
 }
 
 .container-list-encoded td, .container-list-encoded th {
@@ -20,4 +20,45 @@
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+.form-table-first {
+    margin : 45px;
+}
+
+.form-table-first th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #C8432B;
+  color: white;
+}
+
+.form-table-second {
+    margin : 45px;
+}
+
+.form-table-second th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #F6BF41;
+  color: white;
+}
+
+.form-table-third {
+    margin : 45px;
+}
+
+.form-table-third th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #6ABEF3;
+  color: white;
+}
+
+button {
+    padding : 4px;
+    border-radius: 6px;
 }
