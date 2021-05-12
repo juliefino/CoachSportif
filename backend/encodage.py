@@ -23,6 +23,7 @@ def post_encodage():
 
 view_encodage = Blueprint('view_encodage', __name__)
 
+
 @view_encodage.route('', methods=['GET'])
 def get_encodage():
     encoded = models.Encodage.query.all()
@@ -34,7 +35,7 @@ def get_encodage():
             'id_encodage': encode.id_encodage,
             'date': str(encode.date),
             'hour': str(encode.heure),
-            'distance': float(encode.distance),
+            'distance': str(encode.distance),
             'time': str(encode.duree),
             'average_speed': str(encode.vitesse_moyenne),
             'team1': encode.nom_team_1,
