@@ -104,7 +104,7 @@ class Encodage(db.Model):
         self.heure = heure
         self.distance = distance
         self.duree = duree
-        if vitesse_moyenne is not None:
+        if vitesse_moyenne != 0.00:
             self.vitesse_moyenne = float(vitesse_moyenne[:2] + "." + vitesse_moyenne[3:])
         else:
             self.vitesse_moyenne = vitesse_moyenne
