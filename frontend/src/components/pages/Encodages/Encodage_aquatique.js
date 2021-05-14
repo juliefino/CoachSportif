@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
-import '../Encodage_aquatique.css'
+import '../../Encodage_aquatique.css'
 import ReactNotification, {store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
@@ -14,7 +14,7 @@ export default function Aquatique() {
   const heure = null
   const [distance, setDistance] = useState('')
   const [duree, setDuree] = useState('')
-  const vitesse_moyenne = null
+  const vitesse_moyenne = 0.00
   const nom_team_1 = null
   const score_team_1 = null
   const nom_team_2 = null

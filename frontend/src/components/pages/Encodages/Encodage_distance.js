@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
-import '../Encodage.css'
+import '../../Encodage.css'
 import ReactNotification, {store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 

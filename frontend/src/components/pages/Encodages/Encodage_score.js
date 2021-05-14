@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { Redirect } from 'react-router-dom';
 import { Col, Row, Form } from "react-bootstrap";
-import '../Encodage.css'
+import '../../Encodage.css'
 import ReactNotification, {store} from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
@@ -19,8 +19,8 @@ export default function Score() {
   const [nom_team_2, setTeam_2] = useState('')
   const [score_team_2, setScore_2] = useState('')
   const heure = null
-  const distance = null
-  const vitesse_moyenne = null
+  const distance = 0
+  const vitesse_moyenne = 0.00
 
 const send = async (event_score) => {
     event_score.preventDefault();
