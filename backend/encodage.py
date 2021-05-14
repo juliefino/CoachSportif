@@ -18,7 +18,7 @@ def post_encodage():
         db.session.add(user_encodage)
         db.session.commit()
 
-        return 'SUCCESS'
+        return 'SUCCESS', 200
 
 
 view_encodage = Blueprint('view_encodage', __name__)
