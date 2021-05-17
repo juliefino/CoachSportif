@@ -129,4 +129,17 @@ class Commandes(db.Model):
         self.date = date
 
 
+class Messages(db.Model):
+    __tablename__ = "messages"
 
+    id = db.Column(db.String(50), primary_key=True)
+    id_user = db.Column(db.Integer, db.ForeignKey("utilisateurs.id"))
+    id_encodage = db.Column(db.Integer, db.ForeignKey("encodage.id_encodage"))
+    message = db.Column(db.String(500))
+    date = db.Column(db.DateTime)
+
+    def __init__(self, id, id_user, id_encodage, date):
+        self.id = id
+        self.id_user = id_user
+        self.id_encodage = id_encodage
+        self.date = date
