@@ -138,8 +138,9 @@ class Messages(db.Model):
     message = db.Column(db.String(500))
     date = db.Column(db.DateTime)
 
-    def __init__(self, id, id_user, id_encodage, date):
+    def __init__(self, id, id_user, id_encodage, message, date):
         self.id = id
         self.id_user = id_user
         self.id_encodage = id_encodage
+        self.message = message
         self.date = date

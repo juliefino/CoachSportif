@@ -16,6 +16,7 @@ from activites import activites, activiteFavorite, activitiesLiked
 #from contactMail import contact
 from statistiques import statistiques
 from paypal import payment, get_premium, payment_expired, get_order
+from partage import send_message
 
 
 app = Flask(__name__)
@@ -56,6 +57,7 @@ app.register_blueprint(statistiques, url_prefix='/api/statistiques')
 app.register_blueprint(payment_expired, url_prefix='/api/expired')
 app.register_blueprint(get_order, url_prefix='/api/order')
 app.register_blueprint(view_encodage, url_prefix='/api/getEncodage')
+app.register_blueprint(send_message, url_prefix='/api/sendMessage')
 
 @app.route('/')
 def home():
