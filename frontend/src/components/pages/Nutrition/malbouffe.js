@@ -7,9 +7,6 @@ function Malbouffe () {
   return (
 
       <div className='article'>
-          <div>
-              {/* Image*/}
-          </div>
           <motion.h1 className='titre' animate={{fontSize: 50, color: '#4f3a3c'}}>LA MALBOUFFE</motion.h1>
           <div className= 'contenu'>
         Le chocolat, les hamburgers, les frites, … Tous ces aliments sont considérés comme étant de la nourriture grasse étant mauvaise pour la santé si celle-ci est consommée en abondance. Cet article vous explique comment/pourquoi sans pour autant se priver. <br/> <br/>
