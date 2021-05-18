@@ -71,8 +71,10 @@ def objectif_encodage_par_user(id_user):
             id_activite = encodage.id_activite
 
             if encodage.date >= dateObjectif:
-                distance += encodage.distance
-                vitesse += encodage.vitesse_moyenne
+                #if type(encodage.distance) == "decimal.Decimal":
+                    distance += encodage.distance
+                    vitesse += encodage.vitesse_moyenne
+
             else:
                 distance += 0
                 vitesse += 0

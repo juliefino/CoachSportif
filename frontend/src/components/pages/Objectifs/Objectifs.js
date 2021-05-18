@@ -137,7 +137,7 @@ function Objectifs_Utilisateur() {
     }, []);
     const handleClickPerformance = () => {
 
-        window.location.href = '/encodage_distance'
+        window.location.href = '/Encodage_distance'
         //return false;
         //return <Redirect to='/encodage_distance'/>;
 
