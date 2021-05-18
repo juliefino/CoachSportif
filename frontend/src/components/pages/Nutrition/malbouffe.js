@@ -5,9 +5,8 @@ import {motion} from 'framer-motion';
 
 function Malbouffe () {
   return (
-
-      <div className='article'>
-          <motion.h1 className='titre' animate={{fontSize: 50, color: '#4f3a3c'}}>LA MALBOUFFE</motion.h1>
+      <div className='articlejunkfood'>
+          <motion.h1 className='titre' animate={{fontSize: 50, color: 'white'}}>LA MALBOUFFE</motion.h1>
           <div className= 'contenu'>
         Le chocolat, les hamburgers, les frites, … Tous ces aliments sont considérés comme étant de la nourriture grasse étant mauvaise pour la santé si celle-ci est consommée en abondance. Cet article vous explique comment/pourquoi sans pour autant se priver. <br/> <br/>
 Comme on le dit si souvent, « un esprit sain dans un corps sain », la privation ne vous apporte rien sauf de la frustration, c’est pourquoi nous vous présentons quelques alternatives alimentaires afin de manger plus sainement tout en ayant un plaisir gustatif. <br/> <br/>

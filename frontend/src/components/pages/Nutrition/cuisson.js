@@ -4,11 +4,8 @@ import {motion} from "framer-motion";
 
 function Cuisson () {
   return (
-   <div className='article'>
-          <div>
-          {/* Image*/}
-          </div>
-        <motion.h1 className='titre' animate={{fontSize: 50, color: '#4f3a3c'}}>CUISSON A LA VAPEUR</motion.h1>
+   <div className='articlecuisson'>
+        <motion.h1 className='titre' animate={{fontSize: 50, color: 'white'}}>CUISSON A LA VAPEUR</motion.h1>
          <div className= 'contenu'>
        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget dolor ut sapien bibendum congue. In ut eleifend nunc. Vivamus eu velit ac sem vehicula consectetur nec venenatis ante. Donec maximus, elit ac commodo iaculis, eros nunc dignissim purus, in vehicula est sapien non enim. <br/> <br/> Nullam quis justo vulputate, dapibus leo non, semper purus. Phasellus eget felis ligula. Sed iaculis ex eu leo posuere, et placerat purus volutpat.
 
