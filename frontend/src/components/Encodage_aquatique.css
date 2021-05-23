@@ -1,77 +1,77 @@
-.form-content-enco-aq{
-  margin: 10px auto;
-  width: 800px;
-  box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: sandybrown;
-  position: relative;
-  border-radius: 10px;
-  height: 500px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+.form-content-enco-aq {
+    margin: 10px auto;
+    width: 800px;
+    box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    background-color: sandybrown;
+    position: relative;
+    border-radius: 10px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
+    font-weight: bold;
 }
 
 form.form-enco-aq {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-inputs-enco-aq {
-  margin-bottom: 5px;
-  width: 80%;
+    margin-bottom: 5px;
+    width: 80%;
 }
 
 .form-label-enco-aq {
-  display: inline-block;
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-  color: #575757;
-  width: 100%;
-  padding: 0px 15px 0px 8px;
+    display: inline-block;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: #575757;
+    width: 100%;
+    padding: 0px 15px 0px 8px;
 }
 
 
 .form-input-enco-aq {
-  display: block;
-  padding-left: 10px;
-  outline: none;
-  height: 40px;
-  width: 100%;
-  color: #595959;
-  font-size: 17px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    color: #595959;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 1px;
-  margin: 1px 0px 8px 0px;
-  text-indent: 20px;
-  border : solid #663300 1px
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 1px;
+    margin: 1px 0px 8px 0px;
+    text-indent: 20px;
+    border: solid #663300 1px
 }
 
 
 .introduction-aq {
-    color : #663300;
+    color: #663300;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-    font-size : 15px;
-    margin : 8px 0px 20px 0px;
-    padding : 0px 0px 0px 30px;
+    font-size: 15px;
+    margin: 8px 0px 20px 0px;
+    padding: 0px 0px 0px 30px;
     text-align: center;
 }
 
 
-bdi{
+bdi {
     color: #575757;
     float: right;
     display: block;
@@ -79,83 +79,91 @@ bdi{
 }
 
 @media screen and (max-width: 960px) {
-        .form-content-enco-aq{
-      margin: 10px auto;
-      width: 800px;
-      box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-      background-color: sandybrown;
-      position: relative;
-      border-radius: 10px;
-      height: 500px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    .form-content-enco-aq {
+        margin: 10px auto;
+        width: 100%;
+        box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+        background-color: sandybrown;
+        position: relative;
+        border-radius: 10px;
+        height: 500px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
-      font-weight: bold;
+        font-weight: bold;
     }
 
     form.form-enco-aq {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .form-inputs-enco-aq {
-      margin-bottom: 5px;
-      width: 80%;
+        margin-bottom: 5px;
+        width: 80%;
     }
 
     .form-label-enco-aq {
-      display: inline-block;
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-      color: #575757;
-      width: 100%;
-      padding: 0px 15px 0px 8px;
+        display: inline-block;
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+        color: #575757;
+        width: 100%;
+        padding: 0px 15px 0px 8px;
     }
 
 
     .form-input-enco-aq {
-      display: block;
-      padding-left: 10px;
-      outline: none;
-      height: 40px;
-      width: 100%;
-      color: #595959;
-      font-size: 17px;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+        display: block;
+        padding-left: 10px;
+        outline: none;
+        height: 40px;
+        width: 100%;
+        color: #595959;
+        font-size: 17px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
-      font-weight: bold;
-      border-radius: 8px;
-      padding: 1px;
-      margin: 1px 0px 8px 0px;
-      text-indent: 20px;
-      border : solid #663300 1px
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 1px;
+        margin: 1px 0px 8px 0px;
+        text-indent: 20px;
+        border: solid #663300 1px
     }
 
 
     .introduction-aq {
-        color : #663300;
+        color: #663300;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
-        font-size : 15px;
-        margin : 8px 0px 20px 0px;
-        padding : 0px 0px 0px 30px;
+        font-size: 15px;
+        margin: 8px 0px 20px 0px;
+        padding: 0px 0px 0px 30px;
         text-align: center;
     }
 
 
-    bdi{
+    bdi {
         color: #575757;
         float: right;
         display: block;
         font-size: 0.95rem
     }
+}
+
+
+@media screen and (max-width: 500px) {
+    .form-enco-aq {
+        margin-left: 20px;
+    }
+
 }

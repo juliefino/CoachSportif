@@ -324,9 +324,9 @@ export default function Objectifs() {
                     <div className='App'>
 
                         <Box maxW="960px" mx="auto" borderWidth="1px" display="flex" overflow="hidden"
-                             borderColor="gray">
+                             borderColor="gray" flexDirection="column">
 
-                            <Box w="50%" p={6} l='left' alignItems="center" border="50px" borderColor="gray">
+                            <Box w="100$%" p={6} l='left' alignItems="center" border="50px" borderColor="gray" margin="60px">
                                 <h3 style={{textAlign: "center"}}>Definissez un objectif à atteindre</h3>
                                 <Select
                                     placeholder="Select Option"
@@ -341,7 +341,7 @@ export default function Objectifs() {
                                         : <FormulaireDistance/>
                                     }</div>}
                             </Box>
-                            <Box w="50%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
+                            <Box w="100%" p={6} l='right' alignItems="center" border="50px" borderColor="gray">
                                 <h3 style={{textAlign: "center"}}>Voilà comment devrait se voir votre barre de
                                     progression</h3>
                                 <div className="progressbar-container">

@@ -1,67 +1,75 @@
 :root {
-  --primary: #fff;
+    --primary: #fff;
 }
 
 .titles {
-  position : relative;
-  float : right;
-  top: 20px;
-  bottom: 50px;
-  margin-right: 50px;
+    position: relative;
+    float: right;
+    top: 20px;
+    bottom: 50px;
+    margin-right: 50px;
 }
 
 .btns-d {
-  position:relative;
-  float: right;
-  clear : right;
-  margin-top: 50px;
-  bottom: 20px;
-  margin-right: 50px;
-  font-size: 20px;
-  padding: 8px 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    position: relative;
+    float: right;
+    clear: right;
+    margin-top: 50px;
+    bottom: 20px;
+    margin-right: 50px;
+    font-size: 20px;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  color: white;
-  background-color: #663300;
+    font-weight: bold;
+    color: white;
+    background-color: #663300;
 }
 
 .btns {
-  top: 35px;
-  bottom: 40px;
-  left: 1322px;
-  margin-left: 20px;
-  font-size: 20px;
-  padding: 8px 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    top: 35px;
+    bottom: 40px;
+    left: 1322px;
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  color: white;
-  background-color: #663300;
+    font-weight: bold;
+    color: white;
+    background-color: #663300;
 }
 
 .btns:hover {
-  transition: all 0.3s ease-out;
-  background:  black;
-  color: darkgoldenrod;
-  border-color: darkgoldenrod;
-  transition: 250ms;
+    transition: all 0.3s ease-out;
+    background: black;
+    color: darkgoldenrod;
+    border-color: darkgoldenrod;
+    transition: 250ms;
 
 }
 
 .btns-d:hover {
-  transition: all 0.3s ease-out;
-  background:  black;
-  color: darkgoldenrod;
-  border-color: darkgoldenrod;
-  transition: 250ms;
+    transition: all 0.3s ease-out;
+    background: black;
+    color: darkgoldenrod;
+    border-color: darkgoldenrod;
+    transition: 250ms;
 
 }
+
+
+@media screen and (max-width: 360px) {
+    .titles {
+        font-size: 100%;
+    }
+}
+

@@ -1,16 +1,17 @@
 .sidenav---sidenav---_2tBP {
-  position: absolute;
+  position: fixed;
   top: 200px;
   bottom: 176px;
   left: 0;
   z-index: 1006;
-  min-width: 64px;
   background: #663300;
   -webkit-transition: min-width 0.2s;
   -moz-transition: min-width 0.2s;
   -o-transition: min-width 0.2s;
   -ms-transition: min-width 0.2s;
   transition: min-width 0.2s;
+  height: 270px;
+  width: 60px;
 }
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
   display: none;

@@ -5,7 +5,7 @@ import FormDonnees from "../../FormDonnees"
 export default function DonneesPersonnels() {
     return (
         <>
-            <FormDonnees/>;
+            <FormDonnees/>
         </>
 
     );

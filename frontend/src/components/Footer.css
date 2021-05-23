@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .footer-subscription {
@@ -39,7 +40,6 @@
   border-radius: 2px;
   margin-right: 10px;
   outline: none;
-  border: none;
   font-size: 18px;
   margin-bottom: 16px;
   border: 1px solid #fff;
