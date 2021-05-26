@@ -36,7 +36,7 @@ const FormContact = () => {
                             <div className="form-inputs">
                             <label className='form-label'>ADRESSE E-MAIL : </label>
 
-                            <input className='form-input' type='email' required value={email}
+                            <input className='form-input-contact' type='email' required value={email}
                                    name='email' placeholder='Entrez votre adresse e-mail'
                                    onChange={(jsp) => setEmail(jsp.target.value)}
                             />
@@ -45,7 +45,7 @@ const FormContact = () => {
                             <div className="form-inputs">
                             <label className='form-label'>SUJET : </label>
                             <br></br>
-                            <input className='form-input' type='text' required value={subject}
+                            <input className='form-input-contact' type='text' required value={subject}
                                    name='subject' placeholder='Sujet de la demande'
                                    onChange={(jsp) => setSubject(jsp.target.value)}
                             />

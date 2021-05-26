@@ -2,7 +2,7 @@
     text-align: center;
     color: #4f3a3c;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 75px;
+    /*font-size: 75px; */
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 1;
@@ -16,7 +16,7 @@
     max-font-size: 45px;
     font-size: 100%;
     font-family:system-ui;
-    padding : 50px;
+    padding : 30px;
     line-height: 32px;
     text-align: justify;
     box-shadow: 0px 10px 13px -7px #000000, 11px 23px 50px 12px rgba(119,119,119,0.55);
@@ -24,11 +24,20 @@
     max-width: 900px;
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="contenu"] {
-    margin : auto 20px;
+@media screen and (min-width: 601px) {
+  .titre {
+    font-size: 75px;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+    [class*="contenu"] {
+        margin : auto 20px;
+    }
+    .titre {
+        font-size: 25px;
+    }
 }
 
 .articleeau {

@@ -167,7 +167,7 @@ Link {
 @media screen and (max-width: 960px) {
   .form-content{
   margin: 100px auto;
-  width: 100%;
+  width: 85%;
   box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: sandybrown;
   position: relative;
@@ -357,7 +357,7 @@ bdi {
 
 .form-content-contact{
   margin: 100px auto;
-  width: 100%;
+  max-width: 75%;
   box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: sandybrown;
   position: relative;
@@ -368,8 +368,25 @@ bdi {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
+  padding: 10px;
 }
 
+.form-input-contact {
+  display: block;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  color: #595959;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 1px;
+  margin: 1px 0 10px 0;
+  text-indent: 5px;
+  border : solid #663300 1px
+  }
 
 
 .title {
@@ -382,6 +399,10 @@ bdi {
 
 @media screen and (max-width: 960px) {
     h1 {
-    font-size: 1em;
+      font-size: 2.5em;
 }
+  form-input-contact {
+    max-width: 100%;
+  }
+
 }
