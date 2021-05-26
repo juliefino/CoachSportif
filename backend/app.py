@@ -60,9 +60,8 @@ app.register_blueprint(view_encodage, url_prefix='/api/getEncodage')
 app.register_blueprint(send_message, url_prefix='/api/sendMessage')
 
 @app.route('/')
-def home():
-    return {'hello': 'world'}
-
+def index():
+    return app.send_static_file('index.html')
 
 # Run the example
 if __name__ == '__main__':

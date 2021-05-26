@@ -169,12 +169,12 @@ function Objectifs_Utilisateur() {
 
         <div>
             <h1>Votre objectif est {valeurs.nom_objectif}  </h1>
-            <p>Votre objectif a demarré le {valeurs.date}</p>
+
             {valeurs.nom_objectif === 'Vitesse' ?
 
-                <Center h="300px">
-                    <Box w="55%" p={150} alignItems="center" border="500px">
-                        <h3 style={{textAlign: "center"}}>Votre barre de progression</h3>
+                <Center>
+                    <Box className="box" w="55%"  alignItems="center" >
+                        <p className="object">VOTRE PROGRESSION </p>
                         <div className="progressbar-container">
 
                             <div className="progressbar-complete" style={{width: `${pourcentageVitesse}%`}}>
@@ -186,12 +186,14 @@ function Objectifs_Utilisateur() {
                             }
 
                         </div>
+                        <p className="phrase">VOTRE OBJECTIF A DEMARRÉ LE {valeurs.date}</p>
 
                     </Box></Center>
 
                 : <Center>
-                    <Box w="55%" p={150} alignItems="center" border="500px">
-                        <h3 style={{textAlign: "center"}}>Votre barre de progression </h3>
+                    <Box className="box" w="55%" alignItems="center" >
+
+                        <p className="object">VOTRE PROGRESSION </p>
                         <div className="progressbar-container">
                             <div className="progressbar-complete" style={{width: `${pourcentageDistance}%`}}>
                                 <div className="progressbar-liquid"></div>
@@ -201,7 +203,9 @@ function Objectifs_Utilisateur() {
                                 <span className="progress">{pourcentageDistance}%</span>
                             }
 
+
                         </div>
+                        <p className="phrase">VOTRE OBJECTIF A DEMARRÉ LE {valeurs.date}</p>
 
                     </Box></Center>}
             <Center>
