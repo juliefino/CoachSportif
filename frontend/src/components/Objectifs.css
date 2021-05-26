@@ -45,7 +45,7 @@ box-shadow: 0 5px 8px 0 darkgoldenrod, 0 7px 20px 0 white;
 .form-content-ob{
   margin: 50px auto;
   width: 400px;
-  box-shadow: 0 0px 0px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: peru;
   border-radius: 25px;
   position: relative;
@@ -114,23 +114,19 @@ box-shadow: 0 5px 8px 0 darkgoldenrod, 0 7px 20px 0 white;
    background-color: lemonchiffon;
  }
  .form-input-btn-reinitialiser {
-  width: 80%;
   height: 50px;
   margin-top: 10px;
-  border-radius: 2px;
   background-color: #663300;
   outline: none;
-  border: none;
-  margin-left: 20px;
+     margin-left: 20px;
   color: #fff;
   font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   border-radius: 25px;
-  borderWidth: 1;
-  border-color : #663300;
-  width : 150px
+     border: 1px none #663300;
+     width : 150px
 }
 
 .form-input-btn-reinitialiser:hover {
@@ -207,12 +203,12 @@ box-shadow: 0 5px 8px 0 darkgoldenrod, 0 7px 20px 0 white;
 
 .form-content-ob{
   margin: 50px auto;
-  width: 400px;
-  box-shadow: 0 0px 0px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-shadow: 0 0 0 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: peru;
   border-radius: 25px;
   position: relative;
-  height: 150px;
+  height: 240px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -280,7 +276,7 @@ Center {
 .progressbar-complete {
       position: absolute;
       left: 0;
-      top: 0px;
+      top: 0;
       height: 100%;
       background-color: #5225bd;
       border-radius: 10px;

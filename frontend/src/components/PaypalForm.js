@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {PayPalButton} from "react-paypal-button-v2";
 import axios from 'axios';
 import './PaypalForm.css';
-import {isLoggedIn} from './auth.js';
+import {deleteTokens, isLoggedIn} from './auth.js';
 import {Link} from "react-router-dom";
 import {Button} from './Button';
 
@@ -28,12 +28,12 @@ const PaypalForm = () => {
                 password: 'EAIoVjOpeGjHs2XJzRzQQ8VMuCjmUxuA5lpl_8IhDA7jrZv8msY5TKQwofXc_9TGxM3zGFo9IgyEqgdv'
             },
         }).then(response => {
-            token =response.data['access_token'];
+            token = response.data['access_token'];
             axios.get('/api/order')
                 .then(function (response) {
                     for (let i in response.data) {
                         if (response.data[i].id_user == idOfUser) {
-                            idSubscription=response.data[i].id_sub;
+                            idSubscription = response.data[i].id_sub;
                             cancelSub();
                         }
                     }
@@ -43,22 +43,21 @@ const PaypalForm = () => {
 
 
     const cancelSub = () => {
-        axios.post('https://api-m.sandbox.paypal.com/v1/billing/subscriptions/'+ idSubscription  +'/cancel', {},{
+        axios.post('https://api-m.sandbox.paypal.com/v1/billing/subscriptions/' + idSubscription + '/cancel', {}, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
         }).then(response => {
-            if (response.status == 204){
-                axios.post('/api/expired',{
+            if (response.status == 204) {
+                axios.post('/api/expired', {
                     user_id: idOfUser
                 })
                     .then((response) => {
-                        if (response.data === "SUCCESS"){
+                        if (response.data === "SUCCESS") {
                             alert("Abonnement annulé !");
                             document.location.href = "/";
-                        }
-                        else{
+                        } else {
                             alert("Erreur lors de l'annulation de l'abonnement !");
                         }
                     })
@@ -79,6 +78,7 @@ const PaypalForm = () => {
                                     <p>Accès à des conseils de nutritions</p>
                                     <p>Accès à des conseils de professionnels</p>
                                     <p>Un pseudo couleur or</p>
+                                    <p>Vous devrez vous reconnecter une fois la procédure terminée !</p>
                                     <div className='container-paypal'>
                                         <PayPalButton
                                             options={{
@@ -99,8 +99,8 @@ const PaypalForm = () => {
                                                         subscription_id: data.subscriptionID
                                                     })
                                                         .then(function () {
+                                                            deleteTokens();
                                                             document.location.href = "/";
-                                                            console.log(data);
                                                         })
                                                 });
                                             }}
@@ -116,7 +116,7 @@ const PaypalForm = () => {
                                     <button className="form-input-btn" onClick={getToken}>
                                         Annuler l'abonnement
                                     </button>
-                                <p>Attention vous perdrez vos privilèges instantanément !</p>
+                                    <p>Attention vous perdrez vos privilèges instantanément !</p>
                                 </>
                             )
                         }

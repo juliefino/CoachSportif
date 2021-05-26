@@ -13,3 +13,7 @@
     padding-bottom: 30px;
 }
 
+.container-premium p, .container-premium h3{
+    font-size: 70%;
+}
+

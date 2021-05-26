@@ -1,7 +1,7 @@
 
 .form-content-don{
   margin: 50px auto;
-  width: 500px;
+  width: 70%;
   box-shadow: 0 5px 8px 0 darkred, 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: sandybrown;
   position: relative;
@@ -81,9 +81,7 @@ Link {
 
 .form-input-don {
   display: block;
-  padding-left: 10px;
   outline: none;
-  border-radius: 2px;
   height: 40px;
   width: 100%;
   color: #595959;
@@ -93,7 +91,7 @@ Link {
   font-weight: bold;
   border-radius: 8px;
   padding: 1px;
-  margin: 1px 0px 10px 0px;
+  margin: 1px 0 10px 0;
   text-indent: 5px;
   border : solid #663300 1px
   }
@@ -106,21 +104,17 @@ Link {
   font-weight: bold;
 }
 .form-input-btn-prem {
-  width: 80%;
   height: 50px;
   margin-top: 10px;
-  border-radius: 2px;
   background-color: white;
   outline: none;
-  border: none;
   color: darkgoldenrod;
   font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   border-radius: 25px;
-  borderWidth: 1;
-  border-color : #663300;
+  border: 1px none #663300;
   text-decoration: none;
   width : 200px
 }
@@ -135,22 +129,18 @@ Link {
 
 
 .form-input-btn-don {
-  width: 80%;
   height: 50px;
   margin-top: 10px;
-  border-radius: 2px;
   background-color: #663300;
   outline: none;
 
-  border: none;
   color: #fff;
   font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   border-radius: 25px;
-  borderWidth: 1;
-  border-color : #663300;
+  border: 1px none #663300;
   width : 200px
 }
 
@@ -184,7 +174,7 @@ Link {
   background-color: sandybrown;
   position: relative;
   border-radius: 10px;
-  height: 400px;
+  height: 500px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -248,14 +238,12 @@ Link {
   margin-bottom: 6px;
   color: #575757;
   width: 100%;
-  padding: 0px 15px 0px 8px;
+  padding: 0 15px 0 8px;
 }
 
 .form-input-don {
   display: block;
-  padding-left: 10px;
   outline: none;
-  border-radius: 2px;
   height: 40px;
   width: 100%;
   color: #595959;
@@ -265,7 +253,7 @@ Link {
   font-weight: bold;
   border-radius: 8px;
   padding: 1px;
-  margin: 1px 0px 10px 0px;
+  margin: 1px 0 10px 0;
   text-indent: 5px;
   border : solid #663300 1px
   }
@@ -282,18 +270,15 @@ Link {
 
   height: 50px;
   margin-top: 10px;
-  border-radius: 2px;
   background-color: #663300;
   outline: none;
-  border: none;
   color: #fff;
   font-size: 17px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   border-radius: 25px;
-  borderWidth: 1;
-  border-color : #663300;
+  border: 1px none #663300;
   width : 150px
 }
 
@@ -334,9 +319,7 @@ bdi {
 
 .textbox{
     display: block;
-    padding-left: 10px;
     outline: none;
-    border-radius: 2px;
     height: 135px;
     width: 100%;
     color: #595959;
@@ -346,7 +329,7 @@ bdi {
     font-weight: bold;
     border-radius : 8px;
     padding: 10px;
-    margin: 1px 0px 10px 0px;
+    margin: 1px 0 10px 0;
     text-indent: 5px;
     border: solid #663300 1px;
     text-align: justify-all;
