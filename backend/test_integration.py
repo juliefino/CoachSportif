@@ -5,6 +5,7 @@ import mock
 import json
 from flask_sqlalchemy import SQLAlchemy
 from database import db
+from flask_mail import Mail
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:dev3Pr0@localhost/Prueba'
@@ -393,6 +394,29 @@ class IntegrationTest(unittest.TestCase):
             with mock.patch("encodage.request", m):
                 p = post_encodage()
                 self.assertEqual(p[1], 200)
+
+    def test_envoi_mail(self):
+
+        with app.app_context():
+
+            app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+            app.config['MAIL_PORT'] = 465
+            app.config['MAIL_USE_TLS'] = False
+            app.config['MAIL_USE_SSL'] = True
+            app.config['MAIL_USERNAME'] = 'procoach.contact@gmail.com'
+            app.config['MAIL_PASSWORD'] = 'devIIIPr0'
+            app.config['TESTING'] = True
+            app.config['MAIL_DEFAULT_SENDER'] = 'fino-julie@hotmail.com'
+            mail = Mail(app)
+            with mail.record_messages() as boite_envois:
+                mail.send_message(subject='testing',
+                                  body='test',
+                                  recipients='procoach.contact@gmail.com'.split())
+
+                assert len(boite_envois) == 1
+                assert boite_envois[0].subject == "testing"
+
+
 
 
 if __name__ == '__main__':
