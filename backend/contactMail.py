@@ -11,9 +11,9 @@ def send_mail():
         donnees = request.get_json(force=True)
         print(donnees)
 
-        msg = Message(subject=donnees['subject'], sender=donnees['email'], recipients=['coachSportif@gmail.com'], body=donnees['demande'])
+        msg = Message(subject=donnees['subject'], sender=donnees['email'], recipients=['procoach.contact@gmail.com'], body=donnees['demande'])
 
         app.mail.send(msg)
-        return "hola"
+        return "message envoyé"
 
 
